@@ -1,5 +1,6 @@
 import { getTranslations } from 'next-intl/server';
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import Navbar from '@/components/Navbar/Navbar';
 import Footer from '@/components/Footer/Footer';
 import BlogClient from './BlogClient';
@@ -54,12 +55,16 @@ export default async function BlogPage({ params }: Props) {
                 <p className={styles.heroSubtitle}>{t('featuredExcerpt')}</p>
 
                 <div className={styles.heroCta}>
-                  <button className={styles.heroBtn} id="blog-hero-read-btn">
+                  <Link
+                    href={`/${locale}/blog/quantum-computing`}
+                    className={styles.heroBtn}
+                    id="blog-hero-read-btn"
+                  >
                     {t('readInsight')}
                     <span className="material-symbols-outlined" style={{ fontSize: '1rem' }}>
                       arrow_forward
                     </span>
-                  </button>
+                  </Link>
 
                   <div className={styles.heroAuthors}>
                     <div className={styles.authorAvatars} aria-hidden="true">

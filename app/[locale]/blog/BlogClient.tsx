@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
+import { useParams } from 'next/navigation';
 import styles from './blog.module.css';
 
 const CATEGORIES = ['all', 'engineering', 'innovation', 'companyNews', 'openSource', 'design'] as const;
@@ -49,6 +50,8 @@ const ARTICLES = [
 
 export default function BlogClient() {
   const t = useTranslations('blog');
+  const params = useParams();
+  const locale = (params?.locale as string) || 'tr';
   const [activeCategory, setActiveCategory] = useState<Category>('all');
   const [visibleCount, setVisibleCount] = useState(6);
 
@@ -99,8 +102,9 @@ export default function BlogClient() {
 
           <div className={styles.articlesGrid} role="list">
             {visible.map((article) => (
-              <article
+              <Link
                 key={article.id}
+                href={`/${locale}/blog/${article.id}`}
                 className={styles.card}
                 id={`article-${article.id}`}
                 role="listitem"
@@ -138,7 +142,7 @@ export default function BlogClient() {
                 <p className={styles.cardExcerpt}>
                   {t(`articles.${article.id}.excerpt`)}
                 </p>
-              </article>
+              </Link>
             ))}
           </div>
 
