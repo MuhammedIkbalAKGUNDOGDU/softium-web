@@ -3,26 +3,6 @@
 import { useEffect, useState, useCallback } from 'react';
 import styles from './article.module.css';
 
-/* ─── Reading Progress Bar ────────────────────── */
-export function ReadingProgress() {
-  const [progress, setProgress] = useState(0);
-
-  useEffect(() => {
-    const update = () => {
-      const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-      const total = scrollHeight - clientHeight;
-      setProgress(total > 0 ? Math.min((scrollTop / total) * 100, 100) : 0);
-    };
-    window.addEventListener('scroll', update, { passive: true });
-    return () => window.removeEventListener('scroll', update);
-  }, []);
-
-  return (
-    <div className={styles.progressBar} aria-hidden="true">
-      <div className={styles.progressFill} style={{ width: `${progress}%` }} />
-    </div>
-  );
-}
 
 /* ─── Scroll-to-top Button ────────────────────── */
 export function ScrollTopBtn() {

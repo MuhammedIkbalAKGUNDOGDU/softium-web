@@ -5,6 +5,7 @@ import { getMessages, getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import '@/app/globals.css';
 import { Manrope } from 'next/font/google';
+import { ScrollProgress } from '@/components/ScrollProgress/ScrollProgress';
 
 const manrope = Manrope({
   subsets: ['latin'],
@@ -73,6 +74,7 @@ export default async function LocaleLayout({ children, params }: Props) {
       </head>
       <body className={manrope.variable}>
         <NextIntlClientProvider messages={messages}>
+          <ScrollProgress />
           {children}
         </NextIntlClientProvider>
       </body>

@@ -4,7 +4,6 @@ import { notFound } from 'next/navigation';
 import Navbar from '@/components/Navbar/Navbar';
 import Footer from '@/components/Footer/Footer';
 import {
-  ReadingProgress,
   ScrollTopBtn,
   SideControls,
   NewsletterForm,
@@ -132,7 +131,6 @@ export default async function ArticlePage({ params }: Props) {
 
   return (
     <>
-      <ReadingProgress />
       <Navbar />
 
       <main id="main-content">
