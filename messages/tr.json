@@ -488,6 +488,60 @@
     "securityLevel": "Güvenlik Seviyesi",
     "enterpriseShield": "Enterprise Kalkan"
   },
+  "projects": {
+    "hero": {
+      "badge": "Elit Mühendislik",
+      "heading": "Tescilli Teknolojilerimiz",
+      "subtitle": "Mühendisliğin mükemmellikle buluştuğu nokta. Geleceğin mimarisini bugün benzersiz bir hassasiyet ve elit düzeyde yazılım tasarımı ile inşa ediyoruz.",
+      "cta": "Teknik Özellikleri İncele"
+    },
+    "core": {
+      "overline": "Çekirdek Altyapı",
+      "heading": "Softium Core 2.0",
+      "desc": "Kurumsal zeka için merkezi işletim motoru. Devasa ölçek ve sıfır gecikme yükü ile gerçek zamanlı işleme için tasarlandı.",
+      "f1": "Yüksek performanslı nöral mimari",
+      "f2": "Elastik bulut-yerel entegrasyon",
+      "f3": "Dağıtık defter doğrulama",
+      "cta": "Ürünü Keşfet",
+      "alt": "3D soyut parlayan mavi kristal çekirdek yapısı"
+    },
+    "nexus": {
+      "overline": "Güvenlik ve Koruma",
+      "heading": "Nexus Guard",
+      "desc": "Tescilli AI tehdit algılama özelliğine sahip gelişmiş siber güvenlik kalkanı. Tehdit henüz oluşmadan çevreyi güvence altına alıyoruz.",
+      "f1": "Sıfır güven protokolü uygulaması",
+      "f2": "Gerçek zamanlı desen tanıma",
+      "f3": "Kuantum dirençli şifreleme",
+      "cta": "Ürünü Keşfet",
+      "alt": "Işık desenleriyle soyut siber güvenlik kalkanı"
+    },
+    "vision": {
+      "overline": "Stratejik Zeka",
+      "heading": "Vision Analytics",
+      "desc": "Stratejik büyüme için geliştirilmiş öngörücü veri modelleme platformu. Ham karmaşıklığı eyleme geçirilebilir pazar hakimiyetine dönüştürün.",
+      "f1": "Çok değişkenli tahmin motoru",
+      "f2": "Holografik veri görselleştirme",
+      "f3": "Otomatik alfa tanımlama",
+      "cta": "Ürünü Keşfet",
+      "alt": "Yarı saydam cam veri noktaları ve grafikler"
+    },
+    "flow": {
+      "overline": "İş Akışı Optimizasyonu",
+      "heading": "Flow Automate",
+      "desc": "Düşünce hızında hareket eden düşük kodlu iş akışı optimizasyon paketi. Otonom süreç senkronizasyonu ile verimliliği yeniden tanımlıyor.",
+      "f1": "Sürükle ve bırak mantık motoru",
+      "f2": "Evrensel API konektör ağı",
+      "f3": "Kendini onaran otomasyon yolları",
+      "cta": "Demo Talep Et",
+      "alt": "Pürüzsüzce birbirine kenetlenen soyut sıvı metal halkalar"
+    },
+    "cta": {
+      "heading": "Gelişmeye hazır mısınız?",
+      "subheading": "Softium Technologies tarafından güçlendirilen dünyanın en yenilikçi girişimlerine katılın.",
+      "primary": "Hemen Başlayın",
+      "secondary": "Bir Mimar ile Konuşun"
+    }
+  },
   "metadata": {
     "home": {
       "title": "Softium Technologies | Geleceği Mühendislikle İnşa Ediyoruz",

@@ -488,6 +488,60 @@
     "securityLevel": "Security Level",
     "enterpriseShield": "Enterprise Shield"
   },
+  "projects": {
+    "hero": {
+      "badge": "Elite Engineering",
+      "heading": "Our Proprietary Technologies",
+      "subtitle": "Where engineering meets excellence. We build the architecture of the future today with unparalleled precision and elite-grade software design.",
+      "cta": "View Technical Specs"
+    },
+    "core": {
+      "overline": "Core Infrastructure",
+      "heading": "Softium Core 2.0",
+      "desc": "The central operating engine for enterprise intelligence. Designed for massive scale and real-time processing with zero latency overhead.",
+      "f1": "High-performance neural architecture",
+      "f2": "Elastic cloud-native integration",
+      "f3": "Distributed ledger verification",
+      "cta": "Explore Product",
+      "alt": "3D abstract glowing blue crystalline core structure"
+    },
+    "nexus": {
+      "overline": "Security & Protection",
+      "heading": "Nexus Guard",
+      "desc": "Advanced cybersecurity shield featuring proprietary AI threat detection. We secure the perimeter before the threat even materializes.",
+      "f1": "Zero-trust protocol enforcement",
+      "f2": "Real-time pattern recognition",
+      "f3": "Quantum-resistant encryption",
+      "cta": "Explore Product",
+      "alt": "Abstract cybersecurity shield with light patterns"
+    },
+    "vision": {
+      "overline": "Strategic Intelligence",
+      "heading": "Vision Analytics",
+      "desc": "Predictive data modeling platform built for strategic growth. Turn raw complexity into actionable market dominance.",
+      "f1": "Multivariate forecasting engine",
+      "f2": "Holographic data visualization",
+      "f3": "Automatic alpha identification",
+      "cta": "Explore Product",
+      "alt": "Translucent glass data points and graphs"
+    },
+    "flow": {
+      "overline": "Workflow Optimization",
+      "heading": "Flow Automate",
+      "desc": "A low-code workflow optimization suite that moves at the speed of thought. Redefining efficiency through autonomous process synchronization.",
+      "f1": "Drag-and-drop logic engine",
+      "f2": "Universal API connector mesh",
+      "f3": "Self-healing automation paths",
+      "cta": "Request Demo",
+      "alt": "Abstract liquid metal rings interlocking smoothly"
+    },
+    "cta": {
+      "heading": "Ready to evolve?",
+      "subheading": "Join the world's most innovative enterprises powered by Softium Technologies.",
+      "primary": "Get Started Now",
+      "secondary": "Speak to an Architect"
+    }
+  },
   "metadata": {
     "home": {
       "title": "Softium Technologies | Engineering the Future of Intelligence",

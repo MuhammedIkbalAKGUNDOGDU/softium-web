@@ -486,6 +486,60 @@
     "securityLevel": "Sicherheitsstufe",
     "enterpriseShield": "Enterprise Shield"
   },
+  "projects": {
+    "hero": {
+      "badge": "Elite Engineering",
+      "heading": "Unsere proprietären Technologien",
+      "subtitle": "Wo Ingenieurskunst auf Exzellenz trifft. Wir bauen die Architektur der Zukunft heute mit beispielloser Präzision und Software-Design der Elite-Klasse.",
+      "cta": "Technische Daten ansehen"
+    },
+    "core": {
+      "overline": "Core-Infrastruktur",
+      "heading": "Softium Core 2.0",
+      "desc": "Der zentrale Betriebsmotor für Unternehmensintelligenz. Entwickelt für massive Skalierung und Echtzeitverarbeitung ohne Latenz-Overhead.",
+      "f1": "Hochleistungsfähige neuronale Architektur",
+      "f2": "Elastische Cloud-Native-Integration",
+      "f3": "Verteilte Ledger-Verifizierung",
+      "cta": "Produkt erkunden",
+      "alt": "3D abstract glowing blue crystalline core structure"
+    },
+    "nexus": {
+      "overline": "Sicherheit & Schutz",
+      "heading": "Nexus Guard",
+      "desc": "Erweiterter Cybersicherheitsschild mit proprietärer KI-Bedrohungserkennung. Wir sichern den Perimeter, bevor die Bedrohung überhaupt entsteht.",
+      "f1": "Zero-Trust-Protokoll-Durchsetzung",
+      "f2": "Mustererkennung in Echtzeit",
+      "f3": "Quantenresistente Verschlüsselung",
+      "cta": "Produkt erkunden",
+      "alt": "Abstract cybersecurity shield with light patterns"
+    },
+    "vision": {
+      "overline": "Strategische Intelligenz",
+      "heading": "Vision Analytics",
+      "desc": "Predictive Data Modeling-Plattform für strategisches Wachstum. Verwandeln Sie rohe Komplexität in umsetzbare Marktdominanz.",
+      "f1": "Multivariate Prognose-Engine",
+      "f2": "Holografische Datenvisualisierung",
+      "f3": "Automatische Alpha-Identifizierung",
+      "cta": "Produkt erkunden",
+      "alt": "Translucent glass data points and graphs"
+    },
+    "flow": {
+      "overline": "Workflow-Optimierung",
+      "heading": "Flow Automate",
+      "desc": "Eine Low-Code-Workflow-Optimierungssuite, die sich mit Gedankengeschwindigkeit bewegt. Neudefinition von Effizienz durch autonome Prozesssynchronisation.",
+      "f1": "Drag-and-Drop-Logik-Engine",
+      "f2": "Universelles API-Connector-Mesh",
+      "f3": "Selbstheilende Automatisierungspfade",
+      "cta": "Demo anfordern",
+      "alt": "Abstract liquid metal rings interlocking smoothly"
+    },
+    "cta": {
+      "heading": "Bereit für die Entwicklung?",
+      "subheading": "Schließen Sie sich den innovativsten Unternehmen der Welt an, die von Softium Technologies unterstützt werden.",
+      "primary": "Jetzt starten",
+      "secondary": "Mit einem Architekten sprechen"
+    }
+  },
   "metadata": {
     "home": {
       "title": "Softium Technologies | Die Zukunft der Intelligenz gestalten",
