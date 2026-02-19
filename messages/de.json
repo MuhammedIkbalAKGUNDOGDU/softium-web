@@ -3,6 +3,7 @@
     "solutions": "Lösungen",
     "services": "Leistungen",
     "projects": "Projekte",
+    "references": "Referenzen",
     "about": "Über uns",
     "blog": "Blog",
     "contact": "Kontakt",
@@ -485,6 +486,21 @@
     "optimization": "Optimierung",
     "securityLevel": "Sicherheitsstufe",
     "enterpriseShield": "Enterprise Shield"
+  },
+  "references": {
+    "hero": {
+      "badge": "Netzwerk des Vertrauens",
+      "heading": "Unsere Referenzen",
+      "subtitle": "Wir stärken stolz die digitale Infrastruktur globaler Innovatoren. Wir bauen dauerhafte Partnerschaften auf der Grundlage von Exzellenz."
+    },
+    "companies": {
+      "techcorp": "Globale Bankinfrastruktur",
+      "nexus": "KI-Diagnosesysteme",
+      "future": "Autonome Logistik",
+      "alpha": "Cybersicherheitsverteidigung",
+      "eco": "Technologie für erneuerbare Energien",
+      "urban": "Smart City Planung"
+    }
   },
   "projects": {
     "hero": {

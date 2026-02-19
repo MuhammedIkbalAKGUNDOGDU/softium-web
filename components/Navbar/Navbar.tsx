@@ -9,6 +9,7 @@ import styles from './Navbar.module.css';
 const NAV_LINKS = [
   { key: 'services', href: '/hizmetler' },
   { key: 'projects', href: '/projeler' },
+  { key: 'references', href: '/referanslar' },
   { key: 'about', href: '/hakkimizda' },
   { key: 'blog', href: '/blog' },
   { key: 'contact', href: '/iletisim' },
@@ -17,6 +18,7 @@ const NAV_LINKS = [
 const EN_NAV_LINKS = [
   { key: 'services', href: '/services' },
   { key: 'projects', href: '/projects' },
+  { key: 'references', href: '/references' },
   { key: 'about', href: '/about' },
   { key: 'blog', href: '/blog' },
   { key: 'contact', href: '/contact' },
@@ -25,6 +27,7 @@ const EN_NAV_LINKS = [
 const DE_NAV_LINKS = [
   { key: 'services', href: '/leistungen' },
   { key: 'projects', href: '/projekte' },
+  { key: 'references', href: '/referenzen' },
   { key: 'about', href: '/ueber-uns' },
   { key: 'blog', href: '/blog' },
   { key: 'contact', href: '/kontakt' },

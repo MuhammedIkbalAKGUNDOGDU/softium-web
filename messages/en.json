@@ -3,6 +3,7 @@
     "solutions": "Solutions",
     "services": "Services",
     "projects": "Projects",
+    "references": "References",
     "about": "About",
     "blog": "Blog",
     "contact": "Contact",
@@ -487,6 +488,21 @@
     "optimization": "Optimization",
     "securityLevel": "Security Level",
     "enterpriseShield": "Enterprise Shield"
+  },
+  "references": {
+    "hero": {
+      "badge": "Network of Trust",
+      "heading": "Our References",
+      "subtitle": "Proudly powering the digital infrastructure of global innovators. We build lasting partnerships based on excellence and delivering mission-critical results."
+    },
+    "companies": {
+      "techcorp": "Global Banking Infrastructure",
+      "nexus": "AI Diagnosis Systems",
+      "future": "Autonomous Logistics",
+      "alpha": "Cybersecurity Defense",
+      "eco": "Renewable Grid Tech",
+      "urban": "Smart City Planning"
+    }
   },
   "projects": {
     "hero": {

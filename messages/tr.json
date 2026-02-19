@@ -3,6 +3,7 @@
     "solutions": "Çözümler",
     "services": "Hizmetler",
     "projects": "Projeler",
+    "references": "Referanslar",
     "about": "Hakkımızda",
     "blog": "Blog",
     "contact": "İletişim",
@@ -487,6 +488,21 @@
     "optimization": "Optimizasyon",
     "securityLevel": "Güvenlik Seviyesi",
     "enterpriseShield": "Enterprise Kalkan"
+  },
+  "references": {
+    "hero": {
+      "badge": "Güven Ağı",
+      "heading": "Referanslarımız",
+      "subtitle": "Global inovasyoncuların dijital altyapısını gururla güçlendiriyoruz. Mükemmellikle inşa edilmiş kalıcı ortaklıklar."
+    },
+    "companies": {
+      "techcorp": "Küresel Bankacılık Altyapısı",
+      "nexus": "Yapay Zeka Teşhis Sistemleri",
+      "future": "Otonom Lojistik",
+      "alpha": "Siber Savunma",
+      "eco": "Yenilenebilir Şebeke Teknolojisi",
+      "urban": "Akıllı Şehir Planlaması"
+    }
   },
   "projects": {
     "hero": {
