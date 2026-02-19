@@ -7,7 +7,6 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import styles from './Navbar.module.css';
 
 const NAV_LINKS = [
-  { key: 'solutions', href: '/#services' },
   { key: 'services', href: '/hizmetler' },
   { key: 'projects', href: '/projeler' },
   { key: 'about', href: '/hakkimizda' },
@@ -16,7 +15,6 @@ const NAV_LINKS = [
 ] as const;
 
 const EN_NAV_LINKS = [
-  { key: 'solutions', href: '/#services' },
   { key: 'services', href: '/services' },
   { key: 'projects', href: '/projects' },
   { key: 'about', href: '/about' },
@@ -25,7 +23,6 @@ const EN_NAV_LINKS = [
 ] as const;
 
 const DE_NAV_LINKS = [
-  { key: 'solutions', href: '/#services' },
   { key: 'services', href: '/leistungen' },
   { key: 'projects', href: '/projekte' },
   { key: 'about', href: '/ueber-uns' },
