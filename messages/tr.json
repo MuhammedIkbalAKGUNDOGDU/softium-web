@@ -1,0 +1,159 @@
+{
+  "nav": {
+    "solutions": "Çözümler",
+    "services": "Hizmetler",
+    "projects": "Projeler",
+    "about": "Hakkımızda",
+    "blog": "Blog",
+    "contact": "İletişim",
+    "getStarted": "Başlayalım",
+    "language": "Dil"
+  },
+  "hero": {
+    "badge": "Softium Core 2.0 Tanıtıldı",
+    "badgeLink": "Daha fazla oku",
+    "headline1": "Geleceği",
+    "headline2": "Birlikte",
+    "headline3": "İnşa Ediyoruz.",
+    "subtitle": "Enterprise düzeyde yazılım mimarileri ve yapay zeka çözümleri. Her satır kodda hassasiyet, ölçek ve zarafet.",
+    "cta1": "Çözümleri Keşfet",
+    "cta2": "Showreel İzle",
+    "trustedBy": "Lider şirketler tarafından güvenilen",
+    "stat1Value": "150+",
+    "stat1Label": "Tamamlanan Proje",
+    "stat2Value": "40+",
+    "stat2Label": "Global Müşteri",
+    "stat3Value": "99.9%",
+    "stat3Label": "Uptime Garantisi"
+  },
+  "services": {
+    "badge": "Hizmetlerimiz",
+    "title": "Bağlı Dünya İçin Akıllı Çözümler",
+    "subtitle": "Hassasiyet ve netlikle geleceği inşa ediyoruz. Premium hizmet paketimiz ölçeklenebilirlik ve performans için tasarlandı.",
+    "learnMore": "Daha fazla",
+    "items": {
+      "ai": {
+        "title": "AI Büyüme Sistemleri",
+        "description": "Akıllı otomasyon ve yapay zeka destekli iş akışları. Öz-öğrenen algoritmalarla karar verme süreçlerinizi güçlendirin."
+      },
+      "cloud": {
+        "title": "Bulut Altyapısı",
+        "description": "Dayanıklı, ölçeklenebilir bulut mimarileri. Enterprise büyümesine uyum sağlayan güvenli temeller inşa ediyoruz."
+      },
+      "saas": {
+        "title": "SaaS & Platform Mühendisliği",
+        "description": "Özel SaaS ürünleri ve dijital platformlar. Sağlam yazılım mühendisliği ile pazar varlığınızı hızlandırın."
+      },
+      "data": {
+        "title": "Veri & Tahminsel Analitik",
+        "description": "Ham veriyi stratejik avantaja dönüştürün. Gerçek zamanlı içgörülerle trendleri tahmin edin ve performansı optimize edin."
+      },
+      "marketing": {
+        "title": "Dijital Pazarlama & SEO Teknolojisi",
+        "description": "Performans odaklı SEO ve reklam sistemleri. Veri destekli pazarlama teknolojisiyle görünürlük ve dönüşümü maksimize edin."
+      },
+      "devops": {
+        "title": "DevOps & Otomasyon",
+        "description": "Sadeleştirilmiş CI/CD boru hatları ve altyapı otomasyonu. Kusursuz yürütme ile sürekli teslimat sağlayın."
+      }
+    }
+  },
+  "stats": {
+    "title": "Rakamlarla Softium",
+    "subtitle": "Global ölçekte, yerel anlayışla.",
+    "items": {
+      "projects": { "value": "150+", "label": "Tamamlanan Proje" },
+      "clients": { "value": "40+", "label": "Mutlu Müşteri" },
+      "engineers": { "value": "25+", "label": "Uzman Mühendis" },
+      "uptime": { "value": "99.9%", "label": "Uptime Garantisi" }
+    }
+  },
+  "process": {
+    "badge": "Çalışma Yöntemimiz",
+    "title": "Projelerinizi Nasıl Hayata Geçiriyoruz",
+    "subtitle": "Kanıtlanmış metodoloji ile her projede mükemmelliği teslim ediyoruz.",
+    "steps": {
+      "discover": {
+        "title": "Keşif & Strateji",
+        "description": "İş hedeflerinizi ve teknik gereksinimleri derinlemesine anlıyoruz."
+      },
+      "design": {
+        "title": "Tasarım & Mimari",
+        "description": "Skalable ve güvenli yazılım mimarileri ve UI/UX tasarımları oluşturuyoruz."
+      },
+      "build": {
+        "title": "Geliştirme & Test",
+        "description": "Agile metodoloji ile hızlı, kaliteli ve test edilmiş kod yazıyoruz."
+      },
+      "launch": {
+        "title": "Lansman & Destek",
+        "description": "Sorunsuz deployment sonrası sürekli destek ve optimizasyon sağlıyoruz."
+      }
+    }
+  },
+  "testimonials": {
+    "badge": "Müşteri Yorumları",
+    "title": "Müşterilerimiz Ne Diyor?",
+    "subtitle": "Global liderlerden gerçek geri bildirimler.",
+    "items": [
+      {
+        "quote": "Softium, AI altyapımızı altı ayda tamamen dönüştürdü. Sonuçlar inanılmaz.",
+        "name": "Mehmet Yılmaz",
+        "role": "CTO, TechVision A.Ş.",
+        "company": "TechVision"
+      },
+      {
+        "quote": "Bulut migrasyonumuzda gösterdikleri uzmanlık ve hız mükemmeldi.",
+        "name": "Sarah Johnson",
+        "role": "VP Engineering, GlobalTech",
+        "company": "GlobalTech"
+      },
+      {
+        "quote": "Özel SaaS platformumuz sayesinde müşteri memnuniyetimiz %40 arttı.",
+        "name": "Alex Chen",
+        "role": "CEO, InnovateCo",
+        "company": "InnovateCo"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Dijital Dönüşümünüzü Başlatmaya Hazır mısınız?",
+    "subtitle": "Dünyanın önde gelen işletmeleriyle birlikte yeni nesil yazılım çözümleri inşa edin.",
+    "button1": "Projenizi Başlatın",
+    "button2": "Satış Ekibiyle İletişime Geçin"
+  },
+  "footer": {
+    "description": "Enterprise düzeyde yazılım mühendisliği ve dijital dönüşüm çözümleri.",
+    "solutions": "Çözümler",
+    "company": "Şirket",
+    "legal": "Hukuki",
+    "links": {
+      "aiSystems": "AI Sistemleri",
+      "cloudInfra": "Bulut Altyapısı",
+      "saas": "SaaS Platformlar",
+      "dataAnalytics": "Veri Analitiği",
+      "about": "Hakkımızda",
+      "careers": "Kariyer",
+      "blog": "Blog",
+      "press": "Basın",
+      "privacy": "Gizlilik Politikası",
+      "terms": "Kullanım Şartları",
+      "cookies": "Çerez Politikası"
+    },
+    "copyright": "© 2025 Softium Technologies. Tüm hakları saklıdır.",
+    "systemStatus": "Sistem Durumu",
+    "optimization": "Optimizasyon",
+    "securityLevel": "Güvenlik Seviyesi",
+    "enterpriseShield": "Enterprise Kalkan"
+  },
+  "metadata": {
+    "home": {
+      "title": "Softium Technologies | Geleceği Mühendislikle İnşa Ediyoruz",
+      "description": "Softium Technologies, yapay zeka, bulut altyapısı, SaaS ve dijital dönüşüm için enterprise düzeyde yazılım çözümleri sunmaktadır."
+    },
+    "services": {
+      "title": "Hizmetlerimiz | Softium Technologies",
+      "description": "AI sistemleri, bulut altyapısı, SaaS mühendisliği, veri analitiği ve DevOps çözümlerimizi keşfedin."
+    }
+  }
+}

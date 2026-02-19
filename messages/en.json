@@ -1,0 +1,159 @@
+{
+  "nav": {
+    "solutions": "Solutions",
+    "services": "Services",
+    "projects": "Projects",
+    "about": "About",
+    "blog": "Blog",
+    "contact": "Contact",
+    "getStarted": "Get Started",
+    "language": "Language"
+  },
+  "hero": {
+    "badge": "Introducing Softium Core 2.0",
+    "badgeLink": "Read more",
+    "headline1": "Engineering",
+    "headline2": "the Future of",
+    "headline3": "Intelligence.",
+    "subtitle": "Delivering enterprise-grade software architectures for the world's most demanding industries. Precision, scale, and elegance in every line of code.",
+    "cta1": "Explore Solutions",
+    "cta2": "Watch Showreel",
+    "trustedBy": "Trusted by industry leaders",
+    "stat1Value": "150+",
+    "stat1Label": "Projects Delivered",
+    "stat2Value": "40+",
+    "stat2Label": "Global Clients",
+    "stat3Value": "99.9%",
+    "stat3Label": "Uptime Guarantee"
+  },
+  "services": {
+    "badge": "Our Services",
+    "title": "Intelligent Solutions for a Connected World",
+    "subtitle": "Engineering the future with precision and clarity. Our suite of premium services is designed for scalability and performance.",
+    "learnMore": "Learn more",
+    "items": {
+      "ai": {
+        "title": "AI Growth Systems",
+        "description": "Intelligent automation and AI-powered workflows. Enhance decision-making with self-learning algorithms."
+      },
+      "cloud": {
+        "title": "Cloud Infrastructure",
+        "description": "Resilient, scalable cloud architectures. We build secure foundations that adapt effortlessly to enterprise growth."
+      },
+      "saas": {
+        "title": "SaaS & Platform Engineering",
+        "description": "Custom SaaS products and digital platforms. Accelerate your market presence with robust software engineering."
+      },
+      "data": {
+        "title": "Data & Predictive Analytics",
+        "description": "Transform raw data into strategic advantage. Leverage real-time insights to predict trends and optimize performance."
+      },
+      "marketing": {
+        "title": "Digital Marketing & SEO Tech",
+        "description": "Performance-driven SEO and ad systems. Maximize visibility and conversion through data-backed marketing technology."
+      },
+      "devops": {
+        "title": "DevOps & Automation",
+        "description": "Streamlined CI/CD pipelines and infrastructure automation. Achieve continuous delivery with flawless execution."
+      }
+    }
+  },
+  "stats": {
+    "title": "Softium by the Numbers",
+    "subtitle": "Global scale, local understanding.",
+    "items": {
+      "projects": { "value": "150+", "label": "Projects Delivered" },
+      "clients": { "value": "40+", "label": "Happy Clients" },
+      "engineers": { "value": "25+", "label": "Expert Engineers" },
+      "uptime": { "value": "99.9%", "label": "Uptime Guarantee" }
+    }
+  },
+  "process": {
+    "badge": "Our Process",
+    "title": "How We Bring Your Projects to Life",
+    "subtitle": "We deliver excellence in every project with a proven methodology.",
+    "steps": {
+      "discover": {
+        "title": "Discovery & Strategy",
+        "description": "We deeply understand your business goals and technical requirements."
+      },
+      "design": {
+        "title": "Design & Architecture",
+        "description": "We create scalable, secure software architectures and UI/UX designs."
+      },
+      "build": {
+        "title": "Development & Testing",
+        "description": "We write fast, quality, and tested code using agile methodology."
+      },
+      "launch": {
+        "title": "Launch & Support",
+        "description": "We provide continuous support and optimization after seamless deployment."
+      }
+    }
+  },
+  "testimonials": {
+    "badge": "Testimonials",
+    "title": "What Our Clients Say",
+    "subtitle": "Real feedback from global leaders.",
+    "items": [
+      {
+        "quote": "Softium completely transformed our AI infrastructure in six months. The results are incredible.",
+        "name": "Mehmet Yılmaz",
+        "role": "CTO, TechVision Inc.",
+        "company": "TechVision"
+      },
+      {
+        "quote": "Their expertise and speed in our cloud migration was outstanding.",
+        "name": "Sarah Johnson",
+        "role": "VP Engineering, GlobalTech",
+        "company": "GlobalTech"
+      },
+      {
+        "quote": "Our custom SaaS platform increased customer satisfaction by 40%.",
+        "name": "Alex Chen",
+        "role": "CEO, InnovateCo",
+        "company": "InnovateCo"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Ready to Start Your Digital Transformation?",
+    "subtitle": "Join the world's leading enterprises in building the next generation of software solutions.",
+    "button1": "Start Your Project",
+    "button2": "Contact Sales"
+  },
+  "footer": {
+    "description": "Enterprise-grade software engineering and digital transformation solutions.",
+    "solutions": "Solutions",
+    "company": "Company",
+    "legal": "Legal",
+    "links": {
+      "aiSystems": "AI Systems",
+      "cloudInfra": "Cloud Infrastructure",
+      "saas": "SaaS Platforms",
+      "dataAnalytics": "Data Analytics",
+      "about": "About Us",
+      "careers": "Careers",
+      "blog": "Blog",
+      "press": "Press",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "cookies": "Cookie Policy"
+    },
+    "copyright": "© 2025 Softium Technologies. All rights reserved.",
+    "systemStatus": "System Status",
+    "optimization": "Optimization",
+    "securityLevel": "Security Level",
+    "enterpriseShield": "Enterprise Shield"
+  },
+  "metadata": {
+    "home": {
+      "title": "Softium Technologies | Engineering the Future of Intelligence",
+      "description": "Softium Technologies delivers enterprise-grade software solutions for AI, cloud infrastructure, SaaS, and digital transformation."
+    },
+    "services": {
+      "title": "Our Services | Softium Technologies",
+      "description": "Explore our AI systems, cloud infrastructure, SaaS engineering, data analytics, and DevOps solutions."
+    }
+  }
+}
