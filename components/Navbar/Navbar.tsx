@@ -3,7 +3,7 @@
 import { useTranslations, useLocale } from 'next-intl';
 import { usePathname, useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import styles from './Navbar.module.css';
 
 const NAV_LINKS = [
@@ -24,17 +24,43 @@ const EN_NAV_LINKS = [
   { key: 'contact', href: '/contact' },
 ] as const;
 
+const DE_NAV_LINKS = [
+  { key: 'solutions', href: '/#services' },
+  { key: 'services', href: '/leistungen' },
+  { key: 'projects', href: '/projekte' },
+  { key: 'about', href: '/ueber-uns' },
+  { key: 'blog', href: '/blog' },
+  { key: 'contact', href: '/kontakt' },
+] as const;
+
+const LOCALES = [
+  { code: 'tr', flag: '🇹🇷', label: 'TR', name: 'Türkçe' },
+  { code: 'en', flag: '🇬🇧', label: 'EN', name: 'English' },
+  { code: 'de', flag: '🇩🇪', label: 'DE', name: 'Deutsch' },
+] as const;
+
+type LinkList = typeof NAV_LINKS | typeof EN_NAV_LINKS | typeof DE_NAV_LINKS;
+
+function getLinks(locale: string): LinkList {
+  if (locale === 'en') return EN_NAV_LINKS;
+  if (locale === 'de') return DE_NAV_LINKS;
+  return NAV_LINKS;
+}
+
 export default function Navbar() {
   const t = useTranslations('nav');
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
+  const langMenuRef = useRef<HTMLDivElement>(null);
 
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
+  const [langOpen, setLangOpen] = useState(false);
 
-  const links = locale === 'tr' ? NAV_LINKS : EN_NAV_LINKS;
+  const links = getLinks(locale);
+  const currentLang = LOCALES.find((l) => l.code === locale) ?? LOCALES[0];
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
@@ -50,6 +76,18 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close language dropdown when clicking outside
+  useEffect(() => {
+    if (!langOpen) return;
+    const handleClick = (e: MouseEvent) => {
+      if (langMenuRef.current && !langMenuRef.current.contains(e.target as Node)) {
+        setLangOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClick);
+    return () => document.removeEventListener('mousedown', handleClick);
+  }, [langOpen]);
+
   const toggleTheme = useCallback(() => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
     setTheme(newTheme);
@@ -57,14 +95,16 @@ export default function Navbar() {
     document.documentElement.setAttribute('data-theme', newTheme);
   }, [theme]);
 
-  const toggleLocale = useCallback(() => {
-    const newLocale = locale === 'tr' ? 'en' : 'tr';
-    // Simple locale switch: replace locale prefix in path
+  const switchLocale = useCallback((newLocale: string) => {
+    setLangOpen(false);
+    setMobileOpen(false);
     const currentPath = pathname.replace(`/${locale}`, '') || '/';
     router.push(`/${newLocale}${currentPath}`);
   }, [locale, pathname, router]);
 
   const getHref = (href: string) => `/${locale}${href}`;
+
+  const contactHref = getHref(locale === 'tr' ? '/iletisim' : locale === 'de' ? '/kontakt' : '/contact');
 
   return (
     <>
@@ -94,18 +134,50 @@ export default function Navbar() {
 
           {/* Actions */}
           <div className={styles.actions}>
-            {/* Language Toggle */}
-            <button
-              id="lang-toggle-btn"
-              className={styles.langToggle}
-              onClick={toggleLocale}
-              aria-label={`Switch to ${locale === 'tr' ? 'English' : 'Türkçe'}`}
-              title={`Switch to ${locale === 'tr' ? 'English' : 'Türkçe'}`}
-            >
-              <span className={styles.langFlag}>{locale === 'tr' ? '🇹🇷' : '🇬🇧'}</span>
-              <span className={styles.langLabel}>{locale === 'tr' ? 'TR' : 'EN'}</span>
-              <span className="material-symbols-outlined" style={{ fontSize: '14px' }}>unfold_more</span>
-            </button>
+            {/* Language Dropdown */}
+            <div ref={langMenuRef} className={styles.langWrapper}>
+              <button
+                id="lang-toggle-btn"
+                className={styles.langToggle}
+                onClick={() => setLangOpen((p) => !p)}
+                aria-label="Select language"
+                aria-haspopup="listbox"
+                aria-expanded={langOpen}
+              >
+                <span className={styles.langFlag}>{currentLang.flag}</span>
+                <span className={styles.langLabel}>{currentLang.label}</span>
+                <span
+                  className="material-symbols-outlined"
+                  style={{ fontSize: '14px', transition: 'transform 0.2s', transform: langOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}
+                >
+                  expand_more
+                </span>
+              </button>
+
+              {/* Dropdown */}
+              {langOpen && (
+                <div className={styles.langDropdown} role="listbox" aria-label="Language options">
+                  {LOCALES.map((loc) => (
+                    <button
+                      key={loc.code}
+                      id={`lang-option-${loc.code}`}
+                      role="option"
+                      aria-selected={locale === loc.code}
+                      className={`${styles.langOption} ${locale === loc.code ? styles.langOptionActive : ''}`}
+                      onClick={() => switchLocale(loc.code)}
+                    >
+                      <span>{loc.flag}</span>
+                      <span className={styles.langOptionName}>{loc.name}</span>
+                      {locale === loc.code && (
+                        <span className="material-symbols-outlined" style={{ fontSize: '14px', marginLeft: 'auto', color: 'var(--primary)', fontVariationSettings: "'FILL' 1" }}>
+                          check_circle
+                        </span>
+                      )}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
 
             {/* Theme Toggle */}
             <button
@@ -123,7 +195,7 @@ export default function Navbar() {
             {/* CTA Button */}
             <Link
               id="nav-cta-btn"
-              href={getHref(locale === 'tr' ? '/iletisim' : '/contact')}
+              href={contactHref}
               className={styles.ctaBtn}
             >
               {t('getStarted')}
@@ -160,11 +232,21 @@ export default function Navbar() {
             ))}
             <div className={styles.mobileDivider} />
             <div className={styles.mobileActions}>
-              <button className={styles.mobileLangBtn} onClick={() => { toggleLocale(); setMobileOpen(false); }}>
-                <span>{locale === 'tr' ? '🇬🇧 Switch to English' : '🇹🇷 Türkçeye Geç'}</span>
-              </button>
+              {/* Mobile Language Switcher */}
+              <div className={styles.mobileLangRow}>
+                {LOCALES.map((loc) => (
+                  <button
+                    key={loc.code}
+                    id={`mobile-lang-${loc.code}`}
+                    className={`${styles.mobileLangChip} ${locale === loc.code ? styles.mobileLangChipActive : ''}`}
+                    onClick={() => switchLocale(loc.code)}
+                  >
+                    {loc.flag} {loc.label}
+                  </button>
+                ))}
+              </div>
               <Link
-                href={getHref(locale === 'tr' ? '/iletisim' : '/contact')}
+                href={contactHref}
                 className={styles.mobileCtaBtn}
                 onClick={() => setMobileOpen(false)}
               >

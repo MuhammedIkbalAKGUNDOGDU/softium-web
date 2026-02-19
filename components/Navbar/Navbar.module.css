@@ -109,6 +109,11 @@
   flex-shrink: 0;
 }
 
+/* Language wrapper + dropdown */
+.langWrapper {
+  position: relative;
+}
+
 /* Language Toggle */
 .langToggle {
   display: none;
@@ -123,6 +128,7 @@
   border-radius: var(--radius-md);
   transition: all var(--transition-fast);
   cursor: pointer;
+  font-family: inherit;
 }
 
 @media (min-width: 768px) {
@@ -144,6 +150,57 @@
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.05em;
+}
+
+/* Dropdown panel */
+.langDropdown {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  min-width: 140px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+  z-index: 200;
+  animation: dropIn 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes dropIn {
+  from { opacity: 0; transform: translateY(-6px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0)   scale(1); }
+}
+
+.langOption {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  width: 100%;
+  padding: 0.625rem 0.875rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast);
+  font-family: inherit;
+  text-align: left;
+}
+
+.langOption:hover {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.langOptionActive {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.langOptionName {
+  flex: 1;
 }
 
 /* Theme Toggle */
@@ -274,18 +331,38 @@
   padding-top: 0.5rem;
 }
 
-.mobileLangBtn {
-  padding: 0.875rem 1rem;
-  font-size: 0.9375rem;
-  font-weight: 500;
-  color: var(--text-muted);
-  text-align: left;
-  border-radius: var(--radius-md);
-  cursor: pointer;
-  transition: color var(--transition-fast);
+/* Mobile: language chips row */
+.mobileLangRow {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  padding: 0.25rem 0;
 }
 
-.mobileLangBtn:hover {
+.mobileLangChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-family: inherit;
+}
+
+.mobileLangChip:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.mobileLangChipActive {
+  background: var(--primary-glow);
+  border-color: var(--primary);
   color: var(--primary);
 }
 

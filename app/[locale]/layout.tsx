@@ -35,13 +35,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       languages: {
         'tr': '/tr',
         'en': '/en',
+        'de': '/de',
       },
     },
     openGraph: {
       title: t('title'),
       description: t('description'),
       type: 'website',
-      locale: locale === 'tr' ? 'tr_TR' : 'en_US',
+      locale: locale === 'tr' ? 'tr_TR' : locale === 'de' ? 'de_DE' : 'en_US',
     },
     twitter: {
       card: 'summary_large_image',
@@ -54,7 +55,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function LocaleLayout({ children, params }: Props) {
   const { locale } = await params;
 
-  if (!routing.locales.includes(locale as 'tr' | 'en')) {
+  if (!routing.locales.includes(locale as 'tr' | 'en' | 'de')) {
     notFound();
   }
 
