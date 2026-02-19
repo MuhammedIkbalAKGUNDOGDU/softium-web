@@ -216,6 +216,66 @@
     "offices": "Our Offices",
     "locations": ["Istanbul", "San Francisco", "London", "Singapore"]
   },
+  "blog": {
+    "featuredLabel": "Featured Article",
+    "featuredDate": "12 Min Read · Sept 24, 2023",
+    "featuredTitle": "The Future of Scalable Architecture: Beyond Microservices.",
+    "featuredExcerpt": "Explore how Softium is redefining the boundaries of cloud-native systems with next-generation architectural patterns that prioritize developer velocity and system resilience.",
+    "readInsight": "Read the Insight",
+    "featuredAuthors": "Written by Engineering Lead & Team",
+    "categories": {
+      "all": "All Insights",
+      "engineering": "Engineering",
+      "innovation": "Innovation",
+      "companyNews": "Company News",
+      "openSource": "Open Source",
+      "design": "Design"
+    },
+    "latestTitle": "Latest Insights",
+    "latestSubtitle": "The forefront of software engineering and digital transformation.",
+    "viewAll": "View all posts",
+    "minRead": "min read",
+    "loadMore": "Load More Articles",
+    "articles": {
+      "distributed-tracing": {
+        "category": "Engineering",
+        "title": "Distributed Tracing at Scale",
+        "excerpt": "A deep dive into our proprietary tracing engine architecture and how it handles trillions of events daily."
+      },
+      "ai-ethics": {
+        "category": "Innovation",
+        "title": "The Human Side of AI Ethics",
+        "excerpt": "Navigating the complex landscape of automated decision making in high-stakes enterprise environments."
+      },
+      "q3-report": {
+        "category": "Company News",
+        "title": "Softium Q3 Innovation Report",
+        "excerpt": "A look at our latest milestones, core metric growth, and the future technology roadmap for 2024."
+      },
+      "ux-saas": {
+        "category": "Design",
+        "title": "The Evolution of UX in SaaS",
+        "excerpt": "How minimalist design principles are driving user retention and efficiency in complex software."
+      },
+      "supply-chain": {
+        "category": "Engineering",
+        "title": "Securing the Modern Supply Chain",
+        "excerpt": "Implementing Zero-Trust architectures within continuous delivery pipelines for global enterprises."
+      },
+      "nebula-open-source": {
+        "category": "Open Source",
+        "title": "Open Sourcing 'Nebula' Core",
+        "excerpt": "Why we're giving back to the community by releasing our internal observability framework."
+      }
+    },
+    "newsletter": {
+      "title": "Stay at the cutting edge.",
+      "subtitle": "Get monthly curated insights from our engineering and design teams. No noise, just high-fidelity technology analysis.",
+      "placeholder": "Email address",
+      "cta": "Join the Insider List",
+      "note": "By subscribing, you agree to our Privacy Policy and Terms of Service."
+    }
+  },
   "footer": {
     "description": "Enterprise-grade software engineering and digital transformation solutions.",
     "solutions": "Solutions",
@@ -256,6 +316,10 @@
     "about": {
       "title": "About Us | Softium Technologies",
       "description": "Learn about Softium Technologies' story, values, and team. Meet a global leader in digital transformation."
+    },
+    "blog": {
+      "title": "Blog & Insights | Softium Technologies",
+      "description": "In-depth articles on technology, innovation, and design from the Softium engineering team."
     }
   }
 }

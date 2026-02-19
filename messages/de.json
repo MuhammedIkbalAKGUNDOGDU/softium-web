@@ -214,6 +214,66 @@
       "response": "Innerhalb von 24–48 Stunden"
     }
   },
+  "blog": {
+    "featuredLabel": "Ausgewählter Artikel",
+    "featuredDate": "12 Min Lesen · 24. Sept. 2023",
+    "featuredTitle": "Die Zukunft skalierbarer Architektur: Jenseits von Microservices.",
+    "featuredExcerpt": "Entdecken Sie, wie Softium die Grenzen cloud-nativer Systeme mit Architekturmustern der nächsten Generation neu definiert, die Entwicklergeschwindigkeit und Systemresilienz priorisieren.",
+    "readInsight": "Einblick lesen",
+    "featuredAuthors": "Verfasst von Engineering Lead & Team",
+    "categories": {
+      "all": "Alle Einblicke",
+      "engineering": "Engineering",
+      "innovation": "Innovation",
+      "companyNews": "Unternehmensnews",
+      "openSource": "Open Source",
+      "design": "Design"
+    },
+    "latestTitle": "Neueste Einblicke",
+    "latestSubtitle": "An der Spitze des Software-Engineerings und der digitalen Transformation.",
+    "viewAll": "Alle Beiträge anzeigen",
+    "minRead": "Min Lesen",
+    "loadMore": "Mehr Artikel laden",
+    "articles": {
+      "distributed-tracing": {
+        "category": "Engineering",
+        "title": "Verteiltes Tracing im Maßstab",
+        "excerpt": "Ein tiefer Einblick in unsere proprietäre Tracing-Engine-Architektur und wie sie täglich Billionen von Ereignissen verarbeitet."
+      },
+      "ai-ethics": {
+        "category": "Innovation",
+        "title": "Die menschliche Seite der KI-Ethik",
+        "excerpt": "Navigation durch die komplexe Landschaft automatisierter Entscheidungsfindung in risikoreichen Unternehmensumgebungen."
+      },
+      "q3-report": {
+        "category": "Unternehmensnews",
+        "title": "Softium Q3-Innovationsbericht",
+        "excerpt": "Ein Blick auf unsere neuesten Meilensteine, das Wachstum der Kernkennzahlen und die Technologie-Roadmap für 2024."
+      },
+      "ux-saas": {
+        "category": "Design",
+        "title": "Die Evolution von UX in SaaS",
+        "excerpt": "Wie minimalistische Designprinzipien die Benutzerbindung und Effizienz in komplexer Software fördern."
+      },
+      "supply-chain": {
+        "category": "Engineering",
+        "title": "Sicherung der modernen Lieferkette",
+        "excerpt": "Implementierung von Zero-Trust-Architekturen in Continuous-Delivery-Pipelines für globale Unternehmen."
+      },
+      "nebula-open-source": {
+        "category": "Open Source",
+        "title": "'Nebula' Core als Open Source veröffentlicht",
+        "excerpt": "Warum wir unserer Community durch die Veröffentlichung unseres internen Observability-Frameworks etwas zurückgeben."
+      }
+    },
+    "newsletter": {
+      "title": "Bleiben Sie an der Spitze.",
+      "subtitle": "Erhalten Sie monatlich kuratierte Einblicke von unseren Engineering- und Designteams. Kein Lärm, nur hochwertige Technologieanalysen.",
+      "placeholder": "E-Mail-Adresse",
+      "cta": "Der Insider-Liste beitreten",
+      "note": "Mit der Anmeldung stimmen Sie unserer Datenschutzrichtlinie und den Nutzungsbedingungen zu."
+    }
+  },
   "footer": {
     "description": "Enterprise-Software-Engineering und digitale Transformationslösungen.",
     "solutions": "Lösungen",
@@ -254,6 +314,10 @@
     "about": {
       "title": "Über uns | Softium Technologies",
       "description": "Lernen Sie die Geschichte, Werte und das Team von Softium Technologies kennen. Begegnen Sie einem globalen Vorreiter in der digitalen Transformation."
+    },
+    "blog": {
+      "title": "Blog & Insights | Softium Technologies",
+      "description": "Ausführliche Artikel zu Technologie, Innovation und Design vom Softium-Ingenieurteam."
     }
   }
 }

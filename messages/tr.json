@@ -216,6 +216,66 @@
     "offices": "Ofislerimiz",
     "locations": ["İstanbul", "San Francisco", "Londra", "Singapur"]
   },
+  "blog": {
+    "featuredLabel": "Öne Çıkan Yazı",
+    "featuredDate": "12 dk okuma · 24 Eyl 2023",
+    "featuredTitle": "Ölçeklenebilir Mimarinin Geleceği: Mikroservisler Ötesi.",
+    "featuredExcerpt": "Softium'un, geliştirici hızını ve sistem dayanıklılığını ön planda tutan yeni nesil mimari şablonlarla bulut-native sistemlerin sınırlarını nasıl yeniden çizdiğini keşfedin.",
+    "readInsight": "İçeriği Oku",
+    "featuredAuthors": "Mühendislik Lideri & Ekip",
+    "categories": {
+      "all": "Tüm İçerikler",
+      "engineering": "Mühendislik",
+      "innovation": "İnovasyon",
+      "companyNews": "Haberler",
+      "openSource": "Açık Kaynak",
+      "design": "Tasarım"
+    },
+    "latestTitle": "Son Yazılar",
+    "latestSubtitle": "Yazılım mühendisliği ve dijital dönüşümün ön saflarından.",
+    "viewAll": "Tüm yazıları gör",
+    "minRead": "dk okuma",
+    "loadMore": "Daha Fazla Yükle",
+    "articles": {
+      "distributed-tracing": {
+        "category": "Mühendislik",
+        "title": "Ölçekte Dağıtık İzleme",
+        "excerpt": "Günde trilyonlarca olayı işleyen tescilli izleme motoru mimarimize derinlemesine bir bakış."
+      },
+      "ai-ethics": {
+        "category": "İnovasyon",
+        "title": "AI Etiğinin İnsan Boyutu",
+        "excerpt": "Yüksek riskli kurumsal ortamlarda otomatik karar alma mekanizmalarının karmaşık peyzajında gezinmek."
+      },
+      "q3-report": {
+        "category": "Haberler",
+        "title": "Softium Q3 İnovasyon Raporu",
+        "excerpt": "Son kilometre taşlarımıza, temel metrik büyümemize ve 2024 teknoloji yol haritamıza bir bakış."
+      },
+      "ux-saas": {
+        "category": "Tasarım",
+        "title": "SaaS'ta UX'in Evrimi",
+        "excerpt": "Minimalist tasarım prensiplerinin karmaşık yazılımlarda kullanıcı tutma ve verimliliği nasıl artırdığı."
+      },
+      "supply-chain": {
+        "category": "Mühendislik",
+        "title": "Modern Tedarik Zincirinin Güvenliği",
+        "excerpt": "Küresel işletmeler için sürekli teslimat hattı içinde Sıfır-Güven mimarilerinin uygulanması."
+      },
+      "nebula-open-source": {
+        "category": "Açık Kaynak",
+        "title": "'Nebula' Core'u Açık Kaynaklıyoruz",
+        "excerpt": "İç gözlemlenebilirlik çerçevemizi yayınlayarak topluluğa neden katkıda bulunduğumuza dair."
+      }
+    },
+    "newsletter": {
+      "title": "Keskin kalmaya devam edin.",
+      "subtitle": "Mühendislik ve tasarım ekiplerimizden aylık derlenmiş içerikler. Gürültü yok, sadece yüksek kaliteli teknoloji analizi.",
+      "placeholder": "E-posta adresiniz",
+      "cta": "Insider Listesine Katıl",
+      "note": "Abone olarak Gizlilik Politikamızı ve Hizmet Koşullarımızı kabul etmiş olursunuz."
+    }
+  },
   "footer": {
     "description": "Enterprise düzeyde yazılım mühendisliği ve dijital dönüşüm çözümleri.",
     "solutions": "Çözümler",
@@ -256,6 +316,10 @@
     "about": {
       "title": "Hakkımızda | Softium Technologies",
       "description": "Softium Technologies'in hikayesini, değerlerini ve ekibini tanıyın. Dijital dönüşümde global bir liderle tanışın."
+    },
+    "blog": {
+      "title": "Blog & Insights | Softium Technologies",
+      "description": "Softium mühendislik ekibinden teknoloji, inovasyon ve tasarım üzerine derinlemesine yazılar."
     }
   }
 }
