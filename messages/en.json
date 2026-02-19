@@ -122,6 +122,49 @@
     "button1": "Start Your Project",
     "button2": "Contact Sales"
   },
+  "contact": {
+    "badge": "Contact",
+    "headline1": "Connect with",
+    "headline2": "Excellence",
+    "subtitle": "Reach out to our global team for bespoke technology solutions tailored to your unique vision.",
+    "form": {
+      "name": "Full Name",
+      "namePlaceholder": "John Doe",
+      "email": "Email Address",
+      "emailPlaceholder": "john@example.com",
+      "company": "Company Name",
+      "companyPlaceholder": "Your company (optional)",
+      "service": "Service of Interest",
+      "servicePlaceholder": "Select a service",
+      "serviceOptions": {
+        "ai": "AI Growth Systems",
+        "cloud": "Cloud Infrastructure",
+        "saas": "SaaS & Platform Engineering",
+        "data": "Data & Analytics",
+        "marketing": "Digital Marketing & SEO",
+        "devops": "DevOps & Automation",
+        "other": "Other"
+      },
+      "message": "Your Message",
+      "messagePlaceholder": "How can we help you?",
+      "submit": "Send Message",
+      "submitting": "Sending...",
+      "successTitle": "Message Received!",
+      "successMessage": "We'll get back to you as soon as possible. We typically respond within 24–48 hours.",
+      "newMessage": "Send Another Message"
+    },
+    "info": {
+      "emailLabel": "Email",
+      "phoneLabel": "Phone",
+      "phone": "+90 212 123 45 67",
+      "hoursLabel": "Working Hours",
+      "hours": "Mon–Fri, 09:00–18:00 (TRT)",
+      "responseLabel": "Response Time",
+      "response": "Within 24–48 hours"
+    },
+    "offices": "Our Offices",
+    "locations": ["Istanbul", "San Francisco", "London", "Singapore"]
+  },
   "footer": {
     "description": "Enterprise-grade software engineering and digital transformation solutions.",
     "solutions": "Solutions",
@@ -154,6 +197,10 @@
     "services": {
       "title": "Our Services | Softium Technologies",
       "description": "Explore our AI systems, cloud infrastructure, SaaS engineering, data analytics, and DevOps solutions."
+    },
+    "contact": {
+      "title": "Contact Us | Softium Technologies",
+      "description": "Get in touch with Softium Technologies for your projects. Talk to our experts for enterprise software, AI, and cloud solutions."
     }
   }
 }

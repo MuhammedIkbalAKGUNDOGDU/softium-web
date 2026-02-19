@@ -122,6 +122,49 @@
     "button1": "Projenizi Başlatın",
     "button2": "Satış Ekibiyle İletişime Geçin"
   },
+  "contact": {
+    "badge": "İletişim",
+    "headline1": "Mükemmellikle",
+    "headline2": "Bağlanın",
+    "subtitle": "Benzersiz vizyonunuza özel teknoloji çözümleri için global ekibimize ulaşın.",
+    "form": {
+      "name": "Ad Soyad",
+      "namePlaceholder": "Ahmet Yılmaz",
+      "email": "E-posta Adresi",
+      "emailPlaceholder": "ahmet@sirket.com",
+      "company": "Şirket Adı",
+      "companyPlaceholder": "Şirketiniz (isteğe bağlı)",
+      "service": "İlgilendiğiniz Hizmet",
+      "servicePlaceholder": "Hizmet seçin",
+      "serviceOptions": {
+        "ai": "AI Büyüme Sistemleri",
+        "cloud": "Bulut Altyapısı",
+        "saas": "SaaS & Platform Mühendisliği",
+        "data": "Veri & Analitik",
+        "marketing": "Dijital Pazarlama & SEO",
+        "devops": "DevOps & Otomasyon",
+        "other": "Diğer"
+      },
+      "message": "Mesajınız",
+      "messagePlaceholder": "Size nasıl yardımcı olabiliriz?",
+      "submit": "Mesaj Gönder",
+      "submitting": "Gönderiliyor...",
+      "successTitle": "Mesajınız Alındı!",
+      "successMessage": "En kısa sürede size geri döneceğiz. Genellikle 24-48 saat içinde yanıt veriyoruz.",
+      "newMessage": "Yeni Mesaj Gönder"
+    },
+    "info": {
+      "emailLabel": "E-posta",
+      "phoneLabel": "Telefon",
+      "phone": "+90 212 123 45 67",
+      "hoursLabel": "Çalışma Saatleri",
+      "hours": "Pzt–Cum, 09:00–18:00 (TSİ)",
+      "responseLabel": "Yanıt Süresi",
+      "response": "24–48 saat içinde"
+    },
+    "offices": "Ofislerimiz",
+    "locations": ["İstanbul", "San Francisco", "Londra", "Singapur"]
+  },
   "footer": {
     "description": "Enterprise düzeyde yazılım mühendisliği ve dijital dönüşüm çözümleri.",
     "solutions": "Çözümler",
@@ -154,6 +197,10 @@
     "services": {
       "title": "Hizmetlerimiz | Softium Technologies",
       "description": "AI sistemleri, bulut altyapısı, SaaS mühendisliği, veri analitiği ve DevOps çözümlerimizi keşfedin."
+    },
+    "contact": {
+      "title": "İletişim | Softium Technologies",
+      "description": "Projeleriniz için Softium Technologies ile iletişime geçin. Enterprise yazılım, AI ve bulut çözümleri için uzmanlarımızla konuşun."
     }
   }
 }

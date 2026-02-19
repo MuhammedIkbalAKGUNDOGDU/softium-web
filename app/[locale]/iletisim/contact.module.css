@@ -1,0 +1,52 @@
+.main {
+  position: relative;
+  min-height: 100vh;
+  padding: calc(var(--nav-height) + 4rem) 0 6rem;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+/* Decorative background */
+.heroBg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.orb1 {
+  position: absolute;
+  top: -8rem;
+  right: -10rem;
+  width: 45rem;
+  height: 45rem;
+  background: radial-gradient(circle, rgba(19, 91, 236, 0.06) 0%, transparent 65%);
+  border-radius: 50%;
+  filter: blur(30px);
+}
+
+.orb2 {
+  position: absolute;
+  bottom: -10rem;
+  left: -8rem;
+  width: 35rem;
+  height: 35rem;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.04) 0%, transparent 65%);
+  border-radius: 50%;
+  filter: blur(30px);
+}
+
+.gridPattern {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(19, 91, 236, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(19, 91, 236, 0.025) 1px, transparent 1px);
+  background-size: 72px 72px;
+}
+
+/* the container stacks on top */
+.main .container {
+  position: relative;
+  z-index: 1;
+}

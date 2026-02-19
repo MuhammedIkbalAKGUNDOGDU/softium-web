@@ -1,0 +1,204 @@
+{
+  "nav": {
+    "solutions": "Lösungen",
+    "services": "Leistungen",
+    "projects": "Projekte",
+    "about": "Über uns",
+    "blog": "Blog",
+    "contact": "Kontakt",
+    "getStarted": "Loslegen",
+    "language": "Sprache"
+  },
+  "hero": {
+    "badge": "Softium Core 2.0 vorgestellt",
+    "badgeLink": "Mehr lesen",
+    "headline1": "Die Zukunft",
+    "headline2": "gemeinsam",
+    "headline3": "gestalten.",
+    "subtitle": "Enterprise-Softwarearchitekturen und KI-Lösungen der nächsten Generation. Präzision, Skalierung und Eleganz in jeder Codezeile.",
+    "cta1": "Lösungen entdecken",
+    "cta2": "Showreel ansehen",
+    "trustedBy": "Vertraut von führenden Unternehmen",
+    "stat1Value": "150+",
+    "stat1Label": "Abgeschlossene Projekte",
+    "stat2Value": "40+",
+    "stat2Label": "Globale Kunden",
+    "stat3Value": "99,9%",
+    "stat3Label": "Uptime-Garantie"
+  },
+  "services": {
+    "badge": "Unsere Leistungen",
+    "title": "Intelligente Lösungen für eine vernetzte Welt",
+    "subtitle": "Wir gestalten die Zukunft mit Präzision und Klarheit. Unser Premium-Leistungspaket ist für Skalierbarkeit und Performance ausgelegt.",
+    "learnMore": "Mehr erfahren",
+    "items": {
+      "ai": {
+        "title": "KI-Wachstumssysteme",
+        "description": "Intelligente Automatisierung und KI-gestützte Workflows. Stärken Sie Ihre Entscheidungsfindung mit selbstlernenden Algorithmen."
+      },
+      "cloud": {
+        "title": "Cloud-Infrastruktur",
+        "description": "Robuste, skalierbare Cloud-Architekturen. Wir bauen sichere Fundamente, die sich mühelos an Unternehmenswachstum anpassen."
+      },
+      "saas": {
+        "title": "SaaS & Plattform-Engineering",
+        "description": "Maßgeschneiderte SaaS-Produkte und digitale Plattformen. Beschleunigen Sie Ihre Marktpräsenz mit robustem Software-Engineering."
+      },
+      "data": {
+        "title": "Daten & Prädiktive Analytik",
+        "description": "Verwandeln Sie Rohdaten in strategische Vorteile. Nutzen Sie Echtzeit-Insights, um Trends vorherzusagen und Performance zu optimieren."
+      },
+      "marketing": {
+        "title": "Digitales Marketing & SEO-Technologie",
+        "description": "Performance-orientierte SEO- und Werbesysteme. Maximieren Sie Sichtbarkeit und Konversionen durch datengestützte Marketingtechnologie."
+      },
+      "devops": {
+        "title": "DevOps & Automatisierung",
+        "description": "Optimierte CI/CD-Pipelines und Infrastrukturautomatisierung. Erreichen Sie kontinuierliche Lieferung mit fehlerloser Ausführung."
+      }
+    }
+  },
+  "stats": {
+    "title": "Softium in Zahlen",
+    "subtitle": "Globale Reichweite, lokales Verständnis.",
+    "items": {
+      "projects": { "value": "150+", "label": "Abgeschlossene Projekte" },
+      "clients": { "value": "40+", "label": "Zufriedene Kunden" },
+      "engineers": { "value": "25+", "label": "Erfahrene Ingenieure" },
+      "uptime": { "value": "99,9%", "label": "Uptime-Garantie" }
+    }
+  },
+  "process": {
+    "badge": "Unser Prozess",
+    "title": "So setzen wir Ihre Projekte um",
+    "subtitle": "Wir liefern Exzellenz in jedem Projekt mit einer bewährten Methodik.",
+    "steps": {
+      "discover": {
+        "title": "Entdeckung & Strategie",
+        "description": "Wir verstehen Ihre Geschäftsziele und technischen Anforderungen in der Tiefe."
+      },
+      "design": {
+        "title": "Design & Architektur",
+        "description": "Wir entwickeln skalierbare, sichere Software-Architekturen und UI/UX-Designs."
+      },
+      "build": {
+        "title": "Entwicklung & Tests",
+        "description": "Wir schreiben schnellen, qualitativ hochwertigen und getesteten Code mit agiler Methodik."
+      },
+      "launch": {
+        "title": "Launch & Support",
+        "description": "Wir bieten kontinuierlichen Support und Optimierung nach dem nahtlosen Deployment."
+      }
+    }
+  },
+  "testimonials": {
+    "badge": "Kundenstimmen",
+    "title": "Was unsere Kunden sagen",
+    "subtitle": "Echtes Feedback von globalen Führungskräften.",
+    "items": [
+      {
+        "quote": "Softium hat unsere KI-Infrastruktur in sechs Monaten komplett transformiert. Die Ergebnisse sind unglaublich.",
+        "name": "Mehmet Yılmaz",
+        "role": "CTO, TechVision AG",
+        "company": "TechVision"
+      },
+      {
+        "quote": "Ihre Expertise und Schnelligkeit bei unserer Cloud-Migration war herausragend.",
+        "name": "Sarah Johnson",
+        "role": "VP Engineering, GlobalTech",
+        "company": "GlobalTech"
+      },
+      {
+        "quote": "Unsere maßgeschneiderte SaaS-Plattform hat die Kundenzufriedenheit um 40 % gesteigert.",
+        "name": "Alex Chen",
+        "role": "CEO, InnovateCo",
+        "company": "InnovateCo"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Bereit für Ihre digitale Transformation?",
+    "subtitle": "Gestalten Sie gemeinsam mit den weltweit führenden Unternehmen die nächste Generation von Softwarelösungen.",
+    "button1": "Ihr Projekt starten",
+    "button2": "Vertrieb kontaktieren"
+  },
+  "contact": {
+    "badge": "Kontakt",
+    "headline1": "Verbinden Sie sich mit",
+    "headline2": "Exzellenz",
+    "subtitle": "Wenden Sie sich an unser globales Team für maßgeschneiderte Technologielösungen, die auf Ihre einzigartige Vision zugeschnitten sind.",
+    "form": {
+      "name": "Vollständiger Name",
+      "namePlaceholder": "Max Mustermann",
+      "email": "E-Mail-Adresse",
+      "emailPlaceholder": "max@unternehmen.de",
+      "company": "Unternehmen",
+      "companyPlaceholder": "Ihr Unternehmen (optional)",
+      "service": "Gewünschte Leistung",
+      "servicePlaceholder": "Leistung wählen",
+      "serviceOptions": {
+        "ai": "KI-Wachstumssysteme",
+        "cloud": "Cloud-Infrastruktur",
+        "saas": "SaaS & Plattform-Engineering",
+        "data": "Daten & Analytik",
+        "marketing": "Digitales Marketing & SEO",
+        "devops": "DevOps & Automatisierung",
+        "other": "Sonstiges"
+      },
+      "message": "Ihre Nachricht",
+      "messagePlaceholder": "Wie können wir Ihnen helfen?",
+      "submit": "Nachricht senden",
+      "submitting": "Wird gesendet...",
+      "successTitle": "Nachricht erhalten!",
+      "successMessage": "Wir werden uns so schnell wie möglich bei Ihnen melden. In der Regel antworten wir innerhalb von 24–48 Stunden.",
+      "newMessage": "Neue Nachricht senden"
+    },
+    "info": {
+      "emailLabel": "E-Mail",
+      "phoneLabel": "Telefon",
+      "phone": "+90 212 123 45 67",
+      "hoursLabel": "Geschäftszeiten",
+      "hours": "Mo–Fr, 09:00–18:00 (TRT)",
+      "responseLabel": "Antwortzeit",
+      "response": "Innerhalb von 24–48 Stunden"
+    }
+  },
+  "footer": {
+    "description": "Enterprise-Software-Engineering und digitale Transformationslösungen.",
+    "solutions": "Lösungen",
+    "company": "Unternehmen",
+    "legal": "Rechtliches",
+    "links": {
+      "aiSystems": "KI-Systeme",
+      "cloudInfra": "Cloud-Infrastruktur",
+      "saas": "SaaS-Plattformen",
+      "dataAnalytics": "Datenanalytik",
+      "about": "Über uns",
+      "careers": "Karriere",
+      "blog": "Blog",
+      "press": "Presse",
+      "privacy": "Datenschutzrichtlinie",
+      "terms": "Nutzungsbedingungen",
+      "cookies": "Cookie-Richtlinie"
+    },
+    "copyright": "© 2025 Softium Technologies. Alle Rechte vorbehalten.",
+    "systemStatus": "Systemstatus",
+    "optimization": "Optimierung",
+    "securityLevel": "Sicherheitsstufe",
+    "enterpriseShield": "Enterprise Shield"
+  },
+  "metadata": {
+    "home": {
+      "title": "Softium Technologies | Die Zukunft der Intelligenz gestalten",
+      "description": "Softium Technologies bietet Enterprise-Softwarelösungen für KI, Cloud-Infrastruktur, SaaS und digitale Transformation."
+    },
+    "services": {
+      "title": "Unsere Leistungen | Softium Technologies",
+      "description": "Entdecken Sie unsere KI-Systeme, Cloud-Infrastruktur, SaaS-Engineering, Datenanalytik und DevOps-Lösungen."
+    },
+    "contact": {
+      "title": "Kontakt | Softium Technologies",
+      "description": "Nehmen Sie Kontakt mit Softium Technologies auf. Sprechen Sie mit unseren Experten für Enterprise-Software, KI und Cloud-Lösungen."
+    }
+  }
+}
