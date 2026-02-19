@@ -122,6 +122,57 @@
     "button1": "Ihr Projekt starten",
     "button2": "Vertrieb kontaktieren"
   },
+  "about": {
+    "badge": "Über uns",
+    "heroTitle1": "Die Architekten der",
+    "heroTitle2": "Innovation",
+    "heroSubtitle": "Die digitale Infrastruktur von morgen mit beispielloser Präzision und erstklassigem Handwerk aufbauen.",
+    "heroCta": "Unsere Vision",
+    "missionTitle": "Die nächste Grenze bauen",
+    "missionBody1": "Wir sind entschlossen, verteilte Systeme zu architektieren, die Skalierbarkeit und Performance neu definieren. Bei Softium bauen wir nicht nur Software; wir erschaffen das Rückgrat der modernen Wirtschaft.",
+    "missionBody2": "Der Softium-Standard basiert auf dem unermüdlichen Streben nach technischer Exzellenz. Unsere Teams arbeiten an der Schnittstelle von komplexer Mathematik und elegantem Design.",
+    "missionQuote": "Präzision über alles.",
+    "stats": {
+      "requests": "Täglich bearbeitete Anfragen",
+      "uptime": "Globaler Uptime-Standard",
+      "countries": "Bediente Länder"
+    },
+    "valuesEyebrow": "Fundament",
+    "valuesTitle": "Unsere Kernwerte",
+    "values": {
+      "precision": {
+        "name": "Präzisions-Engineering",
+        "desc": "Exzellenz in jeder Codezeile. Wir glauben, dass wahre Qualität in den Details steckt, die die meisten Menschen nie sehen."
+      },
+      "distributed": {
+        "name": "Verteiltes Denken",
+        "desc": "Systeme, die für globalen Maßstab konzipiert sind. Wir gehen jedes Problem mit einer verteilten Denkweise an und gewährleisten Resilienz und Elastizität."
+      },
+      "humanCentric": {
+        "name": "Menschenzentriertes Design",
+        "desc": "Technologie, die Menschen stärkt. Wir brücken die Lücke zwischen komplexer Logik und intuitiven Benutzererlebnissen."
+      }
+    },
+    "teamEyebrow": "Unser Team",
+    "teamTitle": "Die Menschen dahinter",
+    "teamSubtitle": "Ein Team aus weltklasse Software-Ingenieuren und kreativen Denkern, die Ihrem Erfolg verschrieben sind.",
+    "member1Name": "Ahmet Kaya",
+    "member1Role": "CEO & Mitgründer",
+    "member1Bio": "Gründete Softium mit 15 Jahren Enterprise-Software-Erfahrung. Experte für verteilte Systeme und KI.",
+    "member2Name": "Elif Şahin",
+    "member2Role": "CTO",
+    "member2Bio": "Spezialistin für Cloud-Architektur und DevOps. Zuvor Senior-Ingenieurin bei Google und Amazon.",
+    "member3Name": "Can Demir",
+    "member3Role": "Leitender Data Scientist",
+    "member3Bio": "10 Jahre Erfahrung in maschinellem Lernen und Big-Data-Systemen. MIT-Absolvent.",
+    "member4Name": "Zeynep Arslan",
+    "member4Role": "Design-Direktorin",
+    "member4Bio": "Schafft außerordentliche Benutzererlebnisse in Enterprise-Produkten mit einer menschenzentrierten Designphilosophie.",
+    "ctaTitle": "Bereit, die Zukunft zu gestalten?",
+    "ctaSubtitle": "Schließen Sie sich den innovativsten Unternehmen der Welt an, die Softiums Infrastruktur nutzen.",
+    "ctaContact": "Kontakt aufnehmen",
+    "ctaCareers": "Karriereoptionen ansehen"
+  },
   "contact": {
     "badge": "Kontakt",
     "headline1": "Verbinden Sie sich mit",
@@ -199,6 +250,10 @@
     "contact": {
       "title": "Kontakt | Softium Technologies",
       "description": "Nehmen Sie Kontakt mit Softium Technologies auf. Sprechen Sie mit unseren Experten für Enterprise-Software, KI und Cloud-Lösungen."
+    },
+    "about": {
+      "title": "Über uns | Softium Technologies",
+      "description": "Lernen Sie die Geschichte, Werte und das Team von Softium Technologies kennen. Begegnen Sie einem globalen Vorreiter in der digitalen Transformation."
     }
   }
 }

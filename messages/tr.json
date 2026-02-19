@@ -122,6 +122,57 @@
     "button1": "Projenizi Başlatın",
     "button2": "Satış Ekibiyle İletişime Geçin"
   },
+  "about": {
+    "badge": "Hakkımızda",
+    "heroTitle1": "İnovasyonun",
+    "heroTitle2": "Mimarları",
+    "heroSubtitle": "Benzersiz hassasiyet ve elite mühendislik anlayışıyla yarının dijital altyapısını inşa ediyoruz.",
+    "heroCta": "Vizyonumuzu Keşfet",
+    "missionTitle": "Yeni Sınırı İnşa Etmek",
+    "missionBody1": "Dağıtık sistemleri yeniden tanımlayan mimariler inşa etmeye kararlıyız. Softium'da sadece yazılım geliştirmiyoruz; modern ekonominin omurgasını mühendislik anlayışıyla kuruyoruz.",
+    "missionBody2": "Softium Standardı, teknik mükemmellik için amansız bir arayış üzerine inşa edilmiştir. Ekiplerimiz, karmaşık matematiğin zarif tasarımla kesiştiği noktada çalışır.",
+    "missionQuote": "Her şeyin üzerinde hassasiyet.",
+    "stats": {
+      "requests": "Günlük İşlenen İstek",
+      "uptime": "Global Uptime Standardı",
+      "countries": "Hizmet Verilen Ülke"
+    },
+    "valuesEyebrow": "Temellerimiz",
+    "valuesTitle": "Temel Değerlerimiz",
+    "values": {
+      "precision": {
+        "name": "Hassas Mühendislik",
+        "desc": "Her satır kodda mükemmellik. Gerçek kalitenin, çoğu insanın asla göremeyeceği ayrıntılarda yattığına inanıyoruz."
+      },
+      "distributed": {
+        "name": "Dağıtık Düşünce",
+        "desc": "Global ölçek için tasarlanmış sistemler. Her probleme dağıtık bir bakış açısıyla yaklaşarak dayanıklılık ve esneklik sağlıyoruz."
+      },
+      "humanCentric": {
+        "name": "İnsan Odaklı Tasarım",
+        "desc": "İnsanları güçlendiren teknoloji. Karmaşık mantık ile sezgisel kullanıcı deneyimleri arasındaki boşluğu dolduruyoruz."
+      }
+    },
+    "teamEyebrow": "Ekibimiz",
+    "teamTitle": "Arkasındaki İnsanlar",
+    "teamSubtitle": "Dünya standartlarında yazılım mühendisleri ve yaratıcı düşünürlerden oluşan bir ekip.",
+    "member1Name": "Ahmet Kaya",
+    "member1Role": "CEO & Kurucu Ortak",
+    "member1Bio": "15 yıllık enterprise yazılım deneyimiyle Softium'u kurdu. Dağıtık sistemler ve yapay zeka konusunda uzman.",
+    "member2Name": "Elif Şahin",
+    "member2Role": "CTO",
+    "member2Bio": "Bulut mimarisi ve DevOps alanında uzman. Daha önce Google ve Amazon'da kıdemli mühendis olarak çalıştı.",
+    "member3Name": "Can Demir",
+    "member3Role": "Baş Veri Bilimcisi",
+    "member3Bio": "Makine öğrenmesi ve büyük veri sistemleri konusunda 10 yıllık deneyim. MIT mezunu.",
+    "member4Name": "Zeynep Arslan",
+    "member4Role": "Tasarım Direktörü",
+    "member4Bio": "İnsan odaklı tasarım felsefesiyle enterprise ürünlerde olağanüstü kullanıcı deneyimleri oluşturuyor.",
+    "ctaTitle": "Geleceği İnşa Etmeye Hazır mısınız?",
+    "ctaSubtitle": "Softium'un altyapısından yararlanan dünyanın en yenilikçi şirketlerinin saflarına katılın.",
+    "ctaContact": "İletişime Geçin",
+    "ctaCareers": "Kariyer Fırsatları"
+  },
   "contact": {
     "badge": "İletişim",
     "headline1": "Mükemmellikle",
@@ -201,6 +252,10 @@
     "contact": {
       "title": "İletişim | Softium Technologies",
       "description": "Projeleriniz için Softium Technologies ile iletişime geçin. Enterprise yazılım, AI ve bulut çözümleri için uzmanlarımızla konuşun."
+    },
+    "about": {
+      "title": "Hakkımızda | Softium Technologies",
+      "description": "Softium Technologies'in hikayesini, değerlerini ve ekibini tanıyın. Dijital dönüşümde global bir liderle tanışın."
     }
   }
 }

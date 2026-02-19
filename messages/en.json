@@ -122,6 +122,57 @@
     "button1": "Start Your Project",
     "button2": "Contact Sales"
   },
+  "about": {
+    "badge": "About Us",
+    "heroTitle1": "The Architects of",
+    "heroTitle2": "Innovation",
+    "heroSubtitle": "Engineering the digital infrastructure of tomorrow with unparalleled precision and elite craftsmanship.",
+    "heroCta": "Our Vision",
+    "missionTitle": "Building the Next Frontier",
+    "missionBody1": "We are committed to architecting distributed systems that redefine scalability and performance. At Softium, we don't just build software; we engineer the backbone of the modern economy.",
+    "missionBody2": "The Softium Standard is built upon the foundation of relentless pursuit of technical excellence. Our teams operate at the intersection of complex mathematics and elegant design.",
+    "missionQuote": "Precision over everything.",
+    "stats": {
+      "requests": "Requests Handled Daily",
+      "uptime": "Global Uptime Standard",
+      "countries": "Countries Served"
+    },
+    "valuesEyebrow": "Foundation",
+    "valuesTitle": "Our Core Values",
+    "values": {
+      "precision": {
+        "name": "Precision Engineering",
+        "desc": "Excellence in every line of code. We believe that true quality is found in the details that most people never see."
+      },
+      "distributed": {
+        "name": "Distributed Thinking",
+        "desc": "Systems designed for global scale. We approach every problem with a distributed mindset, ensuring resilience and elasticity."
+      },
+      "humanCentric": {
+        "name": "Human-Centric Design",
+        "desc": "Technology that empowers people. We bridge the gap between complex logic and intuitive user experiences."
+      }
+    },
+    "teamEyebrow": "Our Team",
+    "teamTitle": "The People Behind It",
+    "teamSubtitle": "A team of world-class software engineers and creative thinkers dedicated to your success.",
+    "member1Name": "Ahmet Kaya",
+    "member1Role": "CEO & Co-Founder",
+    "member1Bio": "Founded Softium with 15 years of enterprise software experience. Expert in distributed systems and AI.",
+    "member2Name": "Elif Şahin",
+    "member2Role": "CTO",
+    "member2Bio": "Cloud architecture and DevOps specialist. Previously senior engineer at Google and Amazon.",
+    "member3Name": "Can Demir",
+    "member3Role": "Lead Data Scientist",
+    "member3Bio": "10 years of experience in machine learning and big data systems. MIT graduate.",
+    "member4Name": "Zeynep Arslan",
+    "member4Role": "Design Director",
+    "member4Bio": "Creates exceptional user experiences in enterprise products with a human-centered design philosophy.",
+    "ctaTitle": "Ready to build the future?",
+    "ctaSubtitle": "Join the ranks of the world's most innovative companies leveraging Softium's infrastructure.",
+    "ctaContact": "Get in Touch",
+    "ctaCareers": "View Careers"
+  },
   "contact": {
     "badge": "Contact",
     "headline1": "Connect with",
@@ -201,6 +252,10 @@
     "contact": {
       "title": "Contact Us | Softium Technologies",
       "description": "Get in touch with Softium Technologies for your projects. Talk to our experts for enterprise software, AI, and cloud solutions."
+    },
+    "about": {
+      "title": "About Us | Softium Technologies",
+      "description": "Learn about Softium Technologies' story, values, and team. Meet a global leader in digital transformation."
     }
   }
 }
