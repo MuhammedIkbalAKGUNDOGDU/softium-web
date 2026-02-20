@@ -106,6 +106,8 @@ export default function Navbar() {
 
   const contactHref = getHref(locale === 'tr' ? '/iletisim' : locale === 'de' ? '/kontakt' : '/contact');
 
+  if (pathname.includes('/admin')) return null;
+
   return (
     <>
       <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`} id="main-nav" aria-label="Main navigation">

@@ -8,6 +8,8 @@ export function ScrollProgress() {
   const [progress, setProgress] = useState(0);
   const pathname = usePathname();
 
+  if (pathname.includes('/admin')) return null;
+
   useEffect(() => {
     // Reset progress on route change
     setProgress(0);

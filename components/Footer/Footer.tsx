@@ -3,13 +3,17 @@
 import { useTranslations } from 'next-intl';
 import { useLocale } from 'next-intl';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import styles from './Footer.module.css';
 
 export default function Footer() {
   const t = useTranslations('footer');
   const locale = useLocale();
+  const pathname = usePathname();
 
   const currentYear = new Date().getFullYear();
+
+  if (pathname.includes('/admin')) return null;
 
   const solutions = [
     { key: 'aiSystems', href: `/${locale}${locale === 'tr' ? '/hizmetler' : '/services'}#ai` },
