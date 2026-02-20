@@ -120,16 +120,21 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <div className={styles.desktopLinks} role="menubar">
-            {links.map((link) => (
-              <Link
-                key={link.key}
-                href={getHref(link.href)}
-                className={styles.navLink}
-                role="menuitem"
-              >
-                {t(link.key)}
-              </Link>
-            ))}
+            {links.map((link) => {
+              const fullHref = getHref(link.href);
+              const isActive = pathname === fullHref || pathname.startsWith(`${fullHref}/`);
+              return (
+                <Link
+                  key={link.key}
+                  href={fullHref}
+                  className={`${styles.navLink} ${isActive ? styles.navLinkActive : ''}`}
+                  role="menuitem"
+                  aria-current={isActive ? 'page' : undefined}
+                >
+                  {t(link.key)}
+                </Link>
+              );
+            })}
           </div>
 
           {/* Actions */}
@@ -219,17 +224,22 @@ export default function Navbar() {
         {/* Mobile Menu */}
         <div className={`${styles.mobileMenu} ${mobileOpen ? styles.mobileMenuOpen : ''}`} id="mobile-menu" aria-hidden={!mobileOpen}>
           <div className={styles.mobileLinksWrapper}>
-            {links.map((link, i) => (
-              <Link
-                key={link.key}
-                href={getHref(link.href)}
-                className={styles.mobileLink}
-                onClick={() => setMobileOpen(false)}
-                style={{ animationDelay: `${i * 0.05}s` }}
-              >
-                {t(link.key)}
-              </Link>
-            ))}
+            {links.map((link, i) => {
+              const fullHref = getHref(link.href);
+              const isActive = pathname === fullHref || pathname.startsWith(`${fullHref}/`);
+              return (
+                <Link
+                  key={link.key}
+                  href={fullHref}
+                  className={`${styles.mobileLink} ${isActive ? styles.mobileLinkActive : ''}`}
+                  onClick={() => setMobileOpen(false)}
+                  style={{ animationDelay: `${i * 0.05}s` }}
+                  aria-current={isActive ? 'page' : undefined}
+                >
+                  {t(link.key)}
+                </Link>
+              );
+            })}
             <div className={styles.mobileDivider} />
             <div className={styles.mobileActions}>
               {/* Mobile Language Switcher */}

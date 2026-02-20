@@ -96,6 +96,12 @@
   text-decoration: none;
 }
 
+.navLinkActive {
+  color: var(--primary);
+  background: var(--bg-secondary);
+  font-weight: 600;
+}
+
 .navLink:hover {
   color: var(--text-primary);
   background: var(--bg-secondary);
@@ -311,6 +317,12 @@
   border-radius: var(--radius-md);
   text-decoration: none;
   transition: all var(--transition-fast);
+}
+
+.mobileLinkActive {
+  color: var(--primary);
+  background: var(--primary-glow);
+  font-weight: 600;
 }
 
 .mobileLink:hover {
