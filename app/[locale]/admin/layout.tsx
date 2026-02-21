@@ -14,6 +14,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     { name: 'Referanslar', href: `/${locale}/admin/references`, icon: 'account_balance' },
     { name: 'Blog Yönetimi', href: `/${locale}/admin/blog`, icon: 'article' },
     { name: 'İletişim Talepleri', href: `/${locale}/admin/contact`, icon: 'mail' },
+    { name: 'Bülten (Newsletter)', href: `/${locale}/admin/newsletter`, icon: 'mark_email_read' },
     { name: 'Genel Ayarlar', href: `/${locale}/admin/settings`, icon: 'settings' },
   ];
 

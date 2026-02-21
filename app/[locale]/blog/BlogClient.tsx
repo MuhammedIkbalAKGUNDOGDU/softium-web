@@ -33,6 +33,10 @@ export default function BlogClient({ posts }: BlogClientProps) {
   const [activeCategory, setActiveCategory] = useState<string>('all');
   const [visibleCount, setVisibleCount] = useState(6);
 
+  const [nlEmail, setNlEmail] = useState('');
+  const [nlLoading, setNlLoading] = useState(false);
+  const [nlMessage, setNlMessage] = useState('');
+
   // Extract unique categories from actual posts
   const dynamicCategories = ['all'];
   posts.forEach(p => {
@@ -165,9 +169,28 @@ export default function BlogClient({ posts }: BlogClientProps) {
               
               <form 
                 className={styles.newsletterForm}
-                onSubmit={(e) => {
+                onSubmit={async (e) => {
                   e.preventDefault();
-                  alert('Thank you for subscribing!');
+                  if(!nlEmail) return;
+                  setNlLoading(true);
+                  try {
+                    const res = await fetch('http://localhost:5262/api/newsletter/subscribe', {
+                      method: 'POST',
+                      headers: {'Content-Type': 'application/json'},
+                      body: JSON.stringify({ email: nlEmail })
+                    });
+                    if (res.ok) {
+                      setNlMessage(locale === 'tr' ? 'Bültenimize başarıyla abone oldunuz!' : 'Successfully subscribed to our newsletter!');
+                      setNlEmail('');
+                    } else {
+                      setNlMessage(locale === 'tr' ? 'Bir hata oluştu.' : 'An error occurred.');
+                    }
+                  } catch (e) {
+                     setNlMessage(locale === 'tr' ? 'Bağlantı hatası!' : 'Connection error!');
+                  } finally {
+                     setNlLoading(false);
+                     setTimeout(() => setNlMessage(''), 5000);
+                  }
                 }}
               >
                 <input
@@ -176,14 +199,18 @@ export default function BlogClient({ posts }: BlogClientProps) {
                   placeholder={t('newsletterPlaceholder')}
                   required
                   aria-label="Email address"
+                  value={nlEmail}
+                  onChange={e => setNlEmail(e.target.value)}
+                  disabled={nlLoading}
                 />
-                <button type="submit" className={styles.newsletterBtn} id="blog-subscribe-btn">
-                  {t('newsletterBtn')}
+                <button type="submit" className={styles.newsletterBtn} id="blog-subscribe-btn" disabled={nlLoading}>
+                  {nlLoading ? '...' : t('newsletterBtn')}
                   <span className="material-symbols-outlined" style={{ fontSize: '1.125rem' }}>
                     mark_email_read
                   </span>
                 </button>
               </form>
+              {nlMessage && <p style={{marginTop: '1rem', color: 'rgba(255,255,255,0.8)', fontSize: '0.875rem'}}>{nlMessage}</p>}
             </div>
           </div>
         </div>

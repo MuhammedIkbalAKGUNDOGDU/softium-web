@@ -13,6 +13,9 @@ export default function Footer() {
   const pathname = usePathname();
 
   const [settings, setSettings] = useState<Record<string, string>>({});
+  const [nlEmail, setNlEmail] = useState('');
+  const [nlLoading, setNlLoading] = useState(false);
+  const [nlMessage, setNlMessage] = useState('');
 
   useEffect(() => {
     const fetchSettings = async () => {
@@ -155,6 +158,74 @@ export default function Footer() {
                 </a>
               )}
             </div>
+
+            {/* Quick Newsletter */}
+            <div style={{ marginTop: '2rem' }}>
+              <h4 style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--text-primary)', marginBottom: '0.5rem' }}>Bültenimize Abone Olun</h4>
+              <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '1rem' }}>Sektörel haberler ve güncellemelerden haberdar olun.</p>
+              <form 
+                style={{ display: 'flex', gap: '0.5rem' }}
+                onSubmit={async (e) => {
+                  e.preventDefault();
+                  if(!nlEmail) return;
+                  setNlLoading(true);
+                  try {
+                    const res = await fetch('http://localhost:5262/api/newsletter/subscribe', {
+                      method: 'POST',
+                      headers: {'Content-Type': 'application/json'},
+                      body: JSON.stringify({ email: nlEmail })
+                    });
+                    if (res.ok) {
+                      setNlMessage(locale === 'tr' ? 'Bültene başarıyla abone oldunuz!' : 'Successfully subscribed!');
+                      setNlEmail('');
+                    } else {
+                      setNlMessage(locale === 'tr' ? 'Bir hata oluştu.' : 'An error occurred.');
+                    }
+                  } catch (e) {
+                     setNlMessage(locale === 'tr' ? 'Bağlantı hatası!' : 'Connection error!');
+                  } finally {
+                     setNlLoading(false);
+                     setTimeout(() => setNlMessage(''), 5000);
+                  }
+                }}
+              >
+                <input 
+                  type="email" 
+                  value={nlEmail}
+                  onChange={e => setNlEmail(e.target.value)}
+                  placeholder="hello@company.com" 
+                  disabled={nlLoading}
+                  style={{ 
+                    flex: 1, 
+                    padding: '0.5rem 0.75rem', 
+                    borderRadius: 'var(--radius-md)', 
+                    border: '1px solid var(--border-light)', 
+                    background: 'var(--bg)', 
+                    fontSize: '0.8125rem',
+                    color: 'var(--text-primary)' 
+                  }} 
+                  required
+                />
+                <button 
+                  type="submit" 
+                  disabled={nlLoading}
+                  style={{ 
+                    padding: '0.5rem 1rem', 
+                    background: 'var(--primary)', 
+                    color: 'white', 
+                    border: 'none', 
+                    borderRadius: 'var(--radius-md)', 
+                    fontSize: '0.8125rem', 
+                    fontWeight: 600, 
+                    cursor: 'pointer' 
+                  }}
+                >
+                  {nlLoading ? '...' : (locale === 'tr' ? 'Katıl' : 'Join')}
+                </button>
+              </form>
+              {nlMessage && <div style={{ marginTop: '0.5rem', fontSize: '0.75rem', color: 'var(--primary)' }}>{nlMessage}</div>}
+            </div>
+
           </div>
 
           {/* Links */}
