@@ -1,14 +1,74 @@
 'use client';
+import { useState, useEffect } from 'react';
 import styles from '../admin.module.css';
 
 export default function SettingsAdmin() {
+  const [settings, setSettings] = useState({
+    Email: '',
+    Phone: '',
+    Address: '',
+    LinkedIn: '',
+    Twitter: '',
+    GitHub: '',
+    Instagram: ''
+  });
+  const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
+
+  useEffect(() => {
+    fetchSettings();
+  }, []);
+
+  const fetchSettings = async () => {
+    try {
+      const res = await fetch('http://localhost:5262/api/sitesettings');
+      if (res.ok) {
+        const data = await res.json();
+        
+        const newSettings = { ...settings };
+        data.forEach((item: any) => {
+          if (newSettings.hasOwnProperty(item.settingKey)) {
+            (newSettings as any)[item.settingKey] = item.settingValue;
+          }
+        });
+        
+        setSettings(newSettings);
+      }
+    } catch (e) {
+      console.error(e);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleSave = async () => {
+    setSaving(true);
+    try {
+      const res = await fetch('http://localhost:5262/api/sitesettings/bulk', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(settings)
+      });
+      if (res.ok) {
+        alert('Ayarlar başarıyla kaydedildi!');
+      }
+    } catch (e) {
+      console.error(e);
+      alert('Ayarlar kaydedilemedi.');
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  if (loading) return <div style={{ padding: '2rem' }}>Yükleniyor...</div>;
+
   return (
     <>
       <div className={styles.pageHeader}>
-        <h1 className={styles.pageTitle}>Genel Ayarlar</h1>
-        <button className={styles.button}>
+        <h1 className={styles.pageTitle}>Genel Bilgiler</h1>
+        <button className={styles.button} onClick={handleSave} disabled={saving}>
           <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>save</span>
-          Değişiklikleri Kaydet
+          {saving ? 'Kaydediliyor...' : 'Değişiklikleri Kaydet'}
         </button>
       </div>
 
@@ -18,17 +78,35 @@ export default function SettingsAdmin() {
         <div className={styles.formGrid}>
           <div className={styles.formGroup}>
             <label className={styles.label}>E-posta Adresi</label>
-            <input type="email" className={styles.input} defaultValue="hello@softium.tech" />
+            <input 
+              type="email" 
+              className={styles.input} 
+              value={settings.Email} 
+              onChange={e => setSettings({...settings, Email: e.target.value})}
+              placeholder="Boş bırakılırsa sitede gizlenir"
+            />
           </div>
           <div className={styles.formGroup}>
             <label className={styles.label}>Telefon Numarası</label>
-            <input type="tel" className={styles.input} defaultValue="+44 20 1234 5678" />
+            <input 
+              type="tel" 
+              className={styles.input} 
+              value={settings.Phone}
+              onChange={e => setSettings({...settings, Phone: e.target.value})}
+              placeholder="Boş bırakılırsa sitede gizlenir"
+            />
           </div>
         </div>
 
         <div className={styles.formGroup}>
           <label className={styles.label}>Şirket Adresi (Ofis)</label>
-          <input type="text" className={styles.input} defaultValue="One Canada Square, Canary Wharf, London, UK" />
+          <input 
+            type="text" 
+            className={styles.input} 
+            value={settings.Address}
+            onChange={e => setSettings({...settings, Address: e.target.value})}
+            placeholder="Boş bırakılırsa sitede gizlenir"
+          />
         </div>
       </div>
 
@@ -37,32 +115,42 @@ export default function SettingsAdmin() {
         
         <div className={styles.formGroup}>
           <label className={styles.label}>LinkedIn Profil URL</label>
-          <input type="text" className={styles.input} defaultValue="https://linkedin.com/company/softiumtech" />
+          <input 
+            type="text" 
+            className={styles.input} 
+            value={settings.LinkedIn}
+            onChange={e => setSettings({...settings, LinkedIn: e.target.value})}
+            placeholder="Link yoksa ikonu sitede görünmez"
+          />
         </div>
         <div className={styles.formGroup}>
           <label className={styles.label}>X (Twitter) Profil URL</label>
-          <input type="text" className={styles.input} defaultValue="https://twitter.com/softiumtech" />
+          <input 
+            type="text" 
+            className={styles.input} 
+            value={settings.Twitter}
+            onChange={e => setSettings({...settings, Twitter: e.target.value})}
+            placeholder="Link yoksa ikonu sitede görünmez"
+          />
         </div>
         <div className={styles.formGroup}>
           <label className={styles.label}>GitHub Profil URL</label>
-          <input type="text" className={styles.input} defaultValue="https://github.com/softiumtech" />
-        </div>
-      </div>
-
-      <div className={styles.formCard}>
-        <div className={styles.formCardTitle}>Arama Motoru (SEO) Genel Ayarları</div>
-        
-        <div className={styles.formGroup}>
-          <label className={styles.label}>Varsayılan Site Başlığı (Title)</label>
-          <input type="text" className={styles.input} defaultValue="Softium Technologies | Engineering the Future of Intelligence" />
-        </div>
-        <div className={styles.formGroup}>
-          <label className={styles.label}>Site Açıklaması (Meta Description)</label>
-          <textarea 
+          <input 
+            type="text" 
             className={styles.input} 
-            rows={3} 
-            defaultValue="Softium Technologies delivers enterprise-grade software solutions for AI, cloud infrastructure, SaaS, and digital transformation." 
-            style={{ resize: 'vertical' }}
+            value={settings.GitHub}
+            onChange={e => setSettings({...settings, GitHub: e.target.value})}
+            placeholder="Link yoksa ikonu sitede görünmez"
+          />
+        </div>
+        <div className={styles.formGroup}>
+          <label className={styles.label}>Instagram Profil URL</label>
+          <input 
+            type="text" 
+            className={styles.input} 
+            value={settings.Instagram}
+            onChange={e => setSettings({...settings, Instagram: e.target.value})}
+            placeholder="Link yoksa ikonu sitede görünmez"
           />
         </div>
       </div>

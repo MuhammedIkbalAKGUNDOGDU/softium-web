@@ -17,6 +17,7 @@ export default function ContactForm() {
   const [values, setValues] = useState({
     name: '', email: '', company: '', service: '', message: '',
   });
+  const [settings, setSettings] = useState<Record<string, string>>({});
 
   const sectionRef = useRef<HTMLDivElement>(null);
 
@@ -26,6 +27,22 @@ export default function ContactForm() {
       { threshold: 0.08 }
     );
     sectionRef.current?.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    
+    const fetchSettings = async () => {
+      try {
+        const res = await fetch('http://localhost:5262/api/sitesettings');
+        if (res.ok) {
+          const data = await res.json();
+          const s: Record<string, string> = {};
+          data.forEach((i: any) => s[i.settingKey] = i.settingValue);
+          setSettings(s);
+        }
+      } catch (e) {
+        console.error('Failed to load settings', e);
+      }
+    };
+    fetchSettings();
+
     return () => observer.disconnect();
   }, []);
 
@@ -92,29 +109,33 @@ export default function ContactForm() {
 
           {/* Info rows */}
           <div className={styles.infoList}>
-            <div className={styles.infoItem} id="contact-email">
-              <div className={styles.infoIcon}>
-                <span className="material-symbols-outlined" style={{ fontSize: '1.125rem' }}>mail</span>
+            {settings.Email && (
+              <div className={styles.infoItem} id="contact-email">
+                <div className={styles.infoIcon}>
+                  <span className="material-symbols-outlined" style={{ fontSize: '1.125rem' }}>mail</span>
+                </div>
+                <div>
+                  <div className={styles.infoLabel}>{t('info.emailLabel')}</div>
+                  <a href={`mailto:${settings.Email}`} className={styles.infoValue}>
+                    {settings.Email}
+                  </a>
+                </div>
               </div>
-              <div>
-                <div className={styles.infoLabel}>{t('info.emailLabel')}</div>
-                <a href="mailto:hello@softium.tech" className={styles.infoValue}>
-                  hello@softium.tech
-                </a>
-              </div>
-            </div>
+            )}
 
-            <div className={styles.infoItem} id="contact-phone">
-              <div className={styles.infoIcon}>
-                <span className="material-symbols-outlined" style={{ fontSize: '1.125rem' }}>call</span>
+            {settings.Phone && (
+              <div className={styles.infoItem} id="contact-phone">
+                <div className={styles.infoIcon}>
+                  <span className="material-symbols-outlined" style={{ fontSize: '1.125rem' }}>call</span>
+                </div>
+                <div>
+                  <div className={styles.infoLabel}>{t('info.phoneLabel')}</div>
+                  <a href={`tel:${settings.Phone}`} className={styles.infoValue}>
+                    {settings.Phone}
+                  </a>
+                </div>
               </div>
-              <div>
-                <div className={styles.infoLabel}>{t('info.phoneLabel')}</div>
-                <a href="tel:+902121234567" className={styles.infoValue}>
-                  {t('info.phone')}
-                </a>
-              </div>
-            </div>
+            )}
 
             <div className={styles.infoItem} id="contact-hours">
               <div className={styles.infoIcon}>
