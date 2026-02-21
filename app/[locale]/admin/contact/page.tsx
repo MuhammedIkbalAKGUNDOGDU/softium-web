@@ -163,8 +163,9 @@ export default function ContactAdmin() {
                     <span className={`${styles.statusBadge} 
                       ${msg.status === 'Bekliyor' ? styles.statusWarning : 
                         msg.status === 'Okundu' ? 'bg-slate-100 text-slate-700' : 
+                        msg.status === 'İşlem Sürüyor' ? 'bg-blue-100 text-blue-700' :
                         styles.statusSuccess}`
-                    } style={{ backgroundColor: msg.status === 'Okundu' ? '#e2e8f0' : undefined, color: msg.status === 'Okundu' ? '#475569' : undefined }}>
+                    } style={{ backgroundColor: msg.status === 'Okundu' ? '#e2e8f0' : msg.status === 'İşlem Sürüyor' ? '#dbeafe' : undefined, color: msg.status === 'Okundu' ? '#475569' : msg.status === 'İşlem Sürüyor' ? '#1d4ed8' : undefined }}>
                       {msg.status}
                     </span>
                   </td>
@@ -191,7 +192,7 @@ export default function ContactAdmin() {
             <div className={styles.formCardTitle} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #e2e8f0', paddingBottom: '1rem', marginBottom: '1.5rem' }}>
               <div>
                 Mesaj Detayı 
-                <span className={`${styles.statusBadge} ${selectedMessage.status === 'Bekliyor' ? styles.statusWarning : selectedMessage.status === 'Okundu' ? 'bg-slate-100' : styles.statusSuccess}`} style={{marginLeft: '1rem', fontSize: '0.75rem', padding: '0.2rem 0.6rem'}}>
+                <span className={`${styles.statusBadge} ${selectedMessage.status === 'Bekliyor' ? styles.statusWarning : selectedMessage.status === 'Okundu' ? 'bg-slate-100' : selectedMessage.status === 'İşlem Sürüyor' ? 'bg-blue-100' : styles.statusSuccess}`} style={{marginLeft: '1rem', fontSize: '0.75rem', padding: '0.2rem 0.6rem', backgroundColor: selectedMessage.status === 'Okundu' ? '#e2e8f0' : selectedMessage.status === 'İşlem Sürüyor' ? '#dbeafe' : undefined, color: selectedMessage.status === 'Okundu' ? '#475569' : selectedMessage.status === 'İşlem Sürüyor' ? '#1d4ed8' : undefined }}>
                   Durum: {selectedMessage.status}
                 </span>
               </div>
@@ -223,12 +224,17 @@ export default function ContactAdmin() {
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginTop: '1.5rem', borderTop: '1px solid #e2e8f0', paddingTop: '1rem' }}>
                    <label className={styles.label} style={{ fontSize: '0.75rem', marginBottom: '0' }}>Durum İşlemi</label>
+                   {selectedMessage.status !== 'İşlem Sürüyor' && selectedMessage.status !== 'Yanıtlandı' && (
+                     <button className={styles.buttonOutline} style={{ padding: '0.5rem', borderColor: '#3b82f6', color: '#3b82f6' }} onClick={() => handleUpdateStatus('İşlem Sürüyor')}>
+                       Süreci Başlat (İşlem Sürüyor)
+                     </button>
+                   )}
                    {selectedMessage.status !== 'Yanıtlandı' && (
                      <button className={styles.button} style={{ padding: '0.5rem' }} onClick={() => handleUpdateStatus('Yanıtlandı')}>
                        Yanıtlandı Olarak İşaretle
                      </button>
                    )}
-                   {selectedMessage.status === 'Yanıtlandı' && (
+                   {(selectedMessage.status === 'Yanıtlandı' || selectedMessage.status === 'İşlem Sürüyor') && (
                      <button className={styles.buttonOutline} style={{ padding: '0.5rem' }} onClick={() => handleUpdateStatus('Okundu')}>
                        Okundu'ya Geri Çek
                      </button>

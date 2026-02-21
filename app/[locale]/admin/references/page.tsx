@@ -9,6 +9,7 @@ interface Reference {
   icon?: string;
   logoUrl?: string;
   websiteUrl?: string;
+  description?: string;
   isActive: boolean;
   createdAt: string;
 }
@@ -27,6 +28,7 @@ export default function ReferencesAdmin() {
     icon: '',
     logoUrl: '',
     websiteUrl: '',
+    description: '',
     isActive: true
   });
 
@@ -53,7 +55,7 @@ export default function ReferencesAdmin() {
 
   const openAddModal = () => {
     setEditingId(null);
-    setFormData({ name: '', industry: '', icon: '', logoUrl: '', websiteUrl: '', isActive: true });
+    setFormData({ name: '', industry: '', icon: '', logoUrl: '', websiteUrl: '', description: '', isActive: true });
     setIsModalOpen(true);
   };
 
@@ -65,6 +67,7 @@ export default function ReferencesAdmin() {
       icon: ref.icon || '',
       logoUrl: ref.logoUrl || '',
       websiteUrl: ref.websiteUrl || '',
+      description: ref.description || '',
       isActive: ref.isActive
     });
     setIsModalOpen(true);
@@ -251,6 +254,11 @@ export default function ReferencesAdmin() {
               <div className={styles.formGroup}>
                 <label className={styles.label}>Website URL (Opsiyonel)</label>
                 <input type="url" className={styles.input} placeholder="https://..." value={formData.websiteUrl} onChange={e => setFormData({...formData, websiteUrl: e.target.value})} />
+              </div>
+
+              <div className={styles.formGroup}>
+                <label className={styles.label}>Özel Açıklama (Opsiyonel)</label>
+                <textarea className={styles.input} rows={3} placeholder="Değerli iş ortaklarımızdan biri olan ... ile birlikte sektörde yenilikçi adımlar atıyoruz." value={formData.description} onChange={e => setFormData({...formData, description: e.target.value})} />
               </div>
 
               <div className={styles.formGroup} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>

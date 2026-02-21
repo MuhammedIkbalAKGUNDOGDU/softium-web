@@ -63,8 +63,11 @@ export default async function ReferencesPage({ params }: Props) {
                 <h3 className={styles.companyName}>{company.name}</h3>
                 <span className={styles.industry}>{company.industry}</span>
                 <p className={styles.description}>
-                  {/* Backend'den gelen verida aciklama henuz yok, o yuzden dilden veya varsayılan bir yazi kullanilabilir. */}
-                  {t.has(`companies.${company.name}`) ? t(`companies.${company.name}`) : 'Değerli iş ortaklarımızdan biri olan ' + company.name + ' ile birlikte sektörde yenilikçi adımlar atıyoruz.'}
+                  {company.description 
+                    ? company.description 
+                    : t.has(`companies.${company.name}`) 
+                      ? t(`companies.${company.name}`) 
+                      : 'Değerli iş ortaklarımızdan biri olan ' + company.name + ' ile birlikte sektörde yenilikçi adımlar atıyoruz.'}
                 </p>
                 {company.websiteUrl && (
                   <a href={company.websiteUrl} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.25rem', marginTop: '1rem', color: 'var(--primary)', fontWeight: 600, textDecoration: 'none', fontSize: '0.875rem' }}>
