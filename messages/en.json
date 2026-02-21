@@ -241,6 +241,10 @@
     "viewAll": "View all posts",
     "minRead": "min read",
     "loadMore": "Load More Articles",
+    "newsletterTitle": "Weekly Newsletter",
+    "newsletterDesc": "Get the latest engineering insights and tech news delivered straight to your inbox.",
+    "newsletterPlaceholder": "Email address",
+    "newsletterBtn": "Subscribe",
     "articles": {
       "distributed-tracing": {
         "category": "Engineering",

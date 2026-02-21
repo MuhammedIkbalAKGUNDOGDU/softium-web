@@ -241,6 +241,10 @@
     "viewAll": "Tüm yazıları gör",
     "minRead": "dk okuma",
     "loadMore": "Daha Fazla Yükle",
+    "newsletterTitle": "Haftalık Bülten",
+    "newsletterDesc": "En son mühendislik analizleri ve teknoloji haberlerini doğrudan e-postanıza alın.",
+    "newsletterPlaceholder": "E-posta adresiniz",
+    "newsletterBtn": "Abone Ol",
     "articles": {
       "distributed-tracing": {
         "category": "Mühendislik",

@@ -239,6 +239,10 @@
     "viewAll": "Alle Beiträge anzeigen",
     "minRead": "Min Lesen",
     "loadMore": "Mehr Artikel laden",
+    "newsletterTitle": "Wöchentlicher Newsletter",
+    "newsletterDesc": "Erhalten Sie die neuesten technischen Einblicke und Neuigkeiten direkt in Ihren Posteingang.",
+    "newsletterPlaceholder": "E-Mail-Adresse",
+    "newsletterBtn": "Abonnieren",
     "articles": {
       "distributed-tracing": {
         "category": "Engineering",
