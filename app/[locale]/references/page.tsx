@@ -19,17 +19,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default function ReferencesPage() {
-  const t = useTranslations('references');
+export default async function ReferencesPage({ params }: Props) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'references' });
 
-  const COMPANIES = [
-    { id: 'techcorp', icon: 'account_balance', name: 'Global Tech Corp', industry: 'Fintech' },
-    { id: 'nexus', icon: 'monitor_heart', name: 'Nexus Health', industry: 'Healthcare' },
-    { id: 'future', icon: 'local_shipping', name: 'Future Logistics', industry: 'Logistics' },
-    { id: 'alpha', icon: 'verified_user', name: 'Alpha Systems', industry: 'Defense' },
-    { id: 'eco', icon: 'bolt', name: 'EcoGreen Energy', industry: 'Energy' },
-    { id: 'urban', icon: 'apartment', name: 'Urban Architects', industry: 'Construction' },
-  ] as const;
+  let COMPANIES: any[] = [];
+  try {
+    const res = await fetch('http://localhost:5262/api/references', { next: { revalidate: 60 } });
+    if (res.ok) {
+      const data = await res.json();
+      COMPANIES = data.filter((company: any) => company.isActive);
+    }
+  } catch (error) {
+    console.error("Geliştirici Notu: Backend bağlantısı kurulamadı. Veritabanı verileri çekilemedi.", error);
+  }
 
   return (
     <main style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
@@ -45,26 +48,37 @@ export default function ReferencesPage() {
       {/* Grid Section */}
       <section className={styles.gridContainer} style={{ flex: 1 }}>
         <div className={styles.grid}>
-          {COMPANIES.map((company) => (
-            <div key={company.id} className={styles.card}>
-              <div className={styles.logoArea}>
-                <span className="material-symbols-outlined" style={{ fontSize: '2rem' }}>
-                  {company.icon}
-                </span>
+          {COMPANIES.length > 0 ? (
+            COMPANIES.map((company) => (
+              <div key={company.id} className={styles.card}>
+                <div className={styles.logoArea}>
+                  {company.logoUrl ? (
+                    <img src={company.logoUrl} alt={company.name} style={{ width: '80px', height: '80px', objectFit: 'contain' }} />
+                  ) : (
+                    <span className="material-symbols-outlined" style={{ fontSize: '2rem' }}>
+                      {company.icon || 'corporate_fare'}
+                    </span>
+                  )}
+                </div>
+                <h3 className={styles.companyName}>{company.name}</h3>
+                <span className={styles.industry}>{company.industry}</span>
+                <p className={styles.description}>
+                  {/* Backend'den gelen verida aciklama henuz yok, o yuzden dilden veya varsayılan bir yazi kullanilabilir. */}
+                  {t.has(`companies.${company.name}`) ? t(`companies.${company.name}`) : 'Değerli iş ortaklarımızdan biri olan ' + company.name + ' ile birlikte sektörde yenilikçi adımlar atıyoruz.'}
+                </p>
+                {company.websiteUrl && (
+                  <a href={company.websiteUrl} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.25rem', marginTop: '1rem', color: 'var(--primary)', fontWeight: 600, textDecoration: 'none', fontSize: '0.875rem' }}>
+                    Websiteyi Ziyaret Et
+                    <span className="material-symbols-outlined" style={{ fontSize: '1rem' }}>open_in_new</span>
+                  </a>
+                )}
               </div>
-              <h3 className={styles.companyName}>{company.name}</h3>
-              <span className={styles.industry}>{company.industry}</span>
-              <p className={styles.description}>
-                {t(`companies.${company.id}`)}
-              </p>
-              {/* Optional: Link to case study if available later
-              <a href="#" className={styles.link}>
-                View Case Study
-                <span className="material-symbols-outlined" style={{ fontSize: '1rem' }}>arrow_forward</span>
-              </a>
-              */}
-            </div>
-          ))}
+            ))
+          ) : (
+             <div style={{ textAlign: 'center', gridColumn: '1 / -1', padding: '4rem', color: 'var(--text-muted)' }}>
+               {t.has('empty') ? t('empty') : 'Şu an aktif referans bulunmamaktadır.'}
+             </div>
+          )}
         </div>
       </section>
 

@@ -4,17 +4,40 @@ import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useLocale } from 'next-intl';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styles from './HeroSection.module.css';
+
+interface Reference {
+  id: string;
+  name: string;
+  logoUrl?: string;
+}
 
 export default function HeroSection() {
   const t = useTranslations('hero');
   const locale = useLocale();
   const hasAnimated = useRef(false);
+  const [clients, setClients] = useState<Reference[]>([]);
 
   useEffect(() => {
-    if (hasAnimated.current) return;
-    hasAnimated.current = true;
+    if (!hasAnimated.current) {
+      hasAnimated.current = true;
+    }
+
+    // Backend'den aktif referanslari cek ve anasayfada sergile
+    fetch('http://localhost:5262/api/references')
+      .then(res => res.json())
+      .then(data => {
+        if (Array.isArray(data)) {
+          const activeRefs = data.filter((r: any) => r.isActive).map(r => ({
+            id: r.id, 
+            name: r.name,
+            logoUrl: r.logoUrl
+          }));
+          setClients(activeRefs.slice(0, 5)); // Maksimum 5 adet göster
+        }
+      })
+      .catch(err => console.error("Referanslar cekilemedi: ", err));
   }, []);
 
   return (
@@ -92,11 +115,21 @@ export default function HeroSection() {
           <div className={`${styles.trustedBy} animate-fade-up`} style={{ animationDelay: '0.5s' }}>
             <p className={styles.trustedLabel}>{t('trustedBy')}</p>
             <div className={styles.clientLogos}>
-              {['MICROSOFT', 'ORACLE', 'AWS', 'STRIPE', 'VERCEL'].map((name) => (
-                <div key={name} className={styles.clientLogo}>
-                  <span>{name}</span>
+              {clients.length > 0 ? clients.map((client) => (
+                <div key={client.id} className={styles.clientLogo}>
+                  {client.logoUrl ? (
+                    <img src={client.logoUrl} alt={client.name} style={{ height: '24px', objectFit: 'contain', filter: 'grayscale(100%)', opacity: 0.8 }} />
+                  ) : (
+                    <span>{client.name.toUpperCase()}</span>
+                  )}
                 </div>
-              ))}
+              )) : (
+                ['MICROSOFT', 'ORACLE', 'AWS', 'STRIPE', 'VERCEL'].map((name) => (
+                  <div key={name} className={styles.clientLogo}>
+                    <span>{name}</span>
+                  </div>
+                ))
+              )}
             </div>
           </div>
         </div>

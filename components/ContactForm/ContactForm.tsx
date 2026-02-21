@@ -36,9 +36,32 @@ export default function ContactForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setFormState('submitting');
-    // Simulate API call
-    await new Promise((res) => setTimeout(res, 1600));
-    setFormState('success');
+    
+    try {
+      const response = await fetch('http://localhost:5262/api/contactrequests', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: values.name,
+          email: values.email,
+          company: values.company,
+          message: `[Kategori/Servis: ${values.service || 'Belirtilmedi'}]\n\n${values.message}`
+        })
+      });
+
+      if (response.ok) {
+        setFormState('success');
+      } else {
+        setFormState('idle');
+        alert('Talep oluşturulurken bir hata meydana geldi. Lütfen tekrar deneyin.');
+      }
+    } catch (error) {
+      console.error('Submit Error:', error);
+      setFormState('idle');
+      alert('Ağ bağlantısı hatası oluştu!');
+    }
   };
 
   const handleReset = () => {
