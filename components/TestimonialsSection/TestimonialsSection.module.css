@@ -4,14 +4,33 @@
 }
 
 .grid {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
   gap: 1.5rem;
+  overflow-x: auto;
+  padding-bottom: 2rem;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary) transparent;
 }
 
-@media (min-width: 768px) {
+.grid::-webkit-scrollbar {
+  height: 6px;
+}
+
+.grid::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.grid::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 10px;
+}
+
+@media (max-width: 767px) {
   .grid {
-    grid-template-columns: repeat(3, 1fr);
+    padding-bottom: 1rem;
+    gap: 1rem;
   }
 }
 
@@ -24,6 +43,16 @@
   position: relative;
   overflow: hidden;
   transition: all var(--transition-slow);
+  flex: 0 0 calc(100% - 2rem);
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .card {
+    flex: 0 0 calc(33.333% - 1rem);
+  }
 }
 
 .card:hover {

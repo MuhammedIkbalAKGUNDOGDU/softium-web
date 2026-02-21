@@ -12,6 +12,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const navItems = [
     { name: 'Dashboard', href: `/${locale}/admin`, icon: 'dashboard' },
     { name: 'Referanslar', href: `/${locale}/admin/references`, icon: 'account_balance' },
+    { name: 'Müşteri Yorumları', href: `/${locale}/admin/testimonials`, icon: 'forum' },
     { name: 'Blog Yönetimi', href: `/${locale}/admin/blog`, icon: 'article' },
     { name: 'İletişim Talepleri', href: `/${locale}/admin/contact`, icon: 'mail' },
     { name: 'Bülten (Newsletter)', href: `/${locale}/admin/newsletter`, icon: 'mark_email_read' },
