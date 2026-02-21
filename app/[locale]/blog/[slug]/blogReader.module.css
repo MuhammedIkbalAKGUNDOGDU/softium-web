@@ -233,16 +233,37 @@
   border-bottom-color: var(--primary);
 }
 
-.richText pre {
+.richText pre,
+.richText .ql-syntax,
+.richText .ql-code-block-container {
+  display: block;
   background: #0f172a;
   color: #f8fafc;
   padding: 1.5rem;
   border-radius: var(--radius-md);
   overflow-x: auto;
   margin: 2rem 0;
-  font-family: monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   font-size: 0.875rem;
-  line-height: 1.5;
+  line-height: 1.6;
+  white-space: pre;
+  tab-size: 2;
+}
+
+.richText code {
+  background: var(--bg-secondary);
+  color: var(--primary);
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.875em;
+}
+
+.richText pre code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  border-radius: 0;
 }
 
 /* ─── Back Button ────────────────────────────────── */
