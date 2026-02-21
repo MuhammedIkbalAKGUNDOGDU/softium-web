@@ -23,7 +23,13 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       {/* Sidebar */}
       <aside className={styles.sidebar}>
         <div className={styles.sidebarHeader}>
-          Softium Admin
+          <Link href={`/${locale}/admin`} style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
+            <img 
+              src="/logo_arkaplansız_beyaz.png" 
+              alt="Softium Logo" 
+              style={{ height: '96px', width: 'auto', objectFit: 'contain' }} 
+            />
+          </Link>
         </div>
         <nav className={styles.nav}>
           {navItems.map((item) => {

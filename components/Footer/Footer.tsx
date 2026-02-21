@@ -36,6 +36,30 @@ export default function Footer() {
     fetchSettings();
   }, []);
 
+  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+
+  useEffect(() => {
+    const handleThemeChange = () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+      setTheme(currentTheme as 'light' | 'dark');
+    };
+
+    handleThemeChange(); // Initial check
+
+    // Setup an observer to watch for theme attribute changes on the html tag
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'data-theme') {
+          handleThemeChange();
+        }
+      });
+    });
+
+    observer.observe(document.documentElement, { attributes: true });
+
+    return () => observer.disconnect();
+  }, []);
+
   const currentYear = new Date().getFullYear();
 
   if (pathname.includes('/admin')) return null;
@@ -68,12 +92,11 @@ export default function Footer() {
           {/* Brand */}
           <div className={styles.brand}>
             <Link href={`/${locale}`} className={styles.logo} aria-label="Softium Technologies homepage">
-              <div className={styles.logoIcon} aria-hidden="true">
-                <span className="material-symbols-outlined" style={{ fontSize: '1.25rem', fontVariationSettings: "'FILL' 1" }}>
-                  all_inclusive
-                </span>
-              </div>
-              <span className={styles.logoText}>Softium</span>
+              <img 
+                src={theme === 'dark' ? '/logo_arkaplansız_beyaz.png' : '/logo_arkaplansız_siyah.png'} 
+                alt="Softium Logo" 
+                style={{ height: '96px', width: 'auto', objectFit: 'contain', filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))' }} 
+              />
             </Link>
             <p className={styles.brandDesc}>{t('description')}</p>
 

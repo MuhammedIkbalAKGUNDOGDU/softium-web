@@ -114,10 +114,11 @@ export default function Navbar() {
         <div className={styles.inner}>
           {/* Logo */}
           <Link href={`/${locale}`} className={styles.logo} aria-label="Softium Technologies - Ana Sayfa">
-            <div className={styles.logoIcon} aria-hidden="true">
-              <span className="material-symbols-outlined">all_inclusive</span>
-            </div>
-            <span className={styles.logoText}>Softium</span>
+            <img 
+              src={theme === 'dark' ? '/logo_arkaplansız_beyaz.png' : '/logo_arkaplansız_siyah.png'} 
+              alt="Softium Logo" 
+              style={{ height: '96px', width: 'auto', objectFit: 'contain' }} 
+            />
           </Link>
 
           {/* Desktop Navigation */}
