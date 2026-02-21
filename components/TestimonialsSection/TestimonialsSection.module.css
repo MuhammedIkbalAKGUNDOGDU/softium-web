@@ -3,15 +3,31 @@
   background: var(--bg);
 }
 
+.gridWrapper {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  padding: 2rem 0;
+}
+
 .grid {
   display: flex;
   gap: 1.5rem;
-  overflow-x: auto;
-  padding-bottom: 2rem;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin;
-  scrollbar-color: var(--primary) transparent;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+}
+
+.gridWrapper:hover .grid {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.grid::-webkit-scrollbar {
+  display: none;
 }
 
 .grid::-webkit-scrollbar {
@@ -29,8 +45,8 @@
 
 @media (max-width: 767px) {
   .grid {
-    padding-bottom: 1rem;
     gap: 1rem;
+    animation-duration: 30s;
   }
 }
 
@@ -43,15 +59,14 @@
   position: relative;
   overflow: hidden;
   transition: all var(--transition-slow);
-  flex: 0 0 calc(100% - 2rem);
-  scroll-snap-align: start;
+  flex: 0 0 350px;
   display: flex;
   flex-direction: column;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 767px) {
   .card {
-    flex: 0 0 calc(33.333% - 1rem);
+    flex: 0 0 300px;
   }
 }
 

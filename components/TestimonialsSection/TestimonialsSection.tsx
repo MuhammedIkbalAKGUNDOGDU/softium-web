@@ -45,11 +45,16 @@ export default function TestimonialsSection({ locale }: { locale: string }) {
       (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add('visible')),
       { threshold: 0.1 }
     );
-    sectionRef.current?.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    sectionRef.current?.querySelectorAll('.reveal').forEach((el: Element) => observer.observe(el));
     return () => observer.disconnect();
   }, [loading, testimonials]);
 
   if (loading || testimonials.length === 0) return null;
+
+  // Duplicate testimonials for infinite loop if there are more than 2
+  const displayItems = testimonials.length > 2 
+    ? [...testimonials, ...testimonials] 
+    : testimonials;
 
   return (
     <section className={styles.section} ref={sectionRef} id="testimonials" aria-labelledby="testimonials-title">
@@ -63,20 +68,20 @@ export default function TestimonialsSection({ locale }: { locale: string }) {
           <p className="section-subtitle">{t('subtitle')}</p>
         </div>
 
-        <div className={styles.grid}>
-          {testimonials.map((item, i) => {
-            const initials = item.name.split(' ').map(n => n[0]).join('').substring(0, 2);
-            let quote = item.quoteTr;
-            if (locale === 'en' && item.quoteEn) quote = item.quoteEn;
-            if (locale === 'de' && item.quoteDe) quote = item.quoteDe;
+        <div className={styles.gridWrapper}>
+          <div className={styles.grid}>
+            {displayItems.map((item, i) => {
+              const initials = item.name.split(' ').map(n => n[0]).join('').substring(0, 2);
+              let quote = item.quoteTr;
+              if (locale === 'en' && item.quoteEn) quote = item.quoteEn;
+              if (locale === 'de' && item.quoteDe) quote = item.quoteDe;
 
-            return (
-              <article
-                key={item.id}
-                id={`testimonial-${i + 1}`}
-                className={`${styles.card} reveal reveal-delay-${(i % 3) + 1}`}
-                aria-label={`Testimonial from ${item.name}`}
-              >
+              return (
+                <article
+                  key={`${item.id}-${i}`}
+                  className={`${styles.card} reveal reveal-delay-${(i % 3) + 1}`}
+                  aria-label={`Testimonial from ${item.name}`}
+                >
                 {/* Quote Mark */}
                 <div className={styles.quoteIcon} aria-hidden="true">
                   <span
@@ -131,6 +136,7 @@ export default function TestimonialsSection({ locale }: { locale: string }) {
               </article>
             );
           })}
+          </div>
         </div>
       </div>
     </section>
