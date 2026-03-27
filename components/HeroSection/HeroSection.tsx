@@ -55,7 +55,7 @@ export default function HeroSection() {
           <div className={`badge ${styles.badge} animate-fade-up`}>
             <span className="material-symbols-outlined" style={{ fontSize: '14px' }}>new_releases</span>
             {t('badge')}
-            <Link href="#" className={styles.badgeLink}>
+            <Link href={`/${locale}/blog`} className={styles.badgeLink}>
               {t('badgeLink')} →
             </Link>
           </div>
@@ -75,8 +75,8 @@ export default function HeroSection() {
 
           {/* CTA Buttons */}
           <div className={`${styles.ctaGroup} animate-fade-up`} style={{ animationDelay: '0.3s' }}>
-            <Link
-              href={`/${locale}${locale === 'tr' ? '/hizmetler' : '/services'}`}
+            <a
+              href="#services"
               id="hero-explore-btn"
               className="btn-primary"
             >
@@ -84,15 +84,7 @@ export default function HeroSection() {
               <span className="material-symbols-outlined" style={{ fontSize: '1.125rem', transition: 'transform 0.2s' }}>
                 arrow_forward
               </span>
-            </Link>
-            <button id="hero-showreel-btn" className={styles.showreelBtn} aria-label="Watch showreel video">
-              <div className={styles.playIcon}>
-                <span className="material-symbols-outlined" style={{ fontSize: '1.25rem', fontVariationSettings: "'FILL' 1" }}>
-                  play_arrow
-                </span>
-              </div>
-              {t('cta2')}
-            </button>
+            </a>
           </div>
 
           {/* Stats Row */}

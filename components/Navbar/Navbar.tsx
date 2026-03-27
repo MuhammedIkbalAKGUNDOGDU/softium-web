@@ -125,11 +125,17 @@ export default function Navbar() {
           <div className={styles.desktopLinks} role="menubar">
             {links.map((link) => {
               const fullHref = getHref(link.href);
-              const isActive = pathname === fullHref || pathname.startsWith(`${fullHref}/`);
+              const isHome = pathname === `/${locale}` || pathname === `/${locale}/`;
+              
+              const isSectionLink = ['services', 'references', 'contact'].includes(link.key);
+              const href = (isHome && isSectionLink) ? `#${link.key === 'contact' ? 'contact-form' : link.key}` : fullHref;
+
+              const isActive = pathname === fullHref || (isHome && isSectionLink && pathname.includes(`#${link.key}`));
+
               return (
                 <Link
                   key={link.key}
-                  href={fullHref}
+                  href={href}
                   className={`${styles.navLink} ${isActive ? styles.navLinkActive : ''}`}
                   role="menuitem"
                   aria-current={isActive ? 'page' : undefined}
@@ -229,11 +235,15 @@ export default function Navbar() {
           <div className={styles.mobileLinksWrapper}>
             {links.map((link, i) => {
               const fullHref = getHref(link.href);
-              const isActive = pathname === fullHref || pathname.startsWith(`${fullHref}/`);
+              const isHome = pathname === `/${locale}` || pathname === `/${locale}/`;
+              const isSectionLink = ['services', 'references', 'contact'].includes(link.key);
+              const href = (isHome && isSectionLink) ? `#${link.key === 'contact' ? 'contact-form' : link.key}` : fullHref;
+              const isActive = pathname === fullHref;
+              
               return (
                 <Link
                   key={link.key}
-                  href={fullHref}
+                  href={href}
                   className={`${styles.mobileLink} ${isActive ? styles.mobileLinkActive : ''}`}
                   onClick={() => setMobileOpen(false)}
                   style={{ animationDelay: `${i * 0.05}s` }}

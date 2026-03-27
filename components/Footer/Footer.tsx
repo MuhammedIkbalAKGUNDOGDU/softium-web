@@ -64,18 +64,12 @@ export default function Footer() {
 
   if (pathname.includes('/admin')) return null;
 
-  const solutions = [
-    { key: 'aiSystems', href: `/${locale}${locale === 'tr' ? '/hizmetler' : '/services'}#ai` },
-    { key: 'cloudInfra', href: `/${locale}${locale === 'tr' ? '/hizmetler' : '/services'}#cloud` },
-    { key: 'saas', href: `/${locale}${locale === 'tr' ? '/hizmetler' : '/services'}#saas` },
-    { key: 'dataAnalytics', href: `/${locale}${locale === 'tr' ? '/hizmetler' : '/services'}#data` },
-  ];
+
 
   const company = [
     { key: 'about', href: `/${locale}${locale === 'tr' ? '/hakkimizda' : '/about'}` },
-    { key: 'careers', href: `/${locale}/careers` },
     { key: 'blog', href: `/${locale}/blog` },
-    { key: 'press', href: `/${locale}/press` },
+    { key: 'references', href: `/${locale}${locale === 'tr' ? '/referanslar' : '/references'}` },
   ];
 
   const legal = [
@@ -253,18 +247,7 @@ export default function Footer() {
 
           {/* Links */}
           <nav className={styles.links} aria-label="Footer navigation">
-            <div className={styles.linkGroup}>
-              <h3 className={styles.groupTitle}>{t('solutions')}</h3>
-              <ul role="list">
-                {solutions.map((item) => (
-                  <li key={item.key}>
-                    <Link href={item.href} className={styles.footerLink}>
-                      {t(`links.${item.key}`)}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+
             <div className={styles.linkGroup}>
               <h3 className={styles.groupTitle}>{t('company')}</h3>
               <ul role="list">
