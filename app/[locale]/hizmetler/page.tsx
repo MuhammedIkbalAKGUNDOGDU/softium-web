@@ -253,8 +253,8 @@ export default async function ServicesPage({ params }: Props) {
                     >
                       {index === 0 && (
                         <Image
-                          src="/dashboard-mockup.png"
-                          alt="AI Analytics Dashboard mockup"
+                          src="/services/ai_engineering.png"
+                          alt="AI Analytics Dashboard"
                           width={560}
                           height={380}
                           className={styles.visualImg}
@@ -262,25 +262,50 @@ export default async function ServicesPage({ params }: Props) {
                       )}
                       {index === 1 && (
                         <Image
-                          src="/hero-sphere.png"
-                          alt="Cloud Infrastructure visualization"
+                          src="/services/cloud_infrastructure.png"
+                          alt="Cloud Infrastructure"
                           width={560}
                           height={380}
                           className={styles.visualImg}
-                          style={{ padding: '2rem', objectFit: 'contain' }}
                         />
                       )}
                       {index === 2 && (
                         <Image
-                          src="/mobile-mockup.png"
-                          alt="Mobile SaaS App mockup"
+                          src="/services/saas_development.png"
+                          alt="SaaS Platform"
                           width={560}
                           height={380}
                           className={styles.visualImg}
-                          style={{ objectFit: 'contain', padding: '2rem' }}
                         />
                       )}
-                      {index > 2 && (
+                      {index === 3 && (
+                        <Image
+                          src="/services/data_analytics.png"
+                          alt="Data Analytics & BI"
+                          width={560}
+                          height={380}
+                          className={styles.visualImg}
+                        />
+                      )}
+                      {index === 4 && (
+                        <Image
+                          src="/services/digital_marketing.png"
+                          alt="Digital Marketing Strategy"
+                          width={560}
+                          height={380}
+                          className={styles.visualImg}
+                        />
+                      )}
+                      {index === 5 && (
+                        <Image
+                          src="/services/devops_automation.png"
+                          alt="DevOps & Automation"
+                          width={560}
+                          height={380}
+                          className={styles.visualImg}
+                        />
+                      )}
+                      {index > 5 && (
                         <div className={styles.visualPlaceholder} style={{ background: service.bgColor }}>
                           <span
                             className="material-symbols-outlined"
