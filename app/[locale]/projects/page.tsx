@@ -22,6 +22,28 @@ export default function ProjectsPage() {
 
   return (
     <>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'CollectionPage',
+              'name': 'Softium Projects & Products',
+              'description': 'Advanced software products and platforms developed by Softium Technologies.',
+              'mainEntity': {
+                '@type': 'ItemList',
+                'itemListElement': [
+                  { '@type': 'ListItem', 'position': 1, 'name': 'Softium Core 2.0' },
+                  { '@type': 'ListItem', 'position': 2, 'name': 'Nexus Guard' },
+                  { '@type': 'ListItem', 'position': 3, 'name': 'Vision Analytics' },
+                  { '@type': 'ListItem', 'position': 4, 'name': 'Flow Automate' }
+                ]
+              }
+            })
+          }}
+        />
+      </head>
       <Navbar />
       
       <main>

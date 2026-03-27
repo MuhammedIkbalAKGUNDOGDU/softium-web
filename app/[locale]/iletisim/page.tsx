@@ -18,12 +18,39 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: {
       canonical: `/${locale}${locale === 'tr' ? '/iletisim' : '/contact'}`,
     },
+    openGraph: {
+      title: t('title'),
+      description: t('description'),
+      type: 'website',
+    },
   };
 }
 
-export default async function ContactPage() {
+export default async function ContactPage({ params }: Props) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'contact' });
+
   return (
     <>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'ContactPage',
+              'name': 'Softium Contact',
+              'description': t('subtitle'),
+              'contactPoint': {
+                '@type': 'ContactPoint',
+                'telephone': '+90 212 123 45 67',
+                'contactType': 'customer service',
+                'email': 'hello@softium.tech'
+              }
+            })
+          }}
+        />
+      </head>
       <Navbar />
       <main id="main-content" className={styles.main}>
         {/* Decorative background */}

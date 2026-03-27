@@ -58,9 +58,30 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
                    locale === 'de' && post.titleDe ? post.titleDe : 
                    post.titleTr;
 
+  const contentStr = locale === 'en' && post.contentEn ? post.contentEn : 
+                     locale === 'de' && post.contentDe ? post.contentDe : 
+                     post.contentTr;
+
+  // Strip HTML and get first 160 characters for description
+  const description = contentStr.replace(/<[^>]*>/g, '').substring(0, 160) + '...';
+
   return {
     title: `${titleStr} | Softium Blog`,
-    description: `Okuma süresi: ${post.readTime} dakika. ${post.category || 'Teknoloji'} kategorisinden en son paylaşımlar.`,
+    description: description,
+    openGraph: {
+      title: titleStr,
+      description: description,
+      type: 'article',
+      publishedTime: post.publishedAt || post.createdAt,
+      authors: [post.authorName || 'Softium Editor'],
+      images: post.coverImage ? [{ url: post.coverImage }] : [],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: titleStr,
+      description: description,
+      images: post.coverImage ? [post.coverImage] : [],
+    },
   };
 }
 
@@ -100,6 +121,25 @@ export default async function BlogPostPage({ params }: Props) {
     <div className={styles.articlePage}>
       <Navbar />
       
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'BlogPosting',
+              'headline': articleTitle,
+              'image': post.coverImage ? [post.coverImage] : [],
+              'datePublished': post.publishedAt || post.createdAt,
+              'author': [{
+                '@type': 'Person',
+                'name': post.authorName || 'Softium Editor'
+              }]
+            })
+          }}
+        />
+      </head>
+      
       <main id="main-content">
         
         {/* ── Top Header Text Section ────────────────────────── */}
@@ -109,7 +149,7 @@ export default async function BlogPostPage({ params }: Props) {
             <div className={styles.backWrap}>
                <Link href={`/${locale}/blog`} className={styles.backBtn}>
                  <span className="material-symbols-outlined" style={{ fontSize: '1.25rem' }}>arrow_back</span>
-                 Blog'a Dön
+                 {locale === 'tr' ? "Blog'a Dön" : locale === 'de' ? "Zurück zum Blog" : "Back to Blog"}
                </Link>
             </div>
 

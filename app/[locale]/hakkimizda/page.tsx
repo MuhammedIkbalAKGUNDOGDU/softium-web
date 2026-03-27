@@ -15,6 +15,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: t('title'),
     description: t('description'),
+    openGraph: {
+      title: t('title'),
+      description: t('description'),
+      type: 'website',
+    },
   };
 }
 
@@ -49,6 +54,25 @@ export default async function AboutPage({ params }: Props) {
 
   return (
     <>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'AboutPage',
+              'name': t('heroTitle1') + ' ' + t('heroTitle2'),
+              'description': t('heroSubtitle'),
+              'mainEntity': {
+                '@type': 'Organization',
+                'name': 'Softium Technologies',
+                'description': t('missionBody1'),
+                'knowsAbout': CORE_VALUES.map(v => t(`values.${v.key}.name`))
+              }
+            })
+          }}
+        />
+      </head>
       <Navbar />
       <main id="main-content">
 

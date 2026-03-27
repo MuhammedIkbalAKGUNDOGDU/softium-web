@@ -16,6 +16,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: t('title'),
     description: t('description'),
+    openGraph: {
+      title: t('title'),
+      description: t('description'),
+      type: 'website',
+    },
   };
 }
 
@@ -160,6 +165,34 @@ export default async function ServicesPage({ params }: Props) {
 
   return (
     <>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Service',
+              'serviceType': t('title'),
+              'provider': {
+                '@type': 'Organization',
+                'name': 'Softium Technologies'
+              },
+              'hasOfferCatalog': {
+                '@type': 'OfferCatalog',
+                'name': t('badge'),
+                'itemListElement': SERVICES_DETAIL.map((s) => ({
+                  '@type': 'Offer',
+                  'itemOffered': {
+                    '@type': 'Service',
+                    'name': t(`items.${s.id}.title`),
+                    'description': t(`items.${s.id}.description`)
+                  }
+                }))
+              }
+            })
+          }}
+        />
+      </head>
       <Navbar />
       <main id="main-content">
         {/* Page Hero */}
