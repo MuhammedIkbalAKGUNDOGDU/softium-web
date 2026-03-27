@@ -105,33 +105,65 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Trusted By */}
+          {/* Trusted By - Infinite Marquee */}
           <div className={`${styles.trustedBy} animate-fade-up`} style={{ animationDelay: '0.5s' }}>
             <p className={styles.trustedLabel}>{t('trustedBy')}</p>
-            <div className={styles.clientLogos}>
-              {clients.length > 0 ? clients.map((client) => {
-                const innerContent = client.logoUrl ? (
-                  <img src={client.logoUrl} alt={client.name} style={{ height: '24px', objectFit: 'contain', filter: 'grayscale(100%)', opacity: 0.8, transition: 'all 0.3s' }} />
-                ) : (
-                  <span>{client.name.toUpperCase()}</span>
-                );
+            <div className={styles.marqueeContainer}>
+              <div className={styles.marqueeContent}>
+                {/* Original Items */}
+                {clients.length > 0 ? clients.map((client) => {
+                  const innerContent = client.logoUrl ? (
+                    <img src={client.logoUrl} alt={client.name} className={styles.clientImg} />
+                  ) : (
+                    <span className={styles.clientText}>{client.name.toUpperCase()}</span>
+                  );
 
-                return (
-                  <div key={client.id} className={styles.clientLogo}>
-                    {client.websiteUrl ? (
-                      <a href={client.websiteUrl} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit', display: 'flex', alignItems: 'center' }}>
-                        {innerContent}
-                      </a>
-                    ) : innerContent}
-                  </div>
-                );
-              }) : (
-                ['MICROSOFT', 'ORACLE', 'AWS', 'STRIPE', 'VERCEL'].map((name) => (
-                  <div key={name} className={styles.clientLogo}>
-                    <span>{name}</span>
-                  </div>
-                ))
-              )}
+                  return (
+                    <div key={`orig-${client.id}`} className={styles.clientLogo}>
+                      {client.websiteUrl ? (
+                        <a href={client.websiteUrl} target="_blank" rel="noopener noreferrer" className={styles.clientLink}>
+                          {innerContent}
+                        </a>
+                      ) : (
+                        innerContent
+                      )}
+                    </div>
+                  );
+                }) : (
+                  ['MICROSOFT', 'ORACLE', 'AWS', 'STRIPE', 'VERCEL'].map((name) => (
+                    <div key={`orig-def-${name}`} className={styles.clientLogo}>
+                      <span className={styles.clientText}>{name}</span>
+                    </div>
+                  ))
+                )}
+                
+                {/* Duplicated Items for Loop */}
+                {clients.length > 0 ? clients.map((client) => {
+                  const innerContent = client.logoUrl ? (
+                    <img src={client.logoUrl} alt={client.name} className={styles.clientImg} />
+                  ) : (
+                    <span className={styles.clientText}>{client.name.toUpperCase()}</span>
+                  );
+
+                  return (
+                    <div key={`dup-${client.id}`} className={styles.clientLogo}>
+                      {client.websiteUrl ? (
+                        <a href={client.websiteUrl} target="_blank" rel="noopener noreferrer" className={styles.clientLink}>
+                          {innerContent}
+                        </a>
+                      ) : (
+                        innerContent
+                      )}
+                    </div>
+                  );
+                }) : (
+                  ['MICROSOFT', 'ORACLE', 'AWS', 'STRIPE', 'VERCEL'].map((name) => (
+                    <div key={`dup-def-${name}`} className={styles.clientLogo}>
+                      <span className={styles.clientText}>{name}</span>
+                    </div>
+                  ))
+                )}
+              </div>
             </div>
           </div>
         </div>

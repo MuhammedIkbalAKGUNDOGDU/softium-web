@@ -514,9 +514,9 @@
       "about": "Hakkımızda",
       "careers": "Kariyer",
       "blog": "Blog",
-      "press": "Basın",
+      "references": "Referanslar",
       "privacy": "Gizlilik Politikası",
-      "terms": "Kullanım Şartları",
+      "press": "Basın",
       "cookies": "Çerez Politikası"
     },
     "copyright": "© 2025 Softium Technologies. Tüm hakları saklıdır.",
@@ -529,6 +529,7 @@
     "subscribe": "Katıl",
     "success": "Bültene başarıyla abone oldunuz!",
     "error": "Bir hata oluştu.",
+    "alreadySubscribed": "Bu e-posta adresi zaten bültenimize kayıtlı.",
     "networkError": "Bağlantı hatası!",
     "emailPlaceholder": "hello@sirket.com"
   },
@@ -621,6 +622,91 @@
     "blog": {
       "title": "Blog & Insights | Softium Technologies",
       "description": "Softium mühendislik ekibinden teknoloji, inovasyon ve tasarım üzerine derinlemesine yazılar."
+    }
+  },
+  "legal": {
+    "privacy": {
+      "title": "Gizlilik Politikası | Softium",
+      "description": "Softium Technologies gizlilik politikası ve veri güvenliği bilgilendirmesi.",
+      "badge": "Gizlilik",
+      "mainTitle": "Gizlilik Politikası",
+      "lastUpdated": "Son Güncelleme: 27 Mart 2026",
+      "sections": {
+        "data": {
+          "title": "1. Toplanan Veriler",
+          "body": "Hizmetlerimizi kullandığınızda topladığımız bilgiler; adınız, e-posta adresiniz, şirket bilgileriniz ve bize doğrudan ilettiğiniz diğer verileri kapsar."
+        },
+        "usage": {
+          "title": "2. Veri Kullanımı",
+          "body": "Toplanan veriler; hizmet kalitemizi artırmak, sizinle iletişim kurmak ve yasal yükümlülüklerimizi yerine getirmek amacıyla kullanılır."
+        },
+        "sharing": {
+          "title": "3. Veri Paylaşımı",
+          "body": "Kişisel verileriniz, açık rızanız olmaksızın veya yasal bir zorunluluk bulunmadıkça üçüncü taraflarla kesinlikle paylaşılmaz."
+        },
+        "security": {
+          "title": "4. Güvenlik",
+          "body": "Verileriniz endüstri standardı şifreleme ve güvenlik protokolleri ile korunmaktadır."
+        },
+        "rights": {
+          "title": "5. Haklarınız",
+          "body": "KVKK kapsamında verilerinize erişme, düzeltme veya silme hakkına sahipsiniz."
+        }
+      }
+    },
+    "terms": {
+      "title": "Kullanım Şartları | Softium",
+      "description": "Softium web sitesi kullanım koşulları ve yasal şartlar.",
+      "badge": "Yasal",
+      "mainTitle": "Kullanım Şartları",
+      "lastUpdated": "Son Güncelleme: 27 Mart 2026",
+      "sections": {
+        "general": {
+          "title": "1. Genel Şartlar",
+          "body": "Bu web sitesini kullanarak, burada belirtilen tüm kullanım şartlarını kabul etmiş sayılırsınız."
+        },
+        "ip": {
+          "title": "2. Fikri Mülkiyet",
+          "body": "Sitede yer alan tüm içerik, logo ve yazılımlar Softium Technologies mülkiyetindedir."
+        },
+        "disclaimer": {
+          "title": "3. Sorumluluk Reddi",
+          "body": "Softium, sitedeki bilgilerin doğruluğu için azami çaba gösterir ancak herhangi bir hata veya eksiklikten sorumlu tutulamaz."
+        },
+        "limitation": {
+          "title": "4. Sorumluluk Sınırlandırması",
+          "body": "Site kullanımından doğabilecek doğrudan veya dolaylı zararlardan Softium sorumlu tutulamaz."
+        },
+        "governing": {
+          "title": "5. Uygulanacak Hukuk",
+          "body": "Bu şartlar Türkiye Cumhuriyeti yasalarına tabidir."
+        }
+      }
+    },
+    "cookies": {
+      "title": "Çerez Politikası | Softium",
+      "description": "Softium web sitesinde kullanılan çerezler hakkında bilgilendirme.",
+      "badge": "Çerezler",
+      "mainTitle": "Çerez Politikası",
+      "lastUpdated": "Son Güncelleme: 27 Mart 2026",
+      "sections": {
+        "what": {
+          "title": "1. Çerez Nedir?",
+          "body": "Çerezler, web sitemizi ziyaret ettiğinizde cihazınıza yerleştirilen küçük metin dosyalarıdır."
+        },
+        "how": {
+          "title": "2. Nasıl Kullanıyoruz?",
+          "body": "Çerezleri, sitemizin düzgün çalışması, performans analizi ve kullanıcı tercihlerini hatırlamak için kullanıyoruz."
+        },
+        "types": {
+          "title": "3. Çerez Türleri",
+          "body": "Sitemizde zorunlu çerezler ve analitik çerezler kullanılmaktadır."
+        },
+        "choice": {
+          "title": "4. Tercihleriniz",
+          "body": "Tarayıcı ayarlarınız üzerinden çerezleri dilediğiniz zaman devre dışı bırakabilirsiniz."
+        }
+      }
     }
   }
 }

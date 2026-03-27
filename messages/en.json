@@ -529,6 +529,7 @@
     "subscribe": "Join",
     "success": "Successfully subscribed to the newsletter!",
     "error": "An error occurred.",
+    "alreadySubscribed": "This email is already registered to our newsletter.",
     "networkError": "Connection error!",
     "emailPlaceholder": "hello@company.com"
   },
@@ -621,6 +622,91 @@
     "blog": {
       "title": "Blog & Insights | Softium Technologies",
       "description": "In-depth articles on technology, innovation, and design from the Softium engineering team."
+    }
+  },
+  "legal": {
+    "privacy": {
+      "title": "Privacy Policy | Softium",
+      "description": "Softium Technologies privacy policy and data security information.",
+      "badge": "Privacy",
+      "mainTitle": "Privacy Policy",
+      "lastUpdated": "Last Updated: March 27, 2026",
+      "sections": {
+        "data": {
+          "title": "1. Data Collection",
+          "body": "Information we collect includes your name, email address, company details, and any other data you provide directly to us."
+        },
+        "usage": {
+          "title": "2. Data Usage",
+          "body": "Collected data is used to improve our service quality, communicate with you, and fulfill our legal obligations."
+        },
+        "sharing": {
+          "title": "3. Data Sharing",
+          "body": "Your personal data is strictly not shared with third parties without your explicit consent or unless required by law."
+        },
+        "security": {
+          "title": "4. Security",
+          "body": "Your data is protected by industry-standard encryption and security protocols."
+        },
+        "rights": {
+          "title": "5. Your Rights",
+          "body": "You have the right to access, correct, or delete your data under data protection regulations."
+        }
+      }
+    },
+    "terms": {
+      "title": "Terms of Use | Softium",
+      "description": "Softium website terms and legal conditions.",
+      "badge": "Legal",
+      "mainTitle": "Terms of Use",
+      "lastUpdated": "Last Updated: March 27, 2026",
+      "sections": {
+        "general": {
+          "title": "1. General Terms",
+          "body": "By using this website, you agree to comply with all terms and conditions stated herein."
+        },
+        "ip": {
+          "title": "2. Intellectual Property",
+          "body": "All content, logos, and software on the site are the property of Softium Technologies."
+        },
+        "disclaimer": {
+          "title": "3. Disclaimer",
+          "body": "Softium makes every effort for information accuracy but cannot be held responsible for any errors or omissions."
+        },
+        "limitation": {
+          "title": "4. Limitation of Liability",
+          "body": "Softium is not liable for any direct or indirect damages arising from site usage."
+        },
+        "governing": {
+          "title": "5. Governing Law",
+          "body": "These terms are governed by the laws of the Republic of Turkey."
+        }
+      }
+    },
+    "cookies": {
+      "title": "Cookie Policy | Softium",
+      "description": "Information about cookies used on the Softium website.",
+      "badge": "Cookies",
+      "mainTitle": "Cookie Policy",
+      "lastUpdated": "Last Updated: March 27, 2026",
+      "sections": {
+        "what": {
+          "title": "1. What are Cookies?",
+          "body": "Cookies are small text files placed on your device when you visit our website."
+        },
+        "how": {
+          "title": "2. How We Use Them",
+          "body": "We use cookies for the proper functioning of our site, performance analysis, and remembering user preferences."
+        },
+        "types": {
+          "title": "3. Types of Cookies",
+          "body": "Our site uses necessary cookies and analytical cookies."
+        },
+        "choice": {
+          "title": "4. Your Choice",
+          "body": "You can disable cookies at any time through your browser settings."
+        }
+      }
     }
   }
 }

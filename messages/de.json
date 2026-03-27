@@ -522,6 +522,7 @@
     "subscribe": "Beitreten",
     "success": "Erfolgreich für den Newsletter angemeldet!",
     "error": "Ein Fehler ist aufgetreten.",
+    "alreadySubscribed": "Diese E-Mail ist bereits für unseren Newsletter registriert.",
     "networkError": "Verbindungsfehler!",
     "emailPlaceholder": "hallo@unternehmen.de"
   },
@@ -614,6 +615,91 @@
     "blog": {
       "title": "Blog & Insights | Softium Technologies",
       "description": "Ausführliche Artikel zu Technologie, Innovation und Design vom Softium-Ingenieurteam."
+    }
+  },
+  "legal": {
+    "privacy": {
+      "title": "Datenschutzerklärung | Softium",
+      "description": "Informationen zur Datenschutzerklärung und Datensicherheit von Softium Technologies.",
+      "badge": "Datenschutz",
+      "mainTitle": "Datenschutzerklärung",
+      "lastUpdated": "Zuletzt aktualisiert: 27. März 2026",
+      "sections": {
+        "data": {
+          "title": "1. Datenerfassung",
+          "body": "Zu den von uns erfassten Informationen gehören Ihr Name, Ihre E-Mail-Adresse, Firmendaten und alle anderen Daten, die Sie uns direkt zur Verfügung stellen."
+        },
+        "usage": {
+          "title": "2. Datennutzung",
+          "body": "Die gesammelten Daten werden verwendet, um unsere Servicequalität zu verbessern, mit Ihnen zu kommunizieren und unsere gesetzlichen Verpflichtungen zu erfüllen."
+        },
+        "sharing": {
+          "title": "3. Datenaustausch",
+          "body": "Ihre personenbezogenen Daten werden ohne Ihre ausdrückliche Zustimmung nicht an Dritte weitergegeben, es sei denn, dies ist gesetzlich vorgeschrieben."
+        },
+        "security": {
+          "title": "4. Sicherheit",
+          "body": "Ihre Daten werden durch branchenübliche Verschlüsselungs- und Sicherheitsprotokolle geschützt."
+        },
+        "rights": {
+          "title": "5. Ihre Rechte",
+          "body": "Sie haben das Recht, auf Ihre Daten zuzugreifen, diese zu korrigieren oder zu löschen."
+        }
+      }
+    },
+    "terms": {
+      "title": "Nutzungsbedingungen | Softium",
+      "description": "Nutzungsbedingungen und rechtliche Informationen der Softium-Website.",
+      "badge": "Rechtliches",
+      "mainTitle": "Nutzungsbedingungen",
+      "lastUpdated": "Zuletzt aktualisiert: 27. März 2026",
+      "sections": {
+        "general": {
+          "title": "1. Allgemeine Bedingungen",
+          "body": "Durch die Nutzung dieser Website erklären Sie sich mit allen hier aufgeführten Bedingungen einverstanden."
+        },
+        "ip": {
+          "title": "2. Geistiges Eigentum",
+          "body": "Alle Inhalte, Logos und Software auf der Website sind Eigentum von Softium Technologies."
+        },
+        "disclaimer": {
+          "title": "3. Haftungsausschluss",
+          "body": "Softium bemüht sich um die Richtigkeit der Informationen, kann jedoch nicht für Fehler oder Auslassungen haftbar gemacht werden."
+        },
+        "limitation": {
+          "title": "4. Haftungsbeschränkung",
+          "body": "Softium haftet nicht für direkte oder indirekte Schäden, die aus der Nutzung der Website entstehen."
+        },
+        "governing": {
+          "title": "5. Anwendbares Recht",
+          "body": "Diese Bedingungen unterliegen den Gesetzen der Republik Türkei."
+        }
+      }
+    },
+    "cookies": {
+      "title": "Cookie-Richtlinie | Softium",
+      "description": "Informationen über die auf der Softium-Website verwendeten Cookies.",
+      "badge": "Cookies",
+      "mainTitle": "Cookie-Richtlinie",
+      "lastUpdated": "Zuletzt aktualisiert: 27. März 2026",
+      "sections": {
+        "what": {
+          "title": "1. Was sind Cookies?",
+          "body": "Cookies sind kleine Textdateien, die beim Besuch unserer Website auf Ihrem Gerät gespeichert werden."
+        },
+        "how": {
+          "title": "2. Wie wir sie verwenden?",
+          "body": "Wir verwenden Cookies für das reibungslose Funktionieren unserer Website, zur Leistungsanalyse und zur Speicherung von Benutzerpräferenzen."
+        },
+        "types": {
+          "title": "3. Arten von Cookies",
+          "body": "Unsere Website verwendet notwendige Cookies und Analyse-Cookies."
+        },
+        "choice": {
+          "title": "4. Ihre Wahl",
+          "body": "Sie können Cookies jederzeit über Ihre Browsereinstellungen deaktivieren."
+        }
+      }
     }
   }
 }
