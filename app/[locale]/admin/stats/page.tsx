@@ -28,7 +28,7 @@ export default function StatsAdmin() {
 
   const fetchItems = async () => {
     try {
-      const res = await fetch('http://localhost:5262/api/statistics');
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/statistics`);
       if (res.ok) {
         const data = await res.json();
         setItems(data);
@@ -43,8 +43,8 @@ export default function StatsAdmin() {
   const handleSave = async () => {
     try {
       const url = formData.id 
-        ? `http://localhost:5262/api/statistics/${formData.id}`
-        : 'http://localhost:5262/api/statistics';
+        ? `${process.env.NEXT_PUBLIC_API_URL}/api/statistics/${formData.id}`
+        : `${process.env.NEXT_PUBLIC_API_URL}/api/statistics`;
       const method = formData.id ? 'PUT' : 'POST';
 
       const res = await fetch(url, {

@@ -20,7 +20,7 @@ export default function Footer() {
   useEffect(() => {
     const fetchSettings = async () => {
       try {
-        const res = await fetch('http://localhost:5262/api/sitesettings');
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/sitesettings`);
         if (res.ok) {
           const data = await res.json();
           const newSettings: Record<string, string> = {};
@@ -193,7 +193,7 @@ export default function Footer() {
                   if(!nlEmail) return;
                   setNlLoading(true);
                   try {
-                    const res = await fetch('http://localhost:5262/api/newsletter/subscribe', {
+                    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/newsletter/subscribe`, {
                       method: 'POST',
                       headers: {'Content-Type': 'application/json'},
                       body: JSON.stringify({ email: nlEmail })

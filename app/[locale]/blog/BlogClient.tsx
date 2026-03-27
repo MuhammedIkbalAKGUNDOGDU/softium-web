@@ -174,7 +174,7 @@ export default function BlogClient({ posts }: BlogClientProps) {
                   if(!nlEmail) return;
                   setNlLoading(true);
                   try {
-                    const res = await fetch('http://localhost:5262/api/newsletter/subscribe', {
+                    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/newsletter/subscribe`, {
                       method: 'POST',
                       headers: {'Content-Type': 'application/json'},
                       body: JSON.stringify({ email: nlEmail })

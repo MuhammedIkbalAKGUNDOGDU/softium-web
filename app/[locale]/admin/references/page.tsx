@@ -32,7 +32,7 @@ export default function ReferencesAdmin() {
     isActive: true
   });
 
-  const BASE_URL = 'http://localhost:5262/api/references';
+  const BASE_URL = `${process.env.NEXT_PUBLIC_API_URL}/api/references`;
 
   useEffect(() => {
     fetchReferences();
@@ -84,7 +84,7 @@ export default function ReferencesAdmin() {
     formDataObj.append('file', file);
 
     try {
-      const UPLOAD_URL = 'http://localhost:5262/api/uploads';
+      const UPLOAD_URL = `${process.env.NEXT_PUBLIC_API_URL}/api/uploads`;
       const response = await fetch(UPLOAD_URL, {
         method: 'POST',
         body: formDataObj
@@ -92,7 +92,7 @@ export default function ReferencesAdmin() {
 
       if (response.ok) {
         const data = await response.json();
-        const fullUrl = `http://localhost:5262${data.url}`;
+        const fullUrl = `${process.env.NEXT_PUBLIC_API_URL}${data.url}`;
         setFormData(prev => ({ ...prev, logoUrl: fullUrl }));
         alert('Logo başarıyla yüklendi!');
       } else {

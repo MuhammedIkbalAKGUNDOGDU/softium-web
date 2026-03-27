@@ -26,7 +26,7 @@ export default function HeroSection() {
     }
 
     // Backend'den aktif referanslari cek ve anasayfada sergile
-    fetch('http://localhost:5262/api/references')
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/references`)
       .then(res => res.json())
       .then(data => {
         if (Array.isArray(data)) {

@@ -25,7 +25,7 @@ export default async function ReferencesPage({ params }: Props) {
 
   let COMPANIES: any[] = [];
   try {
-    const res = await fetch('http://localhost:5262/api/references', { next: { revalidate: 60 } });
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/references`, { next: { revalidate: 60 } });
     if (res.ok) {
       const data = await res.json();
       COMPANIES = data.filter((company: any) => company.isActive);

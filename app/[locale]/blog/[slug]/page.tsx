@@ -31,7 +31,7 @@ interface BlogPost {
 // Fetch single blog post by slug
 async function getBlogPost(slug: string): Promise<BlogPost | null> {
   try {
-    const res = await fetch(`http://localhost:5262/api/blogposts/byslug/${slug}`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/blogposts/byslug/${slug}`, {
       next: { revalidate: 60 } // Next.js cache 60 sn
     });
     

@@ -21,7 +21,7 @@ export default function SettingsAdmin() {
 
   const fetchSettings = async () => {
     try {
-      const res = await fetch('http://localhost:5262/api/sitesettings');
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/sitesettings`);
       if (res.ok) {
         const data = await res.json();
         
@@ -44,7 +44,7 @@ export default function SettingsAdmin() {
   const handleSave = async () => {
     setSaving(true);
     try {
-      const res = await fetch('http://localhost:5262/api/sitesettings/bulk', {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/sitesettings/bulk`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(settings)

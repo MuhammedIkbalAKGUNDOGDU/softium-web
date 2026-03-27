@@ -31,7 +31,7 @@ export default function TestimonialsAdmin() {
 
   const fetchItems = async () => {
     try {
-      const res = await fetch('http://localhost:5262/api/testimonials');
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/testimonials`);
       if (res.ok) {
         const data = await res.json();
         setItems(data);
@@ -46,8 +46,8 @@ export default function TestimonialsAdmin() {
   const handleSave = async () => {
     try {
       const url = formData.id 
-        ? `http://localhost:5262/api/testimonials/${formData.id}`
-        : 'http://localhost:5262/api/testimonials';
+        ? `${process.env.NEXT_PUBLIC_API_URL}/api/testimonials/${formData.id}`
+        : `${process.env.NEXT_PUBLIC_API_URL}/api/testimonials`;
       const method = formData.id ? 'PUT' : 'POST';
 
       const res = await fetch(url, {
@@ -70,7 +70,7 @@ export default function TestimonialsAdmin() {
   const handleDelete = async (id: string) => {
     if (!confirm('Emin misiniz?')) return;
     try {
-      const res = await fetch(`http://localhost:5262/api/testimonials/${id}`, { method: 'DELETE' });
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/testimonials/${id}`, { method: 'DELETE' });
       if (res.ok) fetchItems();
     } catch (e) {
       console.error(e);

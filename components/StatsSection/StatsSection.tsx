@@ -26,7 +26,7 @@ export default function StatsSection() {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const res = await fetch('http://localhost:5262/api/statistics/active');
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/statistics/active`);
         if (res.ok) {
           const data = await res.json();
           const map = data.reduce((acc: any, item: any) => {

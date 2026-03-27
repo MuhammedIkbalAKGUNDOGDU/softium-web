@@ -20,7 +20,7 @@ export default function NewsletterAdmin() {
 
   const fetchSubs = async () => {
     try {
-      const res = await fetch('http://localhost:5262/api/newsletter');
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/newsletter`);
       if (res.ok) {
         const data = await res.json();
         setSubs(data);
@@ -33,14 +33,14 @@ export default function NewsletterAdmin() {
   };
 
   const handleExport = () => {
-    window.location.href = 'http://localhost:5262/api/newsletter/export';
+    window.location.href = `${process.env.NEXT_PUBLIC_API_URL}/api/newsletter/export`;
   };
 
   const handleDelete = async (id: string) => {
     if (!confirm('Bu aboneyi silmek istediğinize emin misiniz?')) return;
     
     try {
-      const res = await fetch(`http://localhost:5262/api/newsletter/${id}`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/newsletter/${id}`, {
         method: 'DELETE'
       });
       

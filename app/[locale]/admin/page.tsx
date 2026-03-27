@@ -18,7 +18,7 @@ export default function AdminDashboard() {
 
   const fetchStats = async () => {
     try {
-      const res = await fetch('http://localhost:5262/api/dashboard/stats');
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/dashboard/stats`);
       if (res.ok) {
         const data = await res.json();
         setStats(data);

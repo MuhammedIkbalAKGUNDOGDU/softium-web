@@ -71,7 +71,7 @@ export default function BlogAdmin() {
 
   const [formData, setFormData] = useState(defaultFormState);
 
-  const BASE_URL = 'http://localhost:5262/api/blogposts';
+  const BASE_URL = `${process.env.NEXT_PUBLIC_API_URL}/api/blogposts`;
 
   useEffect(() => {
     fetchBlogs();
@@ -141,10 +141,10 @@ export default function BlogAdmin() {
     const formDataObj = new FormData();
     formDataObj.append('file', file);
     try {
-      const res = await fetch('http://localhost:5262/api/uploads', { method: 'POST', body: formDataObj });
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/uploads`, { method: 'POST', body: formDataObj });
       if (res.ok) {
         const data = await res.json();
-        setFormData(prev => ({ ...prev, coverImage: `http://localhost:5262${data.url}` }));
+        setFormData(prev => ({ ...prev, coverImage: `${process.env.NEXT_PUBLIC_API_URL}${data.url}` }));
       }
     } catch (error) {
       console.error(error);
@@ -214,10 +214,10 @@ export default function BlogAdmin() {
       uploadData.append('file', file);
       
       try {
-        const res = await fetch('http://localhost:5262/api/uploads', { method: 'POST', body: uploadData });
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/uploads`, { method: 'POST', body: uploadData });
         if (res.ok) {
           const data = await res.json();
-          const imageUrl = `http://localhost:5262${data.url}`;
+          const imageUrl = `${process.env.NEXT_PUBLIC_API_URL}${data.url}`;
           
           const quill = quillRefs[langType].current?.getEditor();
           if (quill) {

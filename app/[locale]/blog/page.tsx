@@ -48,7 +48,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 // Data Fetching Function Defaulting to the new Backend
 async function getBlogPosts(): Promise<BlogPost[]> {
   try {
-    const res = await fetch('http://localhost:5262/api/blogposts?onlyPublished=true', {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/blogposts?onlyPublished=true`, {
       next: { revalidate: 60 } // Next.js server caching validation (60 seconds)
     });
     if (!res.ok) {

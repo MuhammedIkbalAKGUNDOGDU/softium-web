@@ -24,7 +24,7 @@ export default function TestimonialsSection({ locale }: { locale: string }) {
   useEffect(() => {
     const fetchTestimonials = async () => {
       try {
-        const res = await fetch('http://localhost:5262/api/testimonials/active');
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/testimonials/active`);
         if (res.ok) {
           const data = await res.json();
           setTestimonials(data);

@@ -22,7 +22,7 @@ export default function ContactAdmin() {
   const [selectedMessage, setSelectedMessage] = useState<ContactRequest | null>(null);
   const [notes, setNotes] = useState('');
 
-  const BASE_URL = 'http://localhost:5262/api/contactrequests';
+  const BASE_URL = `${process.env.NEXT_PUBLIC_API_URL}/api/contactrequests`;
 
   useEffect(() => {
     fetchMessages();
