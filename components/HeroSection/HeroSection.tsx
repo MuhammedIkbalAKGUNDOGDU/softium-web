@@ -160,7 +160,7 @@ export default function HeroSection() {
             {/* Floating cards */}
             <div className={`${styles.floatingCard} ${styles.cardSystem} animate-float`} style={{ animationDelay: '1s' }}>
               <div className={styles.cardHeader}>
-                <span className={styles.cardLabel}>{locale === 'tr' ? 'Sistem Durumu' : 'System Status'}</span>
+                <span className={styles.cardLabel}>{t('systemStatus')}</span>
                 <div className={styles.statusDot}>
                   <span className={styles.statusPing} />
                   <span className={styles.statusCore} />
@@ -170,7 +170,7 @@ export default function HeroSection() {
                 <div className={styles.progressFill} style={{ width: '98%' }} />
               </div>
               <div className={styles.progressMeta}>
-                <span>{locale === 'tr' ? 'Optimizasyon' : 'Optimization'}</span>
+                <span>{t('optimization')}</span>
                 <strong>98.4%</strong>
               </div>
               <div className={styles.avatarRow}>
@@ -190,8 +190,8 @@ export default function HeroSection() {
                 </span>
               </div>
               <div>
-                <div className={styles.cardLabel}>{locale === 'tr' ? 'Güvenlik Seviyesi' : 'Security Level'}</div>
-                <div className={styles.cardValue}>{locale === 'tr' ? 'Enterprise Kalkan' : 'Enterprise Shield'}</div>
+                <div className={styles.cardLabel}>{t('securityLevel')}</div>
+                <div className={styles.cardValue}>{t('enterpriseShield')}</div>
               </div>
             </div>
 
@@ -202,8 +202,8 @@ export default function HeroSection() {
                 </span>
               </div>
               <div>
-                <div className={styles.cardLabel}>AI Engine</div>
-                <div className={styles.cardValue}>Active · v2.0</div>
+                <div className={styles.cardLabel}>{t('aiEngine')}</div>
+                <div className={styles.cardValue}>{t('activeStatus')}</div>
               </div>
             </div>
           </div>

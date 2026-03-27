@@ -131,7 +131,7 @@ export default async function BlogPage({ params }: Props) {
                     </Link>
                   ) : (
                     <div className={styles.heroBtn} style={{ opacity: 0.5, cursor: 'not-allowed' }}>
-                      Henüz içerik yok
+                      {t('noContent')}
                     </div>
                   )}
 
@@ -149,7 +149,7 @@ export default async function BlogPage({ params }: Props) {
                         ))
                       )}
                     </div>
-                    <span className={styles.authorLabel}>{featuredPost?.authorName || 'Softium Editor'}</span>
+                    <span className={styles.authorLabel}>{featuredPost?.authorName || t('defaultAuthor')}</span>
                   </div>
                 </div>
               </div>

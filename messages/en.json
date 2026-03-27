@@ -25,7 +25,13 @@
     "stat2Value": "40+",
     "stat2Label": "Global Clients",
     "stat3Value": "99.9%",
-    "stat3Label": "Uptime Guarantee"
+    "stat3Label": "Uptime Guarantee",
+    "systemStatus": "System Status",
+    "optimization": "Optimization",
+    "securityLevel": "Security Level",
+    "enterpriseShield": "Enterprise Shield",
+    "aiEngine": "AI Engine",
+    "activeStatus": "Active · v2.0"
   },
   "services": {
     "badge": "Our Services",
@@ -63,11 +69,26 @@
     "title": "Softium by the Numbers",
     "subtitle": "Global scale, local understanding.",
     "items": {
-      "projects": { "value": "150+", "label": "Projects Delivered" },
-      "clients": { "value": "40+", "label": "Happy Clients" },
-      "engineers": { "value": "25+", "label": "Expert Engineers" },
-      "uptime": { "value": "99.9%", "label": "Uptime Guarantee" }
-    }
+      "projects": {
+        "value": "150+",
+        "label": "Projects Delivered"
+      },
+      "clients": {
+        "value": "40+",
+        "label": "Happy Clients"
+      },
+      "engineers": {
+        "value": "25+",
+        "label": "Expert Engineers"
+      },
+      "uptime": {
+        "value": "99.9%",
+        "label": "Uptime Guarantee"
+      }
+    },
+    "description": "We deliver high-performance software solutions to over 40 enterprise clients worldwide. We aim for excellence in every project.",
+    "yearsExperience": "Years Experience",
+    "certified": "Certified"
   },
   "process": {
     "badge": "Our Process",
@@ -215,7 +236,13 @@
       "response": "Within 24–48 hours"
     },
     "offices": "Our Offices",
-    "locations": ["Istanbul", "San Francisco", "London", "Singapore"]
+    "locations": [
+      "Istanbul",
+      "San Francisco",
+      "London",
+      "Singapore"
+    ],
+    "privacyNote": "Your information is kept secure."
   },
   "blog": {
     "featuredLabel": "Featured Article",
@@ -283,7 +310,12 @@
       "placeholder": "Email address",
       "cta": "Join the Insider List",
       "note": "By subscribing, you agree to our Privacy Policy and Terms of Service."
-    }
+    },
+    "noContent": "No content yet",
+    "defaultAuthor": "Softium Editor",
+    "success": "Successfully subscribed to our newsletter!",
+    "error": "An error occurred.",
+    "networkError": "Connection error!"
   },
   "blogArticles": {
     "quantum-computing": {
@@ -491,7 +523,14 @@
     "systemStatus": "System Status",
     "optimization": "Optimization",
     "securityLevel": "Security Level",
-    "enterpriseShield": "Enterprise Shield"
+    "enterpriseShield": "Enterprise Shield",
+    "newsletterTitle": "Subscribe to Our Newsletter",
+    "newsletterDesc": "Get industry news and updates directly.",
+    "subscribe": "Join",
+    "success": "Successfully subscribed to the newsletter!",
+    "error": "An error occurred.",
+    "networkError": "Connection error!",
+    "emailPlaceholder": "hello@company.com"
   },
   "references": {
     "hero": {

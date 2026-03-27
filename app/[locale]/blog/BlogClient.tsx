@@ -133,11 +133,11 @@ export default function BlogClient({ posts }: BlogClientProps) {
                 </div>
 
                 <h3 className={styles.cardTitle}>{getTitle(article)}</h3>
-                <p className={styles.cardExcerpt}>{getExcerpt(article) || 'Okumaya devam et...'}</p>
+                <p className={styles.cardExcerpt}>{getExcerpt(article) || t('readInsight')}</p>
               </Link>
             )) : (
                <div style={{ gridColumn: '1 / -1', padding: '4rem', textAlign: 'center', color: 'var(--text-muted)' }}>
-                 Bu kategoride henüz yazı bulunamadı.
+                 {t('noContent')}
                </div>
             )}
           </div>
@@ -180,13 +180,13 @@ export default function BlogClient({ posts }: BlogClientProps) {
                       body: JSON.stringify({ email: nlEmail })
                     });
                     if (res.ok) {
-                      setNlMessage(locale === 'tr' ? 'Bültenimize başarıyla abone oldunuz!' : 'Successfully subscribed to our newsletter!');
+                      setNlMessage(t('success'));
                       setNlEmail('');
                     } else {
-                      setNlMessage(locale === 'tr' ? 'Bir hata oluştu.' : 'An error occurred.');
+                      setNlMessage(t('error'));
                     }
                   } catch (e) {
-                     setNlMessage(locale === 'tr' ? 'Bağlantı hatası!' : 'Connection error!');
+                     setNlMessage(t('networkError'));
                   } finally {
                      setNlLoading(false);
                      setTimeout(() => setNlMessage(''), 5000);

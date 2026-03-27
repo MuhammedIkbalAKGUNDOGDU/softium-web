@@ -326,8 +326,7 @@ export default function ContactForm() {
                   lock
                 </span>
                 {' '}
-                {/* Static — could be added to i18n too */}
-                Bilgileriniz güvende tutulur.
+                {t('privacyNote')}
               </p>
             </div>
           </form>

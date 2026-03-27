@@ -184,8 +184,8 @@ export default function Footer() {
 
             {/* Quick Newsletter */}
             <div style={{ marginTop: '2rem' }}>
-              <h4 style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--text-primary)', marginBottom: '0.5rem' }}>Bültenimize Abone Olun</h4>
-              <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '1rem' }}>Sektörel haberler ve güncellemelerden haberdar olun.</p>
+              <h4 style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--text-primary)', marginBottom: '0.5rem' }}>{t('newsletterTitle')}</h4>
+              <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '1rem' }}>{t('newsletterDesc')}</p>
               <form 
                 style={{ display: 'flex', gap: '0.5rem' }}
                 onSubmit={async (e) => {
@@ -199,13 +199,13 @@ export default function Footer() {
                       body: JSON.stringify({ email: nlEmail })
                     });
                     if (res.ok) {
-                      setNlMessage(locale === 'tr' ? 'Bültene başarıyla abone oldunuz!' : 'Successfully subscribed!');
+                      setNlMessage(t('success'));
                       setNlEmail('');
                     } else {
-                      setNlMessage(locale === 'tr' ? 'Bir hata oluştu.' : 'An error occurred.');
+                      setNlMessage(t('error'));
                     }
                   } catch (e) {
-                     setNlMessage(locale === 'tr' ? 'Bağlantı hatası!' : 'Connection error!');
+                     setNlMessage(t('networkError'));
                   } finally {
                      setNlLoading(false);
                      setTimeout(() => setNlMessage(''), 5000);
@@ -216,7 +216,7 @@ export default function Footer() {
                   type="email" 
                   value={nlEmail}
                   onChange={e => setNlEmail(e.target.value)}
-                  placeholder="hello@company.com" 
+                  placeholder={t('emailPlaceholder')} 
                   disabled={nlLoading}
                   style={{ 
                     flex: 1, 
@@ -243,7 +243,7 @@ export default function Footer() {
                     cursor: 'pointer' 
                   }}
                 >
-                  {nlLoading ? '...' : (locale === 'tr' ? 'Katıl' : 'Join')}
+                  {nlLoading ? '...' : t('subscribe')}
                 </button>
               </form>
               {nlMessage && <div style={{ marginTop: '0.5rem', fontSize: '0.75rem', color: 'var(--primary)' }}>{nlMessage}</div>}
@@ -301,7 +301,7 @@ export default function Footer() {
             <div className={styles.statusBadge} id="footer-status">
               <span className={styles.statusDot} aria-hidden="true" />
               <span className={styles.statusDotPing} aria-hidden="true" />
-              <span>All systems operational</span>
+              <span>{t('systemStatus')}</span>
             </div>
           </div>
         </div>

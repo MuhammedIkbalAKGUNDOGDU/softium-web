@@ -95,13 +95,13 @@ export default function StatsSection() {
               </span>
               <div>
                 <div className={styles.badgeTitle}>{statsMap['iso_title']?.value || 'ISO 27001'}</div>
-                <div className={styles.badgeSubtitle}>{getLabel(statsMap['iso_title']) || 'Certified'}</div>
+                <div className={styles.badgeSubtitle}>{getLabel(statsMap['iso_title']) || t('certified')}</div>
               </div>
             </div>
 
             <div className={styles.imageBadge2}>
               <div className={styles.badge2Value}>{statsMap['experience_value']?.value || '10+'}</div>
-              <div className={styles.badge2Label}>{getLabel(statsMap['experience_value']) || (locale === 'tr' ? 'Yıllık Deneyim' : 'Years Experience')}</div>
+              <div className={styles.badge2Label}>{getLabel(statsMap['experience_value']) || t('yearsExperience')}</div>
             </div>
           </div>
 
@@ -116,8 +116,7 @@ export default function StatsSection() {
                 {t('subtitle')}
               </h2>
               <p className={styles.description}>
-                Dünya genelinde 40'tan fazla enterprise müşterimize yüksek performanslı yazılım çözümleri sunuyoruz.
-                Her projede mükemmelliği hedefliyoruz.
+                {t('description')}
               </p>
             </div>
 

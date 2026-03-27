@@ -25,7 +25,13 @@
     "stat2Value": "40+",
     "stat2Label": "Globale Kunden",
     "stat3Value": "99,9%",
-    "stat3Label": "Uptime-Garantie"
+    "stat3Label": "Uptime-Garantie",
+    "systemStatus": "Systemstatus",
+    "optimization": "Optimierung",
+    "securityLevel": "Sicherheitsstufe",
+    "enterpriseShield": "Enterprise Shield",
+    "aiEngine": "KI-Engine",
+    "activeStatus": "Aktiv · v2.0"
   },
   "services": {
     "badge": "Unsere Leistungen",
@@ -63,11 +69,26 @@
     "title": "Softium in Zahlen",
     "subtitle": "Globale Reichweite, lokales Verständnis.",
     "items": {
-      "projects": { "value": "150+", "label": "Abgeschlossene Projekte" },
-      "clients": { "value": "40+", "label": "Zufriedene Kunden" },
-      "engineers": { "value": "25+", "label": "Erfahrene Ingenieure" },
-      "uptime": { "value": "99,9%", "label": "Uptime-Garantie" }
-    }
+      "projects": {
+        "value": "150+",
+        "label": "Abgeschlossene Projekte"
+      },
+      "clients": {
+        "value": "40+",
+        "label": "Zufriedene Kunden"
+      },
+      "engineers": {
+        "value": "25+",
+        "label": "Erfahrene Ingenieure"
+      },
+      "uptime": {
+        "value": "99,9%",
+        "label": "Uptime-Garantie"
+      }
+    },
+    "description": "Wir liefern leistungsstarke Softwarelösungen an über 40 Unternehmenskunden weltweit. Wir streben in jedem Projekt nach Exzellenz.",
+    "yearsExperience": "Jahre Erfahrung",
+    "certified": "Zertifiziert"
   },
   "process": {
     "badge": "Unser Prozess",
@@ -213,7 +234,8 @@
       "hours": "Mo–Fr, 09:00–18:00 (TRT)",
       "responseLabel": "Antwortzeit",
       "response": "Innerhalb von 24–48 Stunden"
-    }
+    },
+    "privacyNote": "Ihre Informationen werden sicher aufbewahrt."
   },
   "blog": {
     "featuredLabel": "Ausgewählter Artikel",
@@ -281,7 +303,12 @@
       "placeholder": "E-Mail-Adresse",
       "cta": "Der Insider-Liste beitreten",
       "note": "Mit der Anmeldung stimmen Sie unserer Datenschutzrichtlinie und den Nutzungsbedingungen zu."
-    }
+    },
+    "noContent": "Noch kein Inhalt",
+    "defaultAuthor": "Softium Redakteur",
+    "success": "Erfolgreich für unseren Newsletter angemeldet!",
+    "error": "Ein Fehler ist aufgetreten.",
+    "networkError": "Verbindungsfehler!"
   },
   "blogArticles": {
     "quantum-computing": {
@@ -374,7 +401,7 @@
       "authorRole": "Chief Strategy Officer",
       "date": "1. Januar 2024",
       "readTime": "12 Min. Lesen",
-      "intro": "Das dritte Quartal war für Softium eines, das unseren Charakter geprägt hat \u2014 von der Leistung unserer Innovationslabore bis zur globalen Expansion.",
+      "intro": "Das dritte Quartal war für Softium eines, das unseren Charakter geprägt hat — von der Leistung unserer Innovationslabore bis zur globalen Expansion.",
       "body1": "Im dritten Quartal verzeichneten unsere Kundenbindungsraten zweistelliges Wachstum, während unser Engineering-Team die Auslieferung von Features beschleunigte.",
       "section1Title": "Wichtige Kennzahlen & Wachstum",
       "section1Body": "In mehreren Dimensionen unseres Geschäfts zeigt die Trajektorie nach oben.",
@@ -400,7 +427,7 @@
       "authorRole": "Chief Design Officer",
       "date": "20. Januar 2024",
       "readTime": "6 Min. Lesen",
-      "intro": "Die besten SaaS-Oberflächen werden zunehmend unsichtbar \u2014 und das mit Absicht. Man könnte fragen: Ist weniger nicht in Wirklichkeit mehr?",
+      "intro": "Die besten SaaS-Oberflächen werden zunehmend unsichtbar — und das mit Absicht. Man könnte fragen: Ist weniger nicht in Wirklichkeit mehr?",
       "body1": "Modernes UX-Design ist ein Krieg gegen kognitive Belastung. Je mehr Funktionen Nutzer kennenlernen, desto schwieriger wird es, Klarheit und Verständlichkeit zu bewahren.",
       "section1Title": "Warum Minimalismus kein Ende ist",
       "section1Body": "Nutzerforschung zeigt konsequent, dass jeder vierte Fehler auf Probleme mit der Auffindbarkeit in der Oberfläche zurückzuführen ist.",
@@ -409,7 +436,7 @@
       "listItem3": "Design-Konsistenz schafft Vertrauen und senkt Supportkosten messbar.",
       "quote": "Designs Zweck ist nicht zu dominieren, sondern zu dienen. Gut gestaltete Software sollte für ihren Nutzer unsichtbar werden.",
       "section2Title": "Komplexität in SaaS managen",
-      "section2Body": "Nutzer-Onboarding ist keine kosmetische Angelegenheit \u2014 es ist eine evolutionstäre Designphilosophie, die langfristige Produktbindung untermauert.",
+      "section2Body": "Nutzer-Onboarding ist keine kosmetische Angelegenheit — es ist eine evolutionstäre Designphilosophie, die langfristige Produktbindung untermauert.",
       "tag1": "#DESIGN",
       "tag2": "#UX",
       "tag3": "#SAAS"
@@ -426,14 +453,14 @@
       "authorRole": "Principal Security Architect",
       "date": "5. Februar 2024",
       "readTime": "10 Min. Lesen",
-      "intro": "Angriffe auf die Software-Lieferkette \u2014 insbesondere solche, die große Technologieanbieter ins Visier nehmen \u2014 sind in den letzten Jahren ein eindringlicher Weckruf gewesen.",
+      "intro": "Angriffe auf die Software-Lieferkette — insbesondere solche, die große Technologieanbieter ins Visier nehmen — sind in den letzten Jahren ein eindringlicher Weckruf gewesen.",
       "body1": "Zero-Trust-Architektur geht davon aus, dass kein Nutzer oder System automatisch vertrauenswürdig ist. Jeder Zugangspunkt muss verifiziert und autorisiert werden.",
       "section1Title": "Zero-Trust in CI/CD-Pipelines",
       "section1Body": "Die Sicherheitsfläche der Software-Lieferpipeline erfordert einen umfassenden Ansatz, der Code, Konfiguration und Infrastruktur durch eine Sicherheitslinse betrachtet.",
       "listItem1": "SBOM-Generierung (Software Bill of Materials) zur Adressierung von Drittanbieter-Lieferkettenrisiken.",
       "listItem2": "Immutable Artifact Pipelines für Software und Infrastrukturkonfigurationen.",
       "listItem3": "Automatisierung für Least-Privilege-Provisionierung in jeder Pipeline-Phase.",
-      "quote": "Sicherheit ist keine Türsteher-Funktion mehr \u2014 sie ist ein grundlegendes Fundament. Sie muss das erste Prinzip jeder Architekturentscheidung sein.",
+      "quote": "Sicherheit ist keine Türsteher-Funktion mehr — sie ist ein grundlegendes Fundament. Sie muss das erste Prinzip jeder Architekturentscheidung sein.",
       "section2Title": "Beweisbare Build-Chains",
       "section2Body": "Durch die Kombination von Artefakt-Signierung mit Observability können Teams bescheinigen, dass Build-Ausgaben exakt mit ihrer Quellherkunft übereinstimmen.",
       "tag1": "#SICHERHEIT",
@@ -489,7 +516,14 @@
     "systemStatus": "Systemstatus",
     "optimization": "Optimierung",
     "securityLevel": "Sicherheitsstufe",
-    "enterpriseShield": "Enterprise Shield"
+    "enterpriseShield": "Enterprise Shield",
+    "newsletterTitle": "Abonnieren Sie unseren Newsletter",
+    "newsletterDesc": "Erhalten Sie Branchennews und Updates.",
+    "subscribe": "Beitreten",
+    "success": "Erfolgreich für den Newsletter angemeldet!",
+    "error": "Ein Fehler ist aufgetreten.",
+    "networkError": "Verbindungsfehler!",
+    "emailPlaceholder": "hallo@unternehmen.de"
   },
   "references": {
     "hero": {
