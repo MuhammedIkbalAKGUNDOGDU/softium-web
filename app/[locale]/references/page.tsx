@@ -71,7 +71,7 @@ export default async function ReferencesPage({ params }: Props) {
                 </p>
                 {company.websiteUrl && (
                   <a href={company.websiteUrl} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.25rem', marginTop: '1rem', color: 'var(--primary)', fontWeight: 600, textDecoration: 'none', fontSize: '0.875rem' }}>
-                    Websiteyi Ziyaret Et
+                    {t('visitWebsite')}
                     <span className="material-symbols-outlined" style={{ fontSize: '1rem' }}>open_in_new</span>
                   </a>
                 )}
