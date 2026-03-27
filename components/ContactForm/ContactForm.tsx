@@ -96,10 +96,7 @@ export default function ContactForm() {
         <div className={styles.infoInner}>
           {/* headline */}
           <div>
-            <div className={`badge ${styles.badge}`} style={{ marginBottom: '1.5rem' }}>
-              <span className="material-symbols-outlined" style={{ fontSize: '13px' }}>send</span>
-              {t('badge')}
-            </div>
+
             <h1 className={styles.headline}>
               {t('headline1')}{' '}
               <span className={styles.accentWord}>{t('headline2')}</span>

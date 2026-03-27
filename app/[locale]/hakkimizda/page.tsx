@@ -60,10 +60,7 @@ export default async function AboutPage({ params }: Props) {
           </div>
 
           <div className={styles.heroContent}>
-            <div className={styles.heroTag} aria-label="Section label">
-              <span className="material-symbols-outlined" style={{ fontSize: '13px' }}>info</span>
-              {t('badge')}
-            </div>
+
 
             <h1 className={styles.heroTitle} id="about-hero-title">
               {t('heroTitle1')}{' '}
