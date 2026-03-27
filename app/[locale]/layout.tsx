@@ -50,6 +50,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: t('title'),
       description: t('description'),
     },
+    icons: {
+      icon: [
+        { url: '/favicon.png?v=1' },
+        { url: '/favicon.png?v=1', type: 'image/png', sizes: '32x32' },
+      ],
+      apple: [
+        { url: '/apple-touch-icon.png?v=1' },
+      ],
+    },
   };
 }
 
@@ -65,7 +74,6 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <html lang={locale} suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/favicon.ico" />
         <meta name="theme-color" content="#135bec" />
         <link
           rel="stylesheet"
