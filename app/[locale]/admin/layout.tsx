@@ -1,13 +1,33 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useLocale } from 'next-intl';
+import { useEffect, useState } from 'react';
 import styles from './admin.module.css';
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const locale = useLocale();
+  const router = useRouter();
+  const [authorized, setAuthorized] = useState(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem('admin_token');
+    const isLoginPage = pathname === `/${locale}/admin/login`;
+
+    if (!token && !isLoginPage) {
+      router.push(`/${locale}/admin/login`);
+    } else {
+      setAuthorized(true);
+    }
+  }, [pathname, locale, router]);
+
+  if (pathname === `/${locale}/admin/login`) {
+    return <>{children}</>;
+  }
+
+  if (!authorized) return null; // Prevent showing layout content before check
 
   const navItems = [
     { name: 'Dashboard', href: `/${locale}/admin`, icon: 'dashboard' },
