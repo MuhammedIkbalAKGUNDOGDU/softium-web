@@ -33,6 +33,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     { name: 'Dashboard', href: `/${locale}/admin`, icon: 'dashboard' },
     { name: 'İstatistikler', href: `/${locale}/admin/stats`, icon: 'show_chart' },
     { name: 'Referanslar', href: `/${locale}/admin/references`, icon: 'account_balance' },
+    { name: 'Projeler (Ürünler)', href: `/${locale}/admin/projects`, icon: 'settings_suggest' },
     { name: 'Müşteri Yorumları', href: `/${locale}/admin/testimonials`, icon: 'forum' },
     { name: 'Blog Yönetimi', href: `/${locale}/admin/blog`, icon: 'article' },
     { name: 'İletişim Talepleri', href: `/${locale}/admin/contact`, icon: 'mail' },
