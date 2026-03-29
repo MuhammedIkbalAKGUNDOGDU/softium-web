@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
-import { useLocale, useTranslations } from 'next-intl';
-import { getTranslations } from 'next-intl/server';
+import { useLocale } from 'next-intl';
 import Navbar from '@/components/Navbar/Navbar';
 import Footer from '@/components/Footer/Footer';
 import styles from '../projects.module.css';
@@ -43,9 +42,10 @@ interface Project {
 }
 
 async function getProject(slug: string): Promise<Project | null> {
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5262';
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/projects/slug/${slug}`, {
-      next: { revalidate: 3600 } // Cache for 1 hour
+    const res = await fetch(`${apiUrl}/api/projects/slug/${slug}`, {
+      next: { revalidate: 3600 }
     });
     if (!res.ok) return null;
     return await res.json();
@@ -75,6 +75,12 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
 
   if (!project) return notFound();
 
+  // URL resolution
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5262';
+  const imageUrl = project.mainImage.startsWith('/uploads/') 
+      ? `${apiUrl}${project.mainImage}` 
+      : project.mainImage;
+
   // Localization Helpers
   const title = locale === 'tr' ? project.titleTr : locale === 'en' ? project.titleEn : project.titleDe;
   const overline = locale === 'tr' ? project.overlineTr : locale === 'en' ? project.overlineEn : project.overlineDe;
@@ -84,118 +90,106 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
   return (
     <>
       <Navbar />
-      <main className={project.isDarkTheme ? styles.darkSection : ''} style={{ paddingBottom: '0' }}>
-        {/* Project Hero / Header Area */}
-        <section className={styles.sectionHero} style={{ minHeight: '60vh', textAlign: 'left', alignItems: 'flex-start' }}>
-            <div className={styles.heroContent} style={{ alignItems: 'flex-start' }}>
-                <Link href={`/${locale}/projects`} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none', color: 'var(--primary)', marginBottom: '1rem', fontWeight: 600 }}>
+      <main style={{ backgroundColor: 'var(--bg-primary)', minHeight: '100vh' }}>
+        {/* Project Hero / Header Area - Centered */}
+        <section className={styles.sectionHero} style={{ minHeight: '50vh', padding: '120px 24px 60px' }}>
+            <div className={styles.heroContent} style={{ maxWidth: '900px' }}>
+                <Link href={`/${locale}/projeler`} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none', color: 'var(--primary)', marginBottom: '2rem', fontWeight: 600 }}>
                     <span className="material-symbols-outlined">arrow_back</span>
                     {locale === 'tr' ? 'Tüm Projeler' : locale === 'en' ? 'All Projects' : 'Alle Projekte'}
                 </Link>
                 <span className={styles.heroBadge}>{overline}</span>
-                <h1 className={styles.heroTitle} style={{ textAlign: 'left' }}>{title}</h1>
-                <p className={styles.heroDesc} style={{ textAlign: 'left', maxWidth: '100%' }}>
+                <h1 className={styles.heroTitle}>{title}</h1>
+                <p className={styles.heroDesc}>
                     {locale === 'tr' ? project.shortDescriptionTr : locale === 'en' ? project.shortDescriptionEn : project.shortDescriptionDe}
                 </p>
             </div>
         </section>
 
-        {/* Full Width Visual */}
-        <div style={{ width: '100%', maxHeight: '70vh', overflow: 'hidden', position: 'relative' }}>
-            <img 
-                src={project.mainImage} 
-                alt={title} 
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-            />
-            <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '200px', background: 'linear-gradient(to top, white, transparent)' }}></div>
+        {/* Centered Main Image */}
+        <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 1.5rem' }}>
+            <div style={{ borderRadius: '2rem', overflow: 'hidden', boxShadow: '0 25px 50px -12px rgba(0,0,0,0.1)', aspectRatio: '16/9' }}>
+                <img 
+                    src={imageUrl} 
+                    alt={title} 
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                />
+            </div>
         </div>
 
-        {/* Content Section */}
-        <section className={styles.sectionProduct} style={{ padding: '8rem 1.5rem' }}>
-            <div className={styles.productWrapper} style={{ gridTemplateColumns: 'minmax(0, 2fr) minmax(0, 1fr)', gap: '6rem' }}>
-                {/* Detailed Narrative */}
-                <div className={styles.textCol}>
-                    <h2 className={styles.heading} style={{ fontSize: '2.5rem' }}>
-                        {locale === 'tr' ? 'Genel Bakış' : locale === 'en' ? 'Overview' : 'Überblick'}
-                    </h2>
-                    <div 
-                        className={styles.description} 
-                        style={{ whiteSpace: 'pre-wrap' }}
-                        dangerouslySetInnerHTML={{ __html: detailedContent }}
-                    ></div>
+        {/* Centered Content Section */}
+        <section style={{ maxWidth: '900px', margin: '0 auto', padding: '6rem 1.5rem' }}>
+            <div className={styles.textCol}>
+                <h2 className={styles.heading} style={{ fontSize: '2.5rem', textAlign: 'center' }}>
+                    {locale === 'tr' ? 'Genel Bakış' : locale === 'en' ? 'Overview' : 'Überblick'}
+                </h2>
+                <div 
+                    className={styles.description} 
+                    style={{ marginTop: '2rem', color: 'var(--text-secondary)' }}
+                    dangerouslySetInnerHTML={{ __html: detailedContent }}
+                ></div>
 
-                    {technicalSpecs && (
-                        <div style={{ marginTop: '4rem', padding: '3rem', backgroundColor: 'var(--bg-secondary)', borderRadius: '2rem' }}>
-                            <h3 className={styles.heading} style={{ fontSize: '1.75rem', marginTop: 0 }}>
-                                {locale === 'tr' ? 'Teknik Özellikler' : locale === 'en' ? 'Technical Specifications' : 'Technische Daten'}
-                            </h3>
-                            <div 
-                                style={{ marginTop: '1.5rem', color: 'var(--text-secondary)', lineHeight: 1.8 }}
-                                dangerouslySetInnerHTML={{ __html: technicalSpecs }}
-                            ></div>
-                        </div>
-                    )}
+                {/* Features Grid - Centered */}
+                <div style={{ marginTop: '5rem' }}>
+                  <h3 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '3rem', textAlign: 'center', color: 'var(--text-primary)' }}>
+                      {locale === 'tr' ? 'Temel Kazanımlar' : locale === 'en' ? 'Key Benefits' : 'Hauptvorteile'}
+                  </h3>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
+                      {project.features.map(feat => (
+                          <div key={feat.id} style={{ padding: '2rem', backgroundColor: 'var(--bg-secondary)', borderRadius: '1.5rem', display: 'flex', flexDirection: 'column', gap: '1rem', alignItems: 'center', textAlign: 'center' }}>
+                              <span className="material-symbols-outlined" style={{ fontSize: '2.5rem', color: 'var(--primary)' }}>
+                                  {feat.icon || 'verified_user'}
+                              </span>
+                              <div style={{ fontWeight: 700, fontSize: '1.2rem', color: 'var(--text-primary)' }}>
+                                  {locale === 'tr' ? feat.titleTr : locale === 'en' ? feat.titleEn : feat.titleDe}
+                              </div>
+                          </div>
+                      ))}
+                  </div>
                 </div>
 
-                {/* Sidebar: Features & Links */}
-                <div>
-                   <div style={{ position: 'sticky', top: '120px', display: 'flex', flexDirection: 'column', gap: '3rem' }}>
-                        <div>
-                            <h4 style={{ fontSize: '1.25rem', fontWeight: 800, marginBottom: '2rem', color: 'var(--text-primary)' }}>
-                                {locale === 'tr' ? 'Temel Kazanımlar' : locale === 'en' ? 'Key Benefits' : 'Hauptvorteile'}
-                            </h4>
-                            <ul className={styles.featureList}>
-                                {project.features.map(feat => (
-                                    <li key={feat.id} className={styles.featureItem} style={{ marginBottom: '1.5rem', alignItems: 'flex-start' }}>
-                                        <span className={`material-symbols-outlined ${styles.featureIcon}`} style={{ marginTop: '2px' }}>
-                                            {feat.icon || 'verified_user'}
-                                        </span>
-                                        <div>
-                                            <div style={{ fontWeight: 700, color: 'var(--text-primary)' }}>
-                                                {locale === 'tr' ? feat.titleTr : locale === 'en' ? feat.titleEn : feat.titleDe}
-                                            </div>
-                                        </div>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
+                {technicalSpecs && (
+                    <div style={{ marginTop: '6rem', padding: '4rem', backgroundColor: '#f8fafc', borderRadius: '3rem', border: '1px solid #e2e8f0' }}>
+                        <h3 className={styles.heading} style={{ fontSize: '2rem', marginTop: 0, textAlign: 'center' }}>
+                            {locale === 'tr' ? 'Teknik Özellikler' : locale === 'en' ? 'Technical Specifications' : 'Technische Daten'}
+                        </h3>
+                        <div 
+                            style={{ marginTop: '2.5rem', color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: '1.1rem' }}
+                            dangerouslySetInnerHTML={{ __html: technicalSpecs }}
+                        ></div>
+                    </div>
+                )}
 
-                        {(project.demoUrl || project.documentUrl) && (
-                            <div style={{ padding: '2rem', border: '1px solid var(--border)', borderRadius: '1.5rem' }}>
-                                <h4 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: '1.5rem' }}>Kaynaklar</h4>
-                                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                                    {project.demoUrl && (
-                                        <a href={project.demoUrl} target="_blank" className={styles.btnPrimary} style={{ textDecoration: 'none', textAlign: 'center', fontSize: '1rem' }}>
-                                            {locale === 'tr' ? 'Ürünü İncele' : 'Try Demo'}
-                                        </a>
-                                    )}
-                                    {project.documentUrl && (
-                                        <a href={project.documentUrl} target="_blank" className={styles.btnSecondary} style={{ textDecoration: 'none', textAlign: 'center', fontSize: '1rem' }}>
-                                            {locale === 'tr' ? 'Dokümantasyon' : 'Documentation'}
-                                        </a>
-                                    )}
-                                </div>
-                            </div>
+                {/* Resource Buttons - Centered */}
+                {(project.demoUrl || project.documentUrl) && (
+                    <div style={{ marginTop: '6rem', display: 'flex', justifyContent: 'center', gap: '1.5rem', flexWrap: 'wrap' }}>
+                        {project.demoUrl && (
+                            <a href={project.demoUrl} target="_blank" className={styles.btnPrimary} style={{ textDecoration: 'none', width: 'auto', minWidth: '200px', textAlign: 'center' }}>
+                                {locale === 'tr' ? 'Ürünü İncele' : 'Try Demo'}
+                            </a>
                         )}
-                   </div>
-                </div>
+                        {project.documentUrl && (
+                            <a href={project.documentUrl} target="_blank" className={styles.btnSecondary} style={{ textDecoration: 'none', width: 'auto', minWidth: '200px', textAlign: 'center' }}>
+                                {locale === 'tr' ? 'Dokümantasyon' : 'Documentation'}
+                            </a>
+                        )}
+                    </div>
+                )}
             </div>
         </section>
 
-        {/* Contact CTA */}
-        <section className={styles.sectionCTA} style={{ backgroundColor: 'var(--bg-secondary)', padding: '10rem 1.5rem' }}>
-            <div className={styles.ctaWrapper}>
-                <h2 className={styles.heading} style={{ marginBottom: '1rem' }}>
+        {/* Final CTA - Centered */}
+        <section style={{ backgroundColor: '#135bec08', padding: '10rem 1.5rem', textAlign: 'center' }}>
+            <div style={{ maxWidth: '700px', margin: '0 auto' }}>
+                <h2 className={styles.heading} style={{ marginBottom: '1.5rem' }}>
                     {locale === 'tr' ? 'Bu Teknolojiyle Dönüşüme Başlayın' : 'Ready to Transform?'}
                 </h2>
-                <p className={styles.description}>
-                    {locale === 'tr' ? 'Softium altyapısı ile işletmenizi geleceğe taşıyın.' : 'Implementation is the last piece of the puzzle.'}
+                <p className={styles.description} style={{ marginBottom: '3rem' }}>
+                    {locale === 'tr' ? 'Softium altyapısı ile işletmenizi geleceğe taşıyın. Elite mühendislik çözümlerimizle tanışın.' : 'Implementation is the last piece of the puzzle.'}
                 </p>
-                <div className={styles.ctaButtons} style={{ marginTop: '3rem' }}>
-                    <Link href={`/${locale}/iletisim`} className={styles.btnPrimary} style={{ textDecoration: 'none' }}>
-                        {locale === 'tr' ? 'Detaylı Bilgi Al' : 'Contact Us'}
-                    </Link>
-                </div>
+                <Link href={`/${locale}/iletisim`} className={styles.btnPrimary} style={{ textDecoration: 'none', width: 'auto' }}>
+                    {locale === 'tr' ? 'Detaylı Bilgi Al' : 'Contact Us'}
+                </Link>
             </div>
         </section>
       </main>
@@ -203,3 +197,4 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
     </>
   );
 }
+

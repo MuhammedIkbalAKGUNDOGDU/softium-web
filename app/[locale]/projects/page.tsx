@@ -1,10 +1,11 @@
-import type { Metadata } from 'next';
+'use client';
+
 import { useLocale, useTranslations } from 'next-intl';
-import { getTranslations } from 'next-intl/server';
 import Navbar from '@/components/Navbar/Navbar';
 import Footer from '@/components/Footer/Footer';
 import styles from './projects.module.css';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 interface ProjectFeature {
   id: string;
@@ -30,38 +31,34 @@ interface Project {
   hoverImage?: string;
   icon?: string;
   isDarkTheme: boolean;
+  layout: string;
   sortOrder: number;
   features: ProjectFeature[];
 }
 
-async function getProjects(): Promise<Project[]> {
-  try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/projects`, {
-      next: { revalidate: 3600 } // Cache for 1 hour
-    });
-    if (!res.ok) return [];
-    return await res.json();
-  } catch (e) {
-    return [];
-  }
-}
-
-/* ─── Metadata ────────────────────────────────── */
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'projects.hero' });
+export default function ProjectsPage() {
+  const locale = useLocale();
+  const t = useTranslations('projects');
   
-  return {
-    title: `${t('heading')} | Softium Technologies`,
-    description: t('subtitle'),
-  };
-}
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [loading, setLoading] = useState(true);
 
-/* ─── Page Component ──────────────────────────── */
-export default async function ProjectsPage({ params }: { params: Promise<{ locale: string }> }) {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'projects' });
-  const projects = await getProjects();
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/projects`);
+        if (res.ok) {
+          const data = await res.json();
+          setProjects(data);
+        }
+      } catch (e) {
+        console.error('Projects fetch error:', e);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchProjects();
+  }, []);
 
   return (
     <>
@@ -87,17 +84,55 @@ export default async function ProjectsPage({ params }: { params: Promise<{ local
         </section>
 
         {/* ── Dynamic Product Sections ─────────────────── */}
-        {projects.map((project, index) => {
+        {loading ? (
+          <div style={{ padding: '8rem 2rem', textAlign: 'center', background: 'var(--bg-primary)' }}>
+             <p style={{ color: 'var(--text-muted)', fontSize: '1.25rem' }}>Projeler yükleniyor...</p>
+          </div>
+        ) : projects.length === 0 ? (
+          <div style={{ padding: '8rem 2rem', textAlign: 'center', background: 'var(--bg-primary)' }}>
+             <p style={{ color: 'var(--text-muted)', fontSize: '1.25rem' }}>Henüz yayınlanmış proje bulunamadı.</p>
+          </div>
+        ) : (
+          projects.map((project, index) => {
             const isEven = index % 2 === 0;
             const projectTitle = locale === 'tr' ? project.titleTr : locale === 'en' ? project.titleEn : project.titleDe;
             const projectOverline = locale === 'tr' ? project.overlineTr : locale === 'en' ? project.overlineEn : project.overlineDe;
             const projectShortDesc = locale === 'tr' ? project.shortDescriptionTr : locale === 'en' ? project.shortDescriptionEn : project.shortDescriptionDe;
+            
+            // Port and URL resolution
+            const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5262';
+            const imageUrl = (project.mainImage && project.mainImage.startsWith('/uploads/')) 
+                ? `${apiUrl}${project.mainImage}` 
+                : (project.mainImage || '');
 
+            // ── Split Layout Logic ────────────────────────
+            if (project.layout === 'split') {
+               return (
+                  <section key={project.id} className={styles.sectionSplit}>
+                    <div className={styles.splitWrapper}>
+                       <div className={styles.splitImageCol}>
+                          <img src={imageUrl} alt={projectTitle} className={styles.splitImage} />
+                       </div>
+                       <div className={styles.splitTextCol}>
+                          <span className={styles.subHeading}>{projectOverline}</span>
+                          <h2 className={styles.heading}>{projectTitle}</h2>
+                          <p className={styles.description}>{projectShortDesc}</p>
+                          <Link href={`/${locale}/projects/${project.slug}`} className={styles.productLink}>
+                              {t('core.cta')}
+                              <span className="material-symbols-outlined">arrow_forward</span>
+                          </Link>
+                       </div>
+                    </div>
+                  </section>
+               );
+            }
+
+            // ── Standard Layout ──────────────────────────
             return (
                 <section 
                     key={project.id} 
-                    className={project.isDarkTheme ? styles.darkSection : styles.sectionProduct} 
-                    style={!project.isDarkTheme && index % 2 !== 0 ? { backgroundColor: 'var(--bg-secondary)' } : {}}
+                    className={project.isDarkTheme ? styles.darkSection : styles.sectionProduct}
+                    style={!project.isDarkTheme ? { backgroundColor: index % 2 !== 0 ? 'var(--bg-secondary)' : 'var(--bg-primary)' } : {}}
                 >
                   <div className={project.isDarkTheme ? styles.darkInner : ''}>
                     <div className={styles.productWrapper}>
@@ -110,11 +145,11 @@ export default async function ProjectsPage({ params }: { params: Promise<{ local
                             </div>
                             
                             <ul className={styles.featureList}>
-                                {project.features.map((feat) => (
-                                    <li key={feat.id} className={`${styles.featureItem} ${project.isDarkTheme ? styles.textSlate300 : ''}`}>
-                                        <span className={`material-symbols-outlined ${styles.featureIcon}`}>{feat.icon || 'check_circle'}</span>
-                                        {locale === 'tr' ? feat.titleTr : locale === 'en' ? feat.titleEn : feat.titleDe}
-                                    </li>
+                                {(project as any).features?.map((feat: any) => (
+                                  <li key={feat.id} className={`${styles.featureItem} ${project.isDarkTheme ? styles.textSlate300 : ''}`}>
+                                      <span className={`material-symbols-outlined ${styles.featureIcon}`}>{feat.icon || 'check_circle'}</span>
+                                      {locale === 'tr' ? feat.titleTr : locale === 'en' ? feat.titleEn : feat.titleDe}
+                                  </li>
                                 ))}
                             </ul>
                             
@@ -128,10 +163,10 @@ export default async function ProjectsPage({ params }: { params: Promise<{ local
                         <div className={`${isEven ? (project.isDarkTheme ? styles.itemOrder2 : styles.itemOrder1) : styles.itemOrder1} ${isEven ? (project.isDarkTheme ? styles.lgOrder1 : styles.lgOrder2) : styles.lgOrder2}`}>
                             <div className={styles.imageContainer}>
                                 <img 
-                                    src={project.mainImage} 
+                                    src={imageUrl} 
                                     alt={projectTitle} 
                                     className={styles.productImage}
-                                    style={project.isDarkTheme ? { opacity: 0.8 } : { mixBlendMode: 'multiply', opacity: 0.9 }} 
+                                    style={project.isDarkTheme ? { opacity: 0.9 } : { opacity: 1 }} 
                                 />
                                 <div className={styles.overlayGradient}></div>
                             </div>
@@ -140,7 +175,8 @@ export default async function ProjectsPage({ params }: { params: Promise<{ local
                   </div>
                 </section>
             );
-        })}
+          })
+        )}
 
         {/* ── CTA Section ────────────────────────────── */}
         <section className={styles.sectionCTA}>
@@ -165,3 +201,4 @@ export default async function ProjectsPage({ params }: { params: Promise<{ local
     </>
   );
 }
+

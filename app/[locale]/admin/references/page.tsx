@@ -177,8 +177,16 @@ export default function ReferencesAdmin() {
               references.map((ref) => (
                 <tr key={ref.id}>
                   <td style={{ fontWeight: 600, color: '#0f172a' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                      {ref.icon && <span className="material-symbols-outlined" style={{color: '#64748b', fontSize: '18px'}}>{ref.icon}</span>}
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                      {ref.logoUrl ? (
+                         <img src={ref.logoUrl.startsWith('/uploads/') ? `${process.env.NEXT_PUBLIC_API_URL}${ref.logoUrl}` : ref.logoUrl} 
+                              alt={ref.name} 
+                              style={{ width: '32px', height: '32px', objectFit: 'contain', borderRadius: '4px', backgroundColor: '#f8fafc', padding: '2px' }} />
+                      ) : (
+                        <div style={{ width: '32px', height: '32px', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#f1f5f9', borderRadius: '4px' }}>
+                          <span className="material-symbols-outlined" style={{color: '#94a3b8', fontSize: '18px'}}>{ref.icon || 'corporate_fare'}</span>
+                        </div>
+                      )}
                       {ref.name}
                     </div>
                   </td>

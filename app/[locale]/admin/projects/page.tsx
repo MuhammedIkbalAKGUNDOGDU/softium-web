@@ -4,19 +4,15 @@ import dynamic from 'next/dynamic';
 import styles from '../admin.module.css';
 import ProjectIconPicker from '@/components/ProjectIconPicker/ProjectIconPicker';
 
+import 'react-quill-new/dist/quill.snow.css';
+
 const ReactQuillWrapper = dynamic(
-  async () => {
-    const { default: RQ } = await import('react-quill-new');
-    return function ForwardedQuill({ forwardedRef, ...props }: any) {
-      return <RQ ref={forwardedRef} {...props} />;
-    };
-  }, 
+  () => import('react-quill-new'),
   { 
     ssr: false, 
     loading: () => <div style={{height: '200px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '8px'}}>Editör Yükleniyor...</div> 
   }
 );
-import 'react-quill-new/dist/quill.snow.css';
 
 interface ProjectFeature {
   id?: string;
@@ -46,6 +42,7 @@ interface Project {
   hoverImage?: string;
   icon?: string;
   isDarkTheme: boolean;
+  layout: string;
   isPublished: boolean;
   sortOrder: number;
   demoUrl?: string;
@@ -72,7 +69,7 @@ export default function ProjectsAdmin() {
     shortDescriptionTr: '', shortDescriptionEn: '', shortDescriptionDe: '',
     detailedContentTr: '', detailedContentEn: '', detailedContentDe: '',
     mainImage: '', hoverImage: '', icon: 'hub',
-    isDarkTheme: false, isPublished: true, sortOrder: 0,
+    isDarkTheme: false, layout: 'standard', isPublished: true, sortOrder: 0,
     demoUrl: '', documentUrl: '',
     technicalSpecsTr: '', technicalSpecsEn: '', technicalSpecsDe: '',
     features: [] as ProjectFeature[]
@@ -108,7 +105,7 @@ export default function ProjectsAdmin() {
       shortDescriptionTr: '', shortDescriptionEn: '', shortDescriptionDe: '',
       detailedContentTr: '', detailedContentEn: '', detailedContentDe: '',
       mainImage: '', hoverImage: '', icon: 'hub',
-      isDarkTheme: false, isPublished: true, sortOrder: projects.length,
+      isDarkTheme: false, layout: 'standard', isPublished: true, sortOrder: projects.length,
       demoUrl: '', documentUrl: '',
       technicalSpecsTr: '', technicalSpecsEn: '', technicalSpecsDe: '',
       features: []
@@ -376,6 +373,14 @@ export default function ProjectsAdmin() {
                           <option value="false">Taslak</option>
                        </select>
                     </div>
+                  </div>
+
+                  <div className={styles.formGroup} style={{ backgroundColor: '#f8fafc', padding: '1rem', borderRadius: '12px', border: '1px solid #e2e8f0' }}>
+                    <label className={styles.label}>Sayfa Yerleşim Düzeni (Layout)</label>
+                    <select className={styles.input} value={formData.layout} onChange={e => setFormData({...formData, layout: e.target.value})}>
+                        <option value="standard">Standart (Alternatif Dizilim)</option>
+                        <option value="split">Split View (Yarı Yazı / Yarı Görsel)</option>
+                    </select>
                   </div>
 
                   <div className={styles.formGroup} style={{ backgroundColor: '#f8fafc', padding: '1rem', borderRadius: '12px', border: '1px solid #e2e8f0' }}>
