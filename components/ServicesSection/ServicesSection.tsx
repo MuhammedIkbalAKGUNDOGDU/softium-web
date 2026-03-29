@@ -74,61 +74,62 @@ export default function ServicesSection() {
         {/* Services Grid */}
         <div className={styles.grid} role="list">
           {SERVICE_KEYS.map((key, i) => (
-            <article
+            <Link
               key={key}
-              id={`service-${key}`}
-              className={`card ${styles.card} reveal reveal-delay-${(i % 3) + 1}`}
-              role="listitem"
-              aria-label={t(`items.${key}.title`)}
+              href={getServiceHref(key)}
+              style={{ textDecoration: 'none', color: 'inherit' }}
             >
-              {/* Icon */}
-              <div
-                className={styles.iconBox}
-                style={{
-                  background: `${SERVICE_COLORS[key]}14`,
-                  color: SERVICE_COLORS[key],
-                }}
-                aria-hidden="true"
+              <article
+                id={`service-${key}`}
+                className={`card ${styles.card} reveal reveal-delay-${(i % 3) + 1}`}
+                role="listitem"
+                aria-label={t(`items.${key}.title`)}
               >
-                <span
-                  className="material-symbols-outlined"
-                  style={{ fontSize: '1.625rem', fontVariationSettings: "'FILL' 0, 'wght' 300" }}
+                {/* Icon */}
+                <div
+                  className={styles.iconBox}
+                  style={{
+                    background: `${SERVICE_COLORS[key]}14`,
+                    color: SERVICE_COLORS[key],
+                  }}
+                  aria-hidden="true"
                 >
-                  {SERVICE_ICONS[key]}
-                </span>
-              </div>
-
-              {/* Content */}
-              <div className={styles.cardContent}>
-                <h3 className={styles.cardTitle}>{t(`items.${key}.title`)}</h3>
-                <p className={styles.cardDesc}>{t(`items.${key}.description`)}</p>
-              </div>
-
-              {/* Footer Link */}
-              <div className={styles.cardFooter}>
-                <div className={styles.divider} />
-                <Link
-                  href={getServiceHref(key)}
-                  className={styles.learnMore}
-                  aria-label={`${t('learnMore')} - ${t(`items.${key}.title`)}`}
-                >
-                  {t('learnMore')}
                   <span
-                    className={`material-symbols-outlined ${styles.arrowIcon}`}
-                    aria-hidden="true"
+                    className="material-symbols-outlined"
+                    style={{ fontSize: '1.625rem', fontVariationSettings: "'FILL' 0, 'wght' 300" }}
                   >
-                    arrow_forward
+                    {SERVICE_ICONS[key]}
                   </span>
-                </Link>
-              </div>
+                </div>
 
-              {/* Hover accent bar */}
-              <div
-                className={styles.accentBar}
-                style={{ background: SERVICE_COLORS[key] }}
-                aria-hidden="true"
-              />
-            </article>
+                {/* Content */}
+                <div className={styles.cardContent}>
+                  <h3 className={styles.cardTitle}>{t(`items.${key}.title`)}</h3>
+                  <p className={styles.cardDesc}>{t(`items.${key}.description`)}</p>
+                </div>
+
+                {/* Footer Link */}
+                <div className={styles.cardFooter}>
+                  <div className={styles.divider} />
+                  <div className={styles.learnMore}>
+                    {t('learnMore')}
+                    <span
+                      className={`material-symbols-outlined ${styles.arrowIcon}`}
+                      aria-hidden="true"
+                    >
+                      arrow_forward
+                    </span>
+                  </div>
+                </div>
+
+                {/* Hover accent bar */}
+                <div
+                  className={styles.accentBar}
+                  style={{ background: SERVICE_COLORS[key] }}
+                  aria-hidden="true"
+                />
+              </article>
+            </Link>
           ))}
         </div>
 
