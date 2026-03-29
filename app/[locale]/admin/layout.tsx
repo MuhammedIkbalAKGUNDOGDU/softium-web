@@ -11,23 +11,22 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const locale = useLocale();
   const router = useRouter();
   const [authorized, setAuthorized] = useState(false);
+  const isLoginPage = pathname === `/${locale}/admin/login`;
 
   useEffect(() => {
     const token = localStorage.getItem('admin_token');
-    const isLoginPage = pathname === `/${locale}/admin/login`;
-
     if (!token && !isLoginPage) {
       router.push(`/${locale}/admin/login`);
     } else {
       setAuthorized(true);
     }
-  }, [pathname, locale, router]);
+  }, [pathname, locale, router, isLoginPage]);
 
-  if (pathname === `/${locale}/admin/login`) {
+  if (isLoginPage) {
     return <>{children}</>;
   }
 
-  if (!authorized) return null; // Prevent showing layout content before check
+  if (!authorized) return null;
 
   const navItems = [
     { name: 'Dashboard', href: `/${locale}/admin`, icon: 'dashboard' },
@@ -37,6 +36,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     { name: 'Müşteri Yorumları', href: `/${locale}/admin/testimonials`, icon: 'forum' },
     { name: 'Blog Yönetimi', href: `/${locale}/admin/blog`, icon: 'article' },
     { name: 'İletişim Talepleri', href: `/${locale}/admin/contact`, icon: 'mail' },
+    { name: 'Admin Giriş Kayıtları', href: `/${locale}/admin/logs`, icon: 'shield_person' },
     { name: 'Bülten (Newsletter)', href: `/${locale}/admin/newsletter`, icon: 'mark_email_read' },
     { name: 'Genel Ayarlar', href: `/${locale}/admin/settings`, icon: 'settings' },
   ];

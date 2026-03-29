@@ -8,9 +8,8 @@ export function ScrollProgress() {
   const [progress, setProgress] = useState(0);
   const pathname = usePathname();
 
-  if (pathname.includes('/admin')) return null;
-
   useEffect(() => {
+    if (pathname.includes('/admin')) return;
     // Reset progress on route change
     setProgress(0);
 
@@ -32,6 +31,8 @@ export function ScrollProgress() {
     window.addEventListener('scroll', update, { passive: true });
     return () => window.removeEventListener('scroll', update);
   }, [pathname]); // Re-run effect when pathname changes
+
+  if (pathname.includes('/admin')) return null;
 
   return (
     <div className={styles.progressBar} aria-hidden="true">
