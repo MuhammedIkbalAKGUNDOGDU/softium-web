@@ -1,6 +1,22 @@
 'use client';
 import { useState, useEffect } from 'react';
+import dynamic from 'next/dynamic';
 import styles from '../admin.module.css';
+import ProjectIconPicker from '@/components/ProjectIconPicker/ProjectIconPicker';
+
+const ReactQuillWrapper = dynamic(
+  async () => {
+    const { default: RQ } = await import('react-quill-new');
+    return function ForwardedQuill({ forwardedRef, ...props }: any) {
+      return <RQ ref={forwardedRef} {...props} />;
+    };
+  }, 
+  { 
+    ssr: false, 
+    loading: () => <div style={{height: '200px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '8px'}}>Editör Yükleniyor...</div> 
+  }
+);
+import 'react-quill-new/dist/quill.snow.css';
 
 interface ProjectFeature {
   id?: string;
@@ -42,8 +58,8 @@ interface Project {
 
 export default function ProjectsAdmin() {
   const [projects, setProjects] = useState<Project[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [activeTab, setActiveTab] = useState<'tr' | 'en' | 'de'>('tr');
 
@@ -204,14 +220,14 @@ export default function ProjectsAdmin() {
               <th>Kategori (Overline)</th>
               <th>Tema</th>
               <th>Durum</th>
-              <th style={{ textAlign: 'right' }}>Ýþlemler</th>
+              <th style={{ textAlign: 'right' }}>İşlemler</th>
             </tr>
           </thead>
           <tbody>
             {isLoading ? (
               <tr><td colSpan={5} style={{ textAlign: 'center', padding: '2rem' }}>Yükleniyor...</td></tr>
             ) : projects.length === 0 ? (
-              <tr><td colSpan={5} style={{ textAlign: 'center', padding: '2rem' }}>Henüz teknoloji eklenmemiþ.</td></tr>
+              <tr><td colSpan={5} style={{ textAlign: 'center', padding: '2rem' }}>Henüz teknoloji eklenmemiş.</td></tr>
             ) : (
               projects.map((proj) => (
                 <tr key={proj.id}>
@@ -227,12 +243,12 @@ export default function ProjectsAdmin() {
                   <td>{proj.overlineTr}</td>
                   <td>
                     <span style={{ fontSize: '0.75rem', padding: '0.25rem 0.5rem', borderRadius: '4px', backgroundColor: proj.isDarkTheme ? '#1e293b' : '#f1f5f9', color: proj.isDarkTheme ? 'white' : '#1e293b', border: '1px solid #e2e8f0' }}>
-                      {proj.isDarkTheme ? 'Karanlýk' : 'Aydýnlýk'}
+                      {proj.isDarkTheme ? 'Karanlık' : 'Aydınlık'}
                     </span>
                   </td>
                   <td>
                     <span className={`${styles.statusBadge} ${proj.isPublished ? styles.statusSuccess : styles.statusWarning}`}>
-                      {proj.isPublished ? 'Yayýnda' : 'Taslak'}
+                      {proj.isPublished ? 'Yayında' : 'Taslak'}
                     </span>
                   </td>
                   <td style={{ textAlign: 'right' }}>
@@ -272,7 +288,7 @@ export default function ProjectsAdmin() {
                     transition: 'all 0.2s'
                   }}
                 >
-                  {lang.toUpperCase()} Ýçerik
+                  {lang.toUpperCase()} İçerik
                 </button>
               ))}
             </div>
@@ -282,7 +298,7 @@ export default function ProjectsAdmin() {
                 {/* Left Column: Multilingual Content */}
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                   <div className={styles.formGroup}>
-                    <label className={styles.label}>Baþlýk ({activeTab.toUpperCase()}) *</label>
+                    <label className={styles.label}>Başlık ({activeTab.toUpperCase()}) *</label>
                     <input required type="text" className={styles.input} 
                       value={activeTab === 'tr' ? formData.titleTr : activeTab === 'en' ? formData.titleEn : formData.titleDe} 
                       onChange={e => setFormData({...formData, [`title${activeTab.charAt(0).toUpperCase() + activeTab.slice(1)}`]: e.target.value})} 
@@ -300,20 +316,33 @@ export default function ProjectsAdmin() {
                   </div>
 
                   <div className={styles.formGroup}>
-                    <label className={styles.label}>Kýsa Açýklama (Liste Kartý Ýçin - {activeTab.toUpperCase()}) *</label>
-                    <textarea required className={styles.input} rows={3}
+                    <label className={styles.label}>Kısa Açıklama (Liste Kartı İçin - {activeTab.toUpperCase()}) *</label>
+                    <textarea required className={styles.input} rows={2}
                       value={activeTab === 'tr' ? formData.shortDescriptionTr : activeTab === 'en' ? formData.shortDescriptionEn : formData.shortDescriptionDe} 
                       onChange={e => setFormData({...formData, [`shortDescription${activeTab.charAt(0).toUpperCase() + activeTab.slice(1)}`]: e.target.value})} 
+                      maxLength={150}
                     />
                   </div>
 
                   <div className={styles.formGroup}>
-                    <label className={styles.label}>Detaylı Ýçerik (HTML/Zengin Metin - {activeTab.toUpperCase()}) *</label>
-                    <textarea required className={styles.input} rows={8}
-                      value={activeTab === 'tr' ? formData.detailedContentTr : activeTab === 'en' ? formData.detailedContentEn : formData.detailedContentDe} 
-                      onChange={e => setFormData({...formData, [`detailedContent${activeTab.charAt(0).toUpperCase() + activeTab.slice(1)}`]: e.target.value})} 
-                      placeholder="Projenin tüm detaylarını buraya yazabilirsiniz..."
-                    />
+                    <label className={styles.label}>Detaylı İçerik (Zengin Metin / Resim / Link - {activeTab.toUpperCase()}) *</label>
+                    <div style={{ backgroundColor: 'white' }}>
+                      <ReactQuillWrapper 
+                        theme="snow" 
+                        value={activeTab === 'tr' ? formData.detailedContentTr : activeTab === 'en' ? formData.detailedContentEn : formData.detailedContentDe} 
+                        onChange={(val: string) => setFormData({...formData, [`detailedContent${activeTab.charAt(0).toUpperCase() + activeTab.slice(1)}`]: val})} 
+                        style={{ height: '300px', marginBottom: '3rem' }} 
+                        modules={{
+                          toolbar: [
+                            [{ 'header': [2, 3, 4, false] }],
+                            ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+                            [{'list': 'ordered'}, {'list': 'bullet'}],
+                            ['link', 'image', 'video'],
+                            ['clean']
+                          ],
+                        }}
+                      />
+                    </div>
                   </div>
                 </div>
 
@@ -331,19 +360,19 @@ export default function ProjectsAdmin() {
                   </div>
 
                   <div className={styles.formGroup}>
-                    <label className={styles.label}>Material Icon Kodu</label>
-                    <input type="text" className={styles.input} value={formData.icon} onChange={e => setFormData({...formData, icon: e.target.value})} />
+                    <label className={styles.label}>Sembol Seçimi (İkon)</label>
+                    <ProjectIconPicker value={formData.icon} onChange={(code) => setFormData({...formData, icon: code})} />
                   </div>
 
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                     <div className={styles.formGroup}>
-                      <label className={styles.label}>Sýralama</label>
+                      <label className={styles.label}>Sıralama</label>
                       <input type="number" className={styles.input} value={formData.sortOrder} onChange={e => setFormData({...formData, sortOrder: parseInt(e.target.value)})} />
                     </div>
                     <div className={styles.formGroup}>
                        <label className={styles.label}>Yayın Durumu</label>
                        <select className={styles.input} value={formData.isPublished ? 'true' : 'false'} onChange={e => setFormData({...formData, isPublished: e.target.value === 'true' })}>
-                          <option value="true">Yayýnda</option>
+                          <option value="true">Yayında</option>
                           <option value="false">Taslak</option>
                        </select>
                     </div>
@@ -352,7 +381,7 @@ export default function ProjectsAdmin() {
                   <div className={styles.formGroup} style={{ backgroundColor: '#f8fafc', padding: '1rem', borderRadius: '12px', border: '1px solid #e2e8f0' }}>
                     <label style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', cursor: 'pointer', fontWeight: 600 }}>
                       <input type="checkbox" checked={formData.isDarkTheme} onChange={e => setFormData({...formData, isDarkTheme: e.target.checked})} style={{ width: '1.25rem', height: '1.25rem' }} />
-                      Karanlýk Tema Kullan (Flow Style)
+                      Karanlık Tema Kullan (Flow Style)
                     </label>
                   </div>
                 </div>
@@ -383,9 +412,9 @@ export default function ProjectsAdmin() {
               </div>
 
               <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '1rem', marginTop: '3rem' }}>
-                <button type="button" className={styles.buttonOutline} onClick={() => setIsModalOpen(false)}>Ýptal</button>
+                <button type="button" className={styles.buttonOutline} onClick={() => setIsModalOpen(false)}>İptal</button>
                 <button type="submit" className={styles.button} disabled={isSubmitting} style={{ padding: '1rem 3rem', fontSize: '1.1rem' }}>
-                  {isSubmitting ? 'Veriler Senkronize Ediliyor...' : 'Teknolojiyi Kaydet ve Yayýnla'}
+                  {isSubmitting ? 'Veriler Senkronize Ediliyor...' : 'Yazıyı Kaydet ve Yayınla'}
                 </button>
               </div>
             </form>
