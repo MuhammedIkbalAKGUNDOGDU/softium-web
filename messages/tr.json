@@ -7,8 +7,13 @@
     "about": "Hakkımızda",
     "blog": "Blog",
     "contact": "İletişim",
-    "getStarted": "Başlayalım",
+    "getStarted": "Başlayın",
     "language": "Dil"
+  },
+  "errors": {
+    "pageNotFound": "Aradığınız sayfa mevcut değil veya taşınmış olabilir.",
+    "backToHome": "Ana Sayfaya Dön",
+    "contactSupport": "Destekle İletişime Geç"
   },
   "hero": {
     "badge": "Softium Core 2.0 Tanıtıldı",

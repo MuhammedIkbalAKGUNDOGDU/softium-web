@@ -10,6 +10,11 @@
     "getStarted": "Get Started",
     "language": "Language"
   },
+  "errors": {
+    "pageNotFound": "The page you're looking for doesn't exist.",
+    "backToHome": "Return Home",
+    "contactSupport": "Contact Support"
+  },
   "hero": {
     "badge": "Introducing Softium Core 2.0",
     "badgeLink": "Read more",

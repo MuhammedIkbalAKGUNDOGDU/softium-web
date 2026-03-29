@@ -10,6 +10,11 @@
     "getStarted": "Loslegen",
     "language": "Sprache"
   },
+  "errors": {
+    "pageNotFound": "Die gesuchte Seite existiert nicht oder wurde verschoben.",
+    "backToHome": "Zur Startseite",
+    "contactSupport": "Support kontaktieren"
+  },
   "hero": {
     "badge": "Softium Core 2.0 vorgestellt",
     "badgeLink": "Mehr lesen",
