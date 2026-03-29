@@ -54,25 +54,23 @@ export default async function AboutPage({ params }: Props) {
 
   return (
     <>
-      <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'AboutPage',
-              'name': t('heroTitle1') + ' ' + t('heroTitle2'),
-              'description': t('heroSubtitle'),
-              'mainEntity': {
-                '@type': 'Organization',
-                'name': 'Softium Technologies',
-                'description': t('missionBody1'),
-                'knowsAbout': CORE_VALUES.map(v => t(`values.${v.key}.name`))
-              }
-            })
-          }}
-        />
-      </head>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'AboutPage',
+            'name': t('heroTitle1') + ' ' + t('heroTitle2'),
+            'description': t('heroSubtitle'),
+            'mainEntity': {
+              '@type': 'Organization',
+              'name': 'Softium Technologies',
+              'description': t('missionBody1'),
+              'knowsAbout': CORE_VALUES.map(v => t(`values.${v.key}.name`))
+            }
+          })
+        }}
+      />
       <Navbar />
       <main id="main-content">
 

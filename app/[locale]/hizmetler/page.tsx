@@ -165,34 +165,32 @@ export default async function ServicesPage({ params }: Props) {
 
   return (
     <>
-      <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'Service',
-              'serviceType': t('title'),
-              'provider': {
-                '@type': 'Organization',
-                'name': 'Softium Technologies'
-              },
-              'hasOfferCatalog': {
-                '@type': 'OfferCatalog',
-                'name': t('badge'),
-                'itemListElement': SERVICES_DETAIL.map((s) => ({
-                  '@type': 'Offer',
-                  'itemOffered': {
-                    '@type': 'Service',
-                    'name': t(`items.${s.id}.title`),
-                    'description': t(`items.${s.id}.description`)
-                  }
-                }))
-              }
-            })
-          }}
-        />
-      </head>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Service',
+            'serviceType': t('title'),
+            'provider': {
+              '@type': 'Organization',
+              'name': 'Softium Technologies'
+            },
+            'hasOfferCatalog': {
+              '@type': 'OfferCatalog',
+              'name': t('badge'),
+              'itemListElement': SERVICES_DETAIL.map((s) => ({
+                '@type': 'Offer',
+                'itemOffered': {
+                  '@type': 'Service',
+                  'name': t(`items.${s.id}.title`),
+                  'description': t(`items.${s.id}.description`)
+                }
+              }))
+            }
+          })
+        }}
+      />
       <Navbar />
       <main id="main-content">
         {/* Page Hero */}

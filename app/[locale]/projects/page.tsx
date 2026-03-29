@@ -65,27 +65,6 @@ export default async function ProjectsPage({ params }: { params: Promise<{ local
 
   return (
     <>
-      <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'CollectionPage',
-              'name': 'Softium Projects & Products',
-              'description': 'Advanced software products and platforms developed by Softium Technologies.',
-              'mainEntity': {
-                '@type': 'ItemList',
-                'itemListElement': projects.map((p, idx) => ({
-                    '@type': 'ListItem',
-                    'position': idx + 1,
-                    'name': locale === 'tr' ? p.titleTr : locale === 'en' ? p.titleEn : p.titleDe
-                }))
-              }
-            })
-          }}
-        />
-      </head>
       <Navbar />
       
       <main>

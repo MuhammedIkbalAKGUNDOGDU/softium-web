@@ -127,10 +127,11 @@ export default function Navbar() {
               const fullHref = getHref(link.href);
               const isHome = pathname === `/${locale}` || pathname === `/${locale}/`;
               
-              const isSectionLink = ['services', 'references', 'contact'].includes(link.key);
-              const href = (isHome && isSectionLink) ? `#${link.key === 'contact' ? 'contact-form' : link.key}` : fullHref;
+              // Only 'references' and 'contact' will remain on-page scroll for Home
+              const isSectionLinkOnHome = ['references', 'contact'].includes(link.key);
+              const href = (isHome && isSectionLinkOnHome) ? `#${link.key === 'contact' ? 'contact-form' : link.key}` : fullHref;
 
-              const isActive = pathname === fullHref || (isHome && isSectionLink && pathname.includes(`#${link.key}`));
+              const isActive = pathname === fullHref || (isHome && isSectionLinkOnHome && pathname.includes(`#${link.key}`));
 
               return (
                 <Link

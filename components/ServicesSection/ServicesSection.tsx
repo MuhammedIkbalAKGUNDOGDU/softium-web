@@ -7,11 +7,11 @@ import { useEffect, useRef } from 'react';
 import styles from './ServicesSection.module.css';
 
 const SERVICE_ICONS = {
-  ai: 'psychology',
-  cloud: 'cloud_done',
-  saas: 'deployed_code',
-  data: 'monitoring',
-  marketing: 'rocket_launch',
+  ai: 'neurology',
+  cloud: 'cloud_sync',
+  saas: 'developer_board',
+  data: 'query_stats',
+  marketing: 'ads_click',
   devops: 'settings_suggest',
 };
 

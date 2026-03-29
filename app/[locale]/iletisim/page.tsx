@@ -32,25 +32,23 @@ export default async function ContactPage({ params }: Props) {
 
   return (
     <>
-      <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'ContactPage',
-              'name': 'Softium Contact',
-              'description': t('subtitle'),
-              'contactPoint': {
-                '@type': 'ContactPoint',
-                'telephone': '+90 212 123 45 67',
-                'contactType': 'customer service',
-                'email': 'hello@softium.tech'
-              }
-            })
-          }}
-        />
-      </head>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'ContactPage',
+            'name': 'Softium Contact',
+            'description': t('subtitle'),
+            'contactPoint': {
+              '@type': 'ContactPoint',
+              'telephone': '+90 212 123 45 67',
+              'contactType': 'customer service',
+              'email': 'hello@softium.tech'
+            }
+          })
+        }}
+      />
       <Navbar />
       <main id="main-content" className={styles.main}>
         {/* Decorative background */}
