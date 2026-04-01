@@ -132,6 +132,7 @@ export default function StatsAdmin() {
           <ul style={{ marginTop: '0.5rem', paddingLeft: '1.5rem' }}>
               <li><code>experience_value</code>: "10+" yazan büyük rozet</li>
               <li><code>iso_title</code>: ISO 27001 yazan rozet</li>
+              <li><code>hero_stat1</code>, <code>hero_stat2</code>, <code>hero_stat3</code>: Üstteki 3'lü istatistik çubuğu</li>
               <li><code>grid_projects</code>, <code>grid_clients</code>, <code>grid_engineers</code>, <code>grid_uptime</code>: Alt kısımdaki 4'lü kartlar</li>
           </ul>
       </div>

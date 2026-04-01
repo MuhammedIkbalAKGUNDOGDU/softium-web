@@ -19,11 +19,26 @@ export default function HeroSection() {
   const locale = useLocale();
   const hasAnimated = useRef(false);
   const [clients, setClients] = useState<Reference[]>([]);
+  const [stats, setStats] = useState<Record<string, any>>({});
 
   useEffect(() => {
     if (!hasAnimated.current) {
       hasAnimated.current = true;
     }
+
+    // Backend'den istatistikleri cek
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/statistics/active`)
+      .then(res => res.json())
+      .then(data => {
+        if (Array.isArray(data)) {
+          const map = data.reduce((acc: any, item: any) => {
+            acc[item.key] = item;
+            return acc;
+          }, {});
+          setStats(map);
+        }
+      })
+      .catch(err => console.error("Istatistikler çekilemedi: ", err));
 
     // Backend'den aktif referanslari cek ve anasayfada sergile
     fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/references`)
@@ -90,18 +105,24 @@ export default function HeroSection() {
           {/* Stats Row */}
           <div className={`${styles.statsRow} animate-fade-up`} style={{ animationDelay: '0.4s' }}>
             <div className={styles.statItem}>
-              <span className={styles.statValue}>{t('stat1Value')}</span>
-              <span className={styles.statLabel}>{t('stat1Label')}</span>
+              <span className={styles.statValue}>{stats['hero_stat1']?.value || t('stat1Value')}</span>
+              <span className={styles.statLabel}>
+                {locale === 'tr' ? stats['hero_stat1']?.labelTr : (locale === 'en' ? stats['hero_stat1']?.labelEn : stats['hero_stat1']?.labelDe) || t('stat1Label')}
+              </span>
             </div>
             <div className={styles.statDivider} aria-hidden="true" />
             <div className={styles.statItem}>
-              <span className={styles.statValue}>{t('stat2Value')}</span>
-              <span className={styles.statLabel}>{t('stat2Label')}</span>
+              <span className={styles.statValue}>{stats['hero_stat2']?.value || t('stat2Value')}</span>
+              <span className={styles.statLabel}>
+                {locale === 'tr' ? stats['hero_stat2']?.labelTr : (locale === 'en' ? stats['hero_stat2']?.labelEn : stats['hero_stat2']?.labelDe) || t('stat2Label')}
+              </span>
             </div>
             <div className={styles.statDivider} aria-hidden="true" />
             <div className={styles.statItem}>
-              <span className={styles.statValue}>{t('stat3Value')}</span>
-              <span className={styles.statLabel}>{t('stat3Label')}</span>
+              <span className={styles.statValue}>{stats['hero_stat3']?.value || t('stat3Value')}</span>
+              <span className={styles.statLabel}>
+                {locale === 'tr' ? stats['hero_stat3']?.labelTr : (locale === 'en' ? stats['hero_stat3']?.labelEn : stats['hero_stat3']?.labelDe) || t('stat3Label')}
+              </span>
             </div>
           </div>
 
