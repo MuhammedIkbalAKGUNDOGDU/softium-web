@@ -10,6 +10,12 @@ import styles from './HeroSection.module.css';
 interface Reference {
   id: string;
   name: string;
+  industryTr?: string;
+  industryEn?: string;
+  industryDe?: string;
+  descriptionTr?: string;
+  descriptionEn?: string;
+  descriptionDe?: string;
   logoUrl?: string;
   websiteUrl?: string;
 }
@@ -48,10 +54,16 @@ export default function HeroSection() {
           const activeRefs = data.filter((r: any) => r.isActive).map(r => ({
             id: r.id, 
             name: r.name,
+            industryTr: r.industryTr,
+            industryEn: r.industryEn,
+            industryDe: r.industryDe,
+            descriptionTr: r.descriptionTr,
+            descriptionEn: r.descriptionEn,
+            descriptionDe: r.descriptionDe,
             logoUrl: r.logoUrl,
             websiteUrl: r.websiteUrl
           }));
-          setClients(activeRefs.slice(0, 5)); // Maksimum 5 adet göster
+          setClients(activeRefs.slice(0, 10)); // Sayıyı biraz artırdım
         }
       })
       .catch(err => console.error("Referanslar cekilemedi: ", err));

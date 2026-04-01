@@ -95,12 +95,13 @@
 
 /* Headline */
 .headline {
-  font-size: clamp(2rem, 8vw, 4.25rem); /* Min font 2.5rem'den 2rem'e çekildi */
+  font-size: clamp(1.85rem, 8vw, 4.25rem); /* Mobilde daha da küçüldü */
   font-weight: 800;
-  line-height: 1.1;
-  letter-spacing: -0.03em;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
   margin-bottom: 1.5rem;
-  word-wrap: break-word; /* Uzun kelimelerin taşmasını engeller */
+  word-wrap: break-word;
+  padding: 0 0.5rem; /* Yanlardan biraz boşluk */
 }
 
 .headlineNormal {
@@ -207,12 +208,24 @@
 
 @media (max-width: 480px) {
   .statsRow {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
+    display: flex;
+    flex-direction: column; /* Alt alta dizilim daha garantidir */
+    align-items: flex-start;
+    gap: 1.25rem;
+    padding: 1.5rem;
+  }
+  .statItem {
+    width: 100%;
+    align-items: flex-start;
+    border-bottom: 1px solid var(--border-light);
+    padding-bottom: 0.75rem;
+  }
+  .statItem:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
   }
   .statDivider {
-    display: none; /* Mobilde çizgi yerine boşluk kullanıyoruz */
+    display: none;
   }
 }
 
