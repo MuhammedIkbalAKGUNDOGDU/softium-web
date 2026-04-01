@@ -20,7 +20,10 @@ public class ReferencesController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Reference>>> GetReferences()
     {
-        return await _context.References.OrderByDescending(r => r.CreatedAt).ToListAsync();
+        return await _context.References
+            .OrderBy(r => r.DisplayOrder)
+            .ThenByDescending(r => r.CreatedAt)
+            .ToListAsync();
     }
 
     // GET: api/references/5
@@ -72,6 +75,7 @@ public class ReferencesController : ControllerBase
         existingReference.LogoUrl = referenceIn.LogoUrl;
         existingReference.WebsiteUrl = referenceIn.WebsiteUrl;
         existingReference.Description = referenceIn.Description;
+        existingReference.DisplayOrder = referenceIn.DisplayOrder;
         existingReference.IsActive = referenceIn.IsActive;
         existingReference.UpdatedAt = DateTime.UtcNow;
 

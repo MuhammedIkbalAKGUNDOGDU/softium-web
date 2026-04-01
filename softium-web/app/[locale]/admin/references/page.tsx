@@ -10,6 +10,7 @@ interface Reference {
   logoUrl?: string;
   websiteUrl?: string;
   description?: string;
+  displayOrder: number;
   isActive: boolean;
   createdAt: string;
 }
@@ -29,6 +30,7 @@ export default function ReferencesAdmin() {
     logoUrl: '',
     websiteUrl: '',
     description: '',
+    displayOrder: 0,
     isActive: true
   });
 
@@ -55,7 +57,7 @@ export default function ReferencesAdmin() {
 
   const openAddModal = () => {
     setEditingId(null);
-    setFormData({ name: '', industry: '', icon: '', logoUrl: '', websiteUrl: '', description: '', isActive: true });
+    setFormData({ name: '', industry: '', icon: '', logoUrl: '', websiteUrl: '', description: '', displayOrder: 0, isActive: true });
     setIsModalOpen(true);
   };
 
@@ -68,6 +70,7 @@ export default function ReferencesAdmin() {
       logoUrl: ref.logoUrl || '',
       websiteUrl: ref.websiteUrl || '',
       description: ref.description || '',
+      displayOrder: ref.displayOrder || 0,
       isActive: ref.isActive
     });
     setIsModalOpen(true);
@@ -163,6 +166,7 @@ export default function ReferencesAdmin() {
             <tr>
               <th>Firma Adı</th>
               <th>Sektör</th>
+              <th>Sıra</th>
               <th>Website</th>
               <th>Durum</th>
               <th style={{ textAlign: 'right' }}>İşlemler</th>
@@ -191,6 +195,11 @@ export default function ReferencesAdmin() {
                     </div>
                   </td>
                   <td>{ref.industry}</td>
+                  <td>
+                    <span style={{ fontWeight: 500, backgroundColor: '#f1f5f9', padding: '2px 8px', borderRadius: '4px' }}>
+                      {ref.displayOrder}
+                    </span>
+                  </td>
                   <td style={{ color: '#3b82f6' }}>
                     {ref.websiteUrl ? (
                       <a href={ref.websiteUrl} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>
@@ -257,6 +266,11 @@ export default function ReferencesAdmin() {
                   </div>
                   <input type="text" className={styles.input} placeholder="Veya manuel resim linki yapıştırın..." value={formData.logoUrl} onChange={e => setFormData({...formData, logoUrl: e.target.value})} />
                 </div>
+              </div>
+
+              <div className={styles.formGroup}>
+                <label className={styles.label}>Görünüm Sıralaması (Küçük olan önce gelir)</label>
+                <input type="number" className={styles.input} value={formData.displayOrder} onChange={e => setFormData({...formData, displayOrder: parseInt(e.target.value) || 0})} />
               </div>
 
               <div className={styles.formGroup}>
