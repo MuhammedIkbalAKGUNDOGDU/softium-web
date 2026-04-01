@@ -127,8 +127,8 @@ export default function Navbar() {
               const fullHref = getHref(link.href);
               const isHome = pathname === `/${locale}` || pathname === `/${locale}/`;
               
-              // Only 'references' and 'contact' will remain on-page scroll for Home
-              const isSectionLinkOnHome = ['references', 'contact'].includes(link.key);
+              // Only 'contact' will remain on-page scroll for Home
+              const isSectionLinkOnHome = ['contact'].includes(link.key);
               const href = (isHome && isSectionLinkOnHome) ? `#${link.key === 'contact' ? 'contact-form' : link.key}` : fullHref;
 
               const isActive = pathname === fullHref || (isHome && isSectionLinkOnHome && pathname.includes(`#${link.key}`));
@@ -237,7 +237,7 @@ export default function Navbar() {
             {links.map((link, i) => {
               const fullHref = getHref(link.href);
               const isHome = pathname === `/${locale}` || pathname === `/${locale}/`;
-              const isSectionLink = ['services', 'references', 'contact'].includes(link.key);
+              const isSectionLink = ['services', 'contact'].includes(link.key);
               const href = (isHome && isSectionLink) ? `#${link.key === 'contact' ? 'contact-form' : link.key}` : fullHref;
               const isActive = pathname === fullHref;
               
