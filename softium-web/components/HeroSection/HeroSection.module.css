@@ -95,11 +95,12 @@
 
 /* Headline */
 .headline {
-  font-size: clamp(2.5rem, 6vw, 4.25rem);
+  font-size: clamp(2rem, 8vw, 4.25rem); /* Min font 2.5rem'den 2rem'e çekildi */
   font-weight: 800;
-  line-height: 1.08;
+  line-height: 1.1;
   letter-spacing: -0.03em;
   margin-bottom: 1.5rem;
+  word-wrap: break-word; /* Uzun kelimelerin taşmasını engeller */
 }
 
 .headlineNormal {
@@ -198,6 +199,20 @@
   .statsRow {
     align-self: stretch;
     justify-content: space-around;
+    gap: 1rem;
+    padding: 1.25rem 1rem;
+    flex-wrap: wrap; /* Mobilde sığmazsa alt satıra geçer */
+  }
+}
+
+@media (max-width: 480px) {
+  .statsRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  .statDivider {
+    display: none; /* Mobilde çizgi yerine boşluk kullanıyoruz */
   }
 }
 

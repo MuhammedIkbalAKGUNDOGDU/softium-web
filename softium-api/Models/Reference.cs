@@ -4,7 +4,6 @@ public class Reference
 {
     public Guid Id { get; set; }
     public string Name { get; set; } = string.Empty;
-    public string Industry { get; set; } = string.Empty;
     public string? Icon { get; set; }
     public string? LogoUrl { get; set; }
     public string? WebsiteUrl { get; set; }
