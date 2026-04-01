@@ -71,10 +71,16 @@ public class ReferencesController : ControllerBase
 
         existingReference.Name = referenceIn.Name;
         existingReference.Industry = referenceIn.Industry;
+        existingReference.IndustryTr = referenceIn.IndustryTr;
+        existingReference.IndustryEn = referenceIn.IndustryEn;
+        existingReference.IndustryDe = referenceIn.IndustryDe;
         existingReference.Icon = referenceIn.Icon;
         existingReference.LogoUrl = referenceIn.LogoUrl;
         existingReference.WebsiteUrl = referenceIn.WebsiteUrl;
         existingReference.Description = referenceIn.Description;
+        existingReference.DescriptionTr = referenceIn.DescriptionTr;
+        existingReference.DescriptionEn = referenceIn.DescriptionEn;
+        existingReference.DescriptionDe = referenceIn.DescriptionDe;
         existingReference.DisplayOrder = referenceIn.DisplayOrder;
         existingReference.IsActive = referenceIn.IsActive;
         existingReference.UpdatedAt = DateTime.UtcNow;

@@ -6,10 +6,16 @@ interface Reference {
   id: string;
   name: string;
   industry: string;
+  industryTr?: string;
+  industryEn?: string;
+  industryDe?: string;
   icon?: string;
   logoUrl?: string;
   websiteUrl?: string;
   description?: string;
+  descriptionTr?: string;
+  descriptionEn?: string;
+  descriptionDe?: string;
   displayOrder: number;
   isActive: boolean;
   createdAt: string;
@@ -26,10 +32,16 @@ export default function ReferencesAdmin() {
   const [formData, setFormData] = useState({
     name: '',
     industry: '',
+    industryTr: '',
+    industryEn: '',
+    industryDe: '',
     icon: '',
     logoUrl: '',
     websiteUrl: '',
     description: '',
+    descriptionTr: '',
+    descriptionEn: '',
+    descriptionDe: '',
     displayOrder: 0,
     isActive: true
   });
@@ -57,7 +69,12 @@ export default function ReferencesAdmin() {
 
   const openAddModal = () => {
     setEditingId(null);
-    setFormData({ name: '', industry: '', icon: '', logoUrl: '', websiteUrl: '', description: '', displayOrder: 0, isActive: true });
+    setFormData({ 
+      name: '', industry: '', industryTr: '', industryEn: '', industryDe: '',
+      icon: '', logoUrl: '', websiteUrl: '', 
+      description: '', descriptionTr: '', descriptionEn: '', descriptionDe: '',
+      displayOrder: 0, isActive: true 
+    });
     setIsModalOpen(true);
   };
 
@@ -65,11 +82,17 @@ export default function ReferencesAdmin() {
     setEditingId(ref.id);
     setFormData({
       name: ref.name,
-      industry: ref.industry,
+      industry: ref.industry || '',
+      industryTr: ref.industryTr || '',
+      industryEn: ref.industryEn || '',
+      industryDe: ref.industryDe || '',
       icon: ref.icon || '',
       logoUrl: ref.logoUrl || '',
       websiteUrl: ref.websiteUrl || '',
       description: ref.description || '',
+      descriptionTr: ref.descriptionTr || '',
+      descriptionEn: ref.descriptionEn || '',
+      descriptionDe: ref.descriptionDe || '',
       displayOrder: ref.displayOrder || 0,
       isActive: ref.isActive
     });
@@ -194,7 +217,7 @@ export default function ReferencesAdmin() {
                       {ref.name}
                     </div>
                   </td>
-                  <td>{ref.industry}</td>
+                  <td>{ref.industryTr || ref.industry}</td>
                   <td>
                     <span style={{ fontWeight: 500, backgroundColor: '#f1f5f9', padding: '2px 8px', borderRadius: '4px' }}>
                       {ref.displayOrder}
@@ -249,8 +272,19 @@ export default function ReferencesAdmin() {
                   <input required type="text" className={styles.input} value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} />
                 </div>
                 <div className={styles.formGroup}>
-                  <label className={styles.label}>Sektör *</label>
-                  <input required type="text" className={styles.input} value={formData.industry} onChange={e => setFormData({...formData, industry: e.target.value})} />
+                  <label className={styles.label}>Sektör (TR) *</label>
+                  <input required type="text" className={styles.input} value={formData.industryTr} onChange={e => setFormData({...formData, industryTr: e.target.value, industry: e.target.value})} />
+                </div>
+              </div>
+
+              <div className={styles.formGrid}>
+                <div className={styles.formGroup}>
+                  <label className={styles.label}>Sektör (EN)</label>
+                  <input type="text" className={styles.input} value={formData.industryEn} onChange={e => setFormData({...formData, industryEn: e.target.value})} />
+                </div>
+                <div className={styles.formGroup}>
+                  <label className={styles.label}>Sektör (DE)</label>
+                  <input type="text" className={styles.input} value={formData.industryDe} onChange={e => setFormData({...formData, industryDe: e.target.value})} />
                 </div>
               </div>
 
@@ -279,8 +313,18 @@ export default function ReferencesAdmin() {
               </div>
 
               <div className={styles.formGroup}>
-                <label className={styles.label}>Özel Açıklama (Opsiyonel)</label>
-                <textarea className={styles.input} rows={3} placeholder="Değerli iş ortaklarımızdan biri olan ... ile birlikte sektörde yenilikçi adımlar atıyoruz." value={formData.description} onChange={e => setFormData({...formData, description: e.target.value})} />
+                <label className={styles.label}>Özel Açıklama (TR)</label>
+                <textarea className={styles.input} rows={2} placeholder="Değerli iş ortaklarımızdan biri olan ..." value={formData.descriptionTr} onChange={e => setFormData({...formData, descriptionTr: e.target.value, description: e.target.value})} />
+              </div>
+
+              <div className={styles.formGroup}>
+                <label className={styles.label}>Özel Açıklama (EN)</label>
+                <textarea className={styles.input} rows={2} value={formData.descriptionEn} onChange={e => setFormData({...formData, descriptionEn: e.target.value})} />
+              </div>
+
+              <div className={styles.formGroup}>
+                <label className={styles.label}>Özel Açıklama (DE)</label>
+                <textarea className={styles.input} rows={2} value={formData.descriptionDe} onChange={e => setFormData({...formData, descriptionDe: e.target.value})} />
               </div>
 
               <div className={styles.formGroup} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
