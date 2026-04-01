@@ -5,8 +5,8 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: ['/admin/', '/api/'],
+      disallow: ['/admin', '/api'],
     },
-    sitemap: 'https://softium.tech/sitemap.xml',
+    sitemap: 'https://softiumtechnologies.net/sitemap.xml',
   };
 }

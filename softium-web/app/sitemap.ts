@@ -1,30 +1,19 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://softium.tech';
+  const baseUrl = 'https://softiumtechnologies.net';
   const locales = ['tr', 'en', 'de'];
-  const paths = [
-    '',
-    '/hizmetler',
-    '/hakkimizda',
-    '/projeler',
-    '/iletisim',
-    '/blog',
-    '/referanslar',
-    '/privacy',
-    '/terms',
-    '/cookies',
-  ];
+  const routes = ['', '/about', '/services', '/references', '/contact', '/blog'];
 
   const sitemapEntries: MetadataRoute.Sitemap = [];
 
   locales.forEach((locale) => {
-    paths.forEach((path) => {
+    routes.forEach((route) => {
       sitemapEntries.push({
-        url: `${baseUrl}/${locale}${path}`,
+        url: `${baseUrl}/${locale}${route}`,
         lastModified: new Date(),
-        changeFrequency: path === '' ? 'daily' : 'weekly',
-        priority: path === '' ? 1 : path.includes('hizmetler') || path.includes('projeler') ? 0.8 : 0.5,
+        changeFrequency: 'weekly',
+        priority: route === '' ? 1 : 0.8,
       });
     });
   });

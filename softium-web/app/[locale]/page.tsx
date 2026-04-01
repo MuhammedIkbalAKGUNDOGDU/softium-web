@@ -20,8 +20,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: t('title'),
     description: t('description'),
     keywords: [
+      'softium', 'softium yazılım ajansı', 'teknoloji işi', 'websitesi yaptır', 
+      'mobil uygulama yaptır', 'seo ajansı', 'kurumsal yazılım', 'yapay zeka çözümleri',
       'enterprise software', 'AI solutions', 'cloud infrastructure',
-      'SaaS engineering', 'digital transformation', 'Turkey', 'Softium',
+      'SaaS engineering', 'digital transformation', 'Turkey',
       'yazılım geliştirme', 'yapay zeka', 'bulut çözümleri',
     ],
     openGraph: {

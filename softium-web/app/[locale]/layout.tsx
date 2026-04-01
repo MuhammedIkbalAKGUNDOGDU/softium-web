@@ -30,13 +30,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: t('title'),
     description: t('description'),
-    metadataBase: new URL('https://softium.tech'),
+    metadataBase: new URL('https://softiumtechnologies.net'),
     alternates: {
-      canonical: '/',
+      canonical: `/${locale}`,
       languages: {
-        'tr': '/tr',
-        'en': '/en',
-        'de': '/de',
+        'tr-TR': '/tr',
+        'en-US': '/en',
+        'de-DE': '/de',
       },
     },
     openGraph: {

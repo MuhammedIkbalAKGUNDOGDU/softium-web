@@ -121,24 +121,22 @@ export default async function BlogPostPage({ params }: Props) {
     <div className={styles.articlePage}>
       <Navbar />
       
-      <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'BlogPosting',
-              'headline': articleTitle,
-              'image': post.coverImage ? [post.coverImage] : [],
-              'datePublished': post.publishedAt || post.createdAt,
-              'author': [{
-                '@type': 'Person',
-                'name': post.authorName || 'Softium Editor'
-              }]
-            })
-          }}
-        />
-      </head>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BlogPosting',
+            'headline': articleTitle,
+            'image': post.coverImage ? [post.coverImage] : [],
+            'datePublished': post.publishedAt || post.createdAt,
+            'author': [{
+              '@type': 'Person',
+              'name': post.authorName || 'Softium Editor'
+            }]
+          })
+        }}
+      />
       
       <main id="main-content">
         
