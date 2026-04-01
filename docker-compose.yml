@@ -1,0 +1,65 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: softium-db
+    restart: always
+    environment:
+      POSTGRES_DB: softium_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secretpassword
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - softium-network
+
+  api:
+    build:
+      context: ./softium-api
+      dockerfile: Dockerfile
+    container_name: softium-api
+    restart: always
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=Host=db;Database=softium_db;Username=postgres;Password=secretpassword
+      - JWT_SECRET=MySuperSecretKeyForDeployment2026
+      - ASPNETCORE_ENVIRONMENT=Production
+    networks:
+      - softium-network
+
+  web:
+    build:
+      context: ./softium-web
+      dockerfile: Dockerfile
+      args:
+        - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL:-}
+    container_name: softium-web
+    restart: always
+    depends_on:
+      - api
+    environment:
+      - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL:-}
+    networks:
+      - softium-network
+
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    container_name: softium-proxy
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - web
+      - api
+    networks:
+      - softium-network
+
+networks:
+  softium-network:
+    driver: bridge
+
+volumes:
+  postgres_data:

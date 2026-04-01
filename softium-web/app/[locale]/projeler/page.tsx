@@ -1,5 +1,3 @@
-import ProjectsPage, { generateMetadata } from '../projects/page';
-
-export { generateMetadata };
+import ProjectsPage from '../projects/page';
 
 export default ProjectsPage;
