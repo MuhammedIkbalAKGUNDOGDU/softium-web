@@ -3,7 +3,7 @@
 .PHONY: build up down restart logs ps clean db-shell
 
 # Default environment variables
-NEXT_PUBLIC_API_URL ?= http://localhost
+NEXT_PUBLIC_API_URL ?= https://softiumtechnologies.net
 
 # Build all docker images
 build:

@@ -50,9 +50,10 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowNextjs",
         builder => builder
-            .WithOrigins("http://localhost:3000")
+            .WithOrigins("http://localhost:3000", "https://softiumtechnologies.net", "https://www.softiumtechnologies.net")
             .AllowAnyMethod()
-            .AllowAnyHeader());
+            .AllowAnyHeader()
+            .AllowCredentials());
 });
 
 var app = builder.Build();
