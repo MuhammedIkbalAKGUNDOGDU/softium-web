@@ -79,6 +79,28 @@ export default async function LocaleLayout({ children, params }: Props) {
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              'name': 'Softium Technologies',
+              'url': 'https://softiumtechnologies.net',
+              'logo': 'https://softiumtechnologies.net/logo.png',
+              'sameAs': [
+                'https://linkedin.com/company/softium',
+                'https://twitter.com/softium',
+                'https://instagram.com/softium'
+              ],
+              'contactPoint': {
+                '@type': 'ContactPoint',
+                'telephone': '+90 535 824 99 94',
+                'contactType': 'customer service'
+              }
+            })
+          }}
+        />
       </head>
       <body className={manrope.variable}>
         <NextIntlClientProvider messages={messages}>
