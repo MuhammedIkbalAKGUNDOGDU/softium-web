@@ -210,6 +210,8 @@
       "namePlaceholder": "Max Mustermann",
       "email": "E-Mail-Adresse",
       "emailPlaceholder": "max@unternehmen.de",
+      "phone": "Telefonnummer (Optional)",
+      "phonePlaceholder": "+49 15x xxxxxxx",
       "company": "Unternehmen",
       "companyPlaceholder": "Ihr Unternehmen (optional)",
       "service": "Gewünschte Leistung",

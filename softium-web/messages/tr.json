@@ -210,6 +210,8 @@
       "namePlaceholder": "Ahmet Yılmaz",
       "email": "E-posta Adresi",
       "emailPlaceholder": "ahmet@sirket.com",
+      "phone": "Telefon Numarası (İsteğe bağlı)",
+      "phonePlaceholder": "+90 5xx xxx xx xx",
       "company": "Şirket Adı",
       "companyPlaceholder": "Şirketiniz (isteğe bağlı)",
       "service": "İlgilendiğiniz Hizmet",

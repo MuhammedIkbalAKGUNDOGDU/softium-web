@@ -15,7 +15,7 @@ export default function ContactForm() {
   const [formState, setFormState] = useState<FormState>('idle');
   const [focused, setFocused] = useState<string | null>(null);
   const [values, setValues] = useState({
-    name: '', email: '', company: '', service: '', message: '',
+    name: '', email: '', phone: '', company: '', service: '', message: '',
   });
   const [settings, setSettings] = useState<Record<string, string>>({});
 
@@ -63,6 +63,7 @@ export default function ContactForm() {
         body: JSON.stringify({
           name: values.name,
           email: values.email,
+          phone: values.phone,
           company: values.company,
           message: `[Kategori/Servis: ${values.service || 'Belirtilmedi'}]\n\n${values.message}`
         })
@@ -82,7 +83,7 @@ export default function ContactForm() {
   };
 
   const handleReset = () => {
-    setValues({ name: '', email: '', company: '', service: '', message: '' });
+    setValues({ name: '', email: '', phone: '', company: '', service: '', message: '' });
     setFormState('idle');
   };
 
@@ -220,6 +221,25 @@ export default function ContactForm() {
                     value={values.email}
                     onChange={handleChange}
                     onFocus={() => setFocused('email')}
+                    onBlur={() => setFocused(null)}
+                    className={styles.input}
+                  />
+                  <div className={styles.inputLine} aria-hidden="true" />
+                </div>
+              </div>
+
+              {/* Phone */}
+              <div className={`${styles.inputGroup} ${focused === 'phone' ? styles.focused : ''}`}>
+                <label htmlFor="contact-phone-field" className={styles.label}>{f('phone')}</label>
+                <div className={styles.inputWrap}>
+                  <input
+                    id="contact-phone-field"
+                    name="phone"
+                    type="tel"
+                    placeholder={f('phonePlaceholder')}
+                    value={values.phone}
+                    onChange={handleChange}
+                    onFocus={() => setFocused('phone')}
                     onBlur={() => setFocused(null)}
                     className={styles.input}
                   />

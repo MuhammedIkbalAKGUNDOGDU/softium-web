@@ -24,6 +24,9 @@ services:
       - DATABASE_URL=Host=db;Database=softium_db;Username=postgres;Password=secretpassword
       - JWT_SECRET=MySuperSecretKeyForDeployment2026
       - ASPNETCORE_ENVIRONMENT=Production
+      - EmailSettings__SenderPassword=${EMAIL_SENDER_PASSWORD:-}
+    volumes:
+      - ./softium-api/wwwroot/uploads:/app/wwwroot/uploads
     networks:
       - softium-network
 
@@ -63,3 +66,4 @@ networks:
 
 volumes:
   postgres_data:
+  api_uploads:

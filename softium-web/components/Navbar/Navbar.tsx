@@ -117,7 +117,7 @@ export default function Navbar() {
             <img 
               src={theme === 'dark' ? '/logo_arkaplansız_beyaz.png' : '/logo_arkaplansız_siyah.png'} 
               alt="Softium Logo" 
-              style={{ height: '96px', width: 'auto', objectFit: 'contain' }} 
+              style={{ height: '120px', width: 'auto', objectFit: 'contain' }} 
             />
           </Link>
 
@@ -127,9 +127,9 @@ export default function Navbar() {
               const fullHref = getHref(link.href);
               const isHome = pathname === `/${locale}` || pathname === `/${locale}/`;
               
-              // Only 'contact' will remain on-page scroll for Home
-              const isSectionLinkOnHome = ['contact'].includes(link.key);
-              const href = (isHome && isSectionLinkOnHome) ? `#${link.key === 'contact' ? 'contact-form' : link.key}` : fullHref;
+              // No special on-page scroll links for home for now
+              const isSectionLinkOnHome = false;
+              const href = (isHome && isSectionLinkOnHome) ? `#${link.key}` : fullHref;
 
               const isActive = pathname === fullHref || (isHome && isSectionLinkOnHome && pathname.includes(`#${link.key}`));
 
@@ -237,8 +237,8 @@ export default function Navbar() {
             {links.map((link, i) => {
               const fullHref = getHref(link.href);
               const isHome = pathname === `/${locale}` || pathname === `/${locale}/`;
-              const isSectionLink = ['services', 'contact'].includes(link.key);
-              const href = (isHome && isSectionLink) ? `#${link.key === 'contact' ? 'contact-form' : link.key}` : fullHref;
+              const isSectionLink = false;
+              const href = (isHome && isSectionLink) ? `#${link.key}` : fullHref;
               const isActive = pathname === fullHref;
               
               return (

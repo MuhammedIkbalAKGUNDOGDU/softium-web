@@ -3,6 +3,8 @@ using Softium.Api.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Softium.Api.Models;
+using Softium.Api.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -44,6 +46,10 @@ var connectionString = !string.IsNullOrEmpty(envConnectionString)
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(connectionString));
+
+// Add Email Settings and Service
+builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
+builder.Services.AddScoped<IEmailService, EmailService>();
 
 // Add CORS
 builder.Services.AddCors(options =>
