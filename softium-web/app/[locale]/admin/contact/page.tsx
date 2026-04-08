@@ -136,6 +136,7 @@ export default function ContactAdmin() {
             <tr>
               <th>Gönderen</th>
               <th>Şirket</th>
+              <th>Telefon</th>
               <th>Mesaj Özeti</th>
               <th>Tarih</th>
               <th>Durum</th>
@@ -144,9 +145,9 @@ export default function ContactAdmin() {
           </thead>
           <tbody>
             {isLoading ? (
-               <tr><td colSpan={6} style={{textAlign: 'center', padding: '2rem'}}>Yükleniyor...</td></tr>
+               <tr><td colSpan={7} style={{textAlign: 'center', padding: '2rem'}}>Yükleniyor...</td></tr>
             ) : messages.length === 0 ? (
-               <tr><td colSpan={6} style={{textAlign: 'center', padding: '2rem'}}>Henüz iletişim talebi bulunmuyor.</td></tr>
+               <tr><td colSpan={7} style={{textAlign: 'center', padding: '2rem'}}>Henüz iletişim talebi bulunmuyor.</td></tr>
             ) : (
               messages.map((msg) => (
                 <tr key={msg.id} style={{ opacity: msg.status === 'Yanıtlandı' ? 0.7 : 1 }}>
@@ -155,6 +156,7 @@ export default function ContactAdmin() {
                     <div style={{ fontSize: '0.8rem', color: '#64748b' }}>{msg.email}</div>
                   </td>
                   <td>{msg.company || '-'}</td>
+                  <td>{msg.phone || '-'}</td>
                   <td style={{ maxWidth: '250px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                     {msg.message}
                   </td>
@@ -212,6 +214,10 @@ export default function ContactAdmin() {
                 <div style={{ marginBottom: '1rem' }}>
                   <label className={styles.label} style={{ fontSize: '0.75rem', marginBottom: '0.2rem' }}>E-Posta Adresi</label>
                   <div style={{ color: 'var(--primary)', fontWeight: 500 }}><a href={`mailto:${selectedMessage.email}`}>{selectedMessage.email}</a></div>
+                </div>
+                <div style={{ marginBottom: '1rem' }}>
+                  <label className={styles.label} style={{ fontSize: '0.75rem', marginBottom: '0.2rem' }}>Telefon Numarası</label>
+                  <div style={{ fontWeight: 500 }}>{selectedMessage.phone ? <a href={`tel:${selectedMessage.phone}`}>{selectedMessage.phone}</a> : '-'}</div>
                 </div>
                 <div style={{ marginBottom: '1rem' }}>
                   <label className={styles.label} style={{ fontSize: '0.75rem', marginBottom: '0.2rem' }}>Şirket Adı</label>

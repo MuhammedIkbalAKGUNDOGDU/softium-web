@@ -64,7 +64,7 @@ public class ContactRequestsController : ControllerBase
             string adminBody = $@"
                 <div style='font-family: sans-serif; color: #333; max-width: 600px; margin: auto; border: 1px solid #eee; padding: 20px; border-radius: 10px;'>
                     <div style='text-align: center; margin-bottom: 20px;'>
-                        <h2 style='color: #135bec; margin: 0;'>SOFTIUM TECHNOLOGIES</h2>
+                        <img src='https://softiumtechnologies.net/logo_arkaplansız_siyah.png' alt='Softium Technologies' style='height: 80px; width: auto;' />
                     </div>
                     <h3 style='border-bottom: 2px solid #f4f4f4; padding-bottom: 10px;'>Yeni İletişim İsteği Bildirimi</h3>
                     <table style='width: 100%; border-collapse: collapse;'>
@@ -88,7 +88,7 @@ public class ContactRequestsController : ControllerBase
             string senderBody = $@"
                 <div style='font-family: sans-serif; color: #333; max-width: 600px; margin: auto; border: 1px solid #eee; padding: 20px; border-radius: 10px;'>
                     <div style='text-align: center; margin-bottom: 20px;'>
-                        <h2 style='color: #135bec; margin: 0;'>SOFTIUM TECHNOLOGIES</h2>
+                        <img src='https://softiumtechnologies.net/logo_arkaplansız_siyah.png' alt='Softium Technologies' style='height: 80px; width: auto;' />
                     </div>
                     <p>Sayın <strong>{contactRequest.Name}</strong>,</p>
                     <p>Bizimle iletişime geçtiğiniz için teşekkür ederiz. İletişim talebinizi başarıyla aldık.</p>
