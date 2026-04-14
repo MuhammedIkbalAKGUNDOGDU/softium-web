@@ -1,6 +1,97 @@
-.nav {
+/* Topbar */
+.topbar {
   position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
+  z-index: 101;
+  height: 34px;
+  background: var(--bg-secondary, #f4f5f7);
+  border-bottom: 1px solid var(--border-light, rgba(0,0,0,0.06));
+  transition: background 0.3s;
+}
+
+[data-theme="dark"] .topbar {
+  background: rgba(12, 14, 22, 0.96);
+  border-bottom-color: rgba(255,255,255,0.05);
+}
+
+.topbarInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 1024px) {
+  .topbarInner {
+    padding: 0 2rem;
+  }
+}
+
+.topbarBrand {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  user-select: none;
+}
+
+@media (max-width: 640px) {
+  .topbarBrand {
+    display: none;
+  }
+}
+
+.topbarDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--primary, #135bec);
+  flex-shrink: 0;
+  animation: tbPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes tbPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.7); }
+}
+
+.topbarSocials {
+  display: flex;
+  align-items: center;
+  gap: 0.125rem;
+  margin-left: auto;
+}
+
+.topbarSocialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 5px;
+  color: var(--text-muted);
+  transition: color 0.18s, background 0.18s;
+  text-decoration: none;
+}
+
+.topbarSocialLink:hover {
+  color: var(--primary);
+  background: rgba(19, 91, 236, 0.08);
+}
+
+/* Nav */
+.nav {
+  position: fixed;
+  top: 34px;
   left: 0;
   right: 0;
   z-index: 100;
